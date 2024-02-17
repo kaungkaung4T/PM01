@@ -1,0 +1,4 @@
+
+
+new DataTable('table.display');
+
