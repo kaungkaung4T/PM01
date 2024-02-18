@@ -90,13 +90,17 @@
 
 
 
-.admin-sidebar-icon{
+/* .admin-sidebar-icon {
   margin-left: 205px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   border-radius: 50%;
   padding: 5px 5px 3.5px 3px;
   font-size: 11px;
+} */
+
+.admin-sidebar-icon-mobile {
+  display: none;
 }
 
 body {
@@ -2047,16 +2051,6 @@ progress {
   .table-responsive-lg {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-  }
-  .admin-sidebar-icon{
-    margin-left: 0;
-    position: relative;
-    left: 170px;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
-    border-radius: 50%;
-    padding: 5px 5px 3.5px 3px;
-    font-size: 11px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -19650,12 +19644,22 @@ body {
   transition: all 0.3s;
   position: relative;
 }
+
+.sidebar .sidebar-header .sidebar-toggler .admin-sidebar-icon {
+  margin-left: 35px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 5px 5px 3.5px 3px;
+  font-size: 11px;
+}
+
 .sidebar .sidebar-header .sidebar-toggler span + span {
   margin-top: 4px;
 }
-.sidebar .sidebar-header .sidebar-toggler.active .bi {
-  -webkit-animation: ease 0.6s top forwards;
-  animation: ease 0.6s top forwards;
+.sidebar .sidebar-header .sidebar-toggler.active .admin-sidebar-icon {
+  /* -webkit-animation: ease 0.6s top forwards;
+  animation: ease 0.6s top forwards; */
   margin-left: 35px;
 }
 .sidebar .sidebar-header .sidebar-toggler.active span:nth-child(1) {

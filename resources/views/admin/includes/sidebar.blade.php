@@ -1,6 +1,10 @@
   <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar">
       <div class="sidebar-header">
+        <a class="sidebar-brand">
+          <img src="" alt="" style="width: 50px;">
+          <span style="font-size: 0.9rem;"></span> 
+        </a>
         <div class="sidebar-toggler not-active">
           <i class="bi bi-chevron-left admin-sidebar-icon"></i>
         </div>
