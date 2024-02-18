@@ -90,6 +90,92 @@
 
 
 
+.today_deposit_amount {
+  margin-right: 150px;
+}
+.today_deposit_amount h3 {
+  font-weight: 600;
+}
+.today_deposit_amount p {
+  font-weight: 500;
+}
+
+.today_deposit_count {
+  margin-right: 150px;
+}
+.today_deposit_count h3 {
+  font-weight: 400;
+  color:#464646;
+}
+.today_deposit_count p {
+  color:#b2b2b2;
+}
+
+.today_withdrawal_amount {
+  margin-right: 150px;
+}
+.today_withdrawal_amount h3 {
+  font-weight: 600;
+}
+.today_withdrawal_amount p {
+  font-weight: 500;
+}
+
+.today_customer {
+  margin-right: 150px;
+}
+.today_customer h3 {
+  font-weight: 400;
+  color:#464646;
+}
+.today_customer p {
+  color:#b2b2b2;
+}
+
+.today_body {
+  display: flex;
+}
+.month_body {
+  display: flex;
+}
+.system_body {
+  display: flex;
+}
+.sidebar .sidebar-body .nav .bottom-item {
+  position: absolute;
+  bottom: 0;
+  width: 220px;
+}
+.sidebar .sidebar-body .nav .bottom-item .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 42px;
+  white-space: nowrap;
+  color: #000;
+  margin-left: -18px;
+}
+.sidebar .sidebar-body .nav .bottom-item .nav-link .nav-left-group {
+  margin-right: 91px;
+}
+.sidebar .sidebar-body .nav .bottom-item .nav-link .link-icon {
+  width: 21px;
+  height: 21px;
+  fill: rgba(233, 236, 239, 0.21);
+  /* position: absolute; */
+  background-color:#B3B3B3;
+  padding: 3px 4px 2px 4px;
+  border-radius: 50%;
+  color:#ffffff;
+}
+.sidebar .sidebar-body .nav .bottom-item .nav-link .link-title {
+  margin-left: 30px;
+  font-size: 14px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: red;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -22524,4 +22610,13 @@ div.tox .tox-dialog__body {
   .mobile_plan_table {
     display: block;
   }
+}
+
+@media (max-height: 513px) {
+.sidebar .sidebar-body .nav .bottom-item {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: -100px;
+  width: 220px;
+}
 }

@@ -83,16 +83,18 @@
             </div>
           </li>
 
-          <!-- <li class="nav-item">    
+          <li class=" bottom-item">    
             <label class="nav-link">
-              <i class="link-icon fa-solid fa-right-from-bracket"></i>
+            <div class="nav-left-group">
+              <i class="link-icon bi bi-person"></i>
+              <label>Main<label>
+            </div>
               <form action="" method="POST">
                   @csrf
-              <button type="submit" class="link-title" style="border: none;background: transparent;
-              color: inherit;margin-left: 24.6px;">Logout</button>
+              <button type="submit" class="link-title" style="border: none;background: transparent;margin-left: 24.6px;">Logout</button>
               </form>
             </label>
-          </li> -->
+          </li>
 
 
         </ul>
