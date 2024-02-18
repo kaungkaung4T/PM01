@@ -2048,6 +2048,16 @@ progress {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .admin-sidebar-icon{
+    margin-left: 0;
+    position: relative;
+    left: 170px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 5px 5px 3.5px 3px;
+    font-size: 11px;
+  }
 }
 @media (max-width: 1199.98px) {
   .table-responsive-xl {
