@@ -5,10 +5,14 @@
         </a>
         <div class="navbar-content mt-3">
             <div style="margin-left: 10px;">
-            <i class="bi bi-calendar4 header-calendar-icon"></i>
-            <input type="text" name="dates" class="btn btn-sm border header-calendar"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
+            <i class="bi bi-calendar4 header-calendar-icon" id="header_cicon"></i>
+            <input type="text" name="dates" class="btn btn-sm border header-calendar" id="header_c"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
             <script>
               $('input[name="dates"]').daterangepicker();
+
+              $('#header_cicon').click(function () {
+                  $('input[name="dates"]').click();
+              })
             </script>
             </div>
 

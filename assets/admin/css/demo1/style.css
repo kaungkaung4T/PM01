@@ -158,7 +158,7 @@
 .index-title { font-size: 1rem;font-weight: 500;color:#464646; }
 
 /* header */
-.header-calendar-icon { position: relative; left: 200px; }
+.header-calendar-icon { position: relative;left: 200px;cursor: pointer; }
 .header-calendar { padding-right: 55px !important; }
 
 /* sidebar */
