@@ -5,8 +5,8 @@
     <div class="page-content">
 
                 
-    <div class="mb-4">
-        <fieldset class="border-top px-6 mb-3">
+    <div class="today_main">
+        <fieldset class="border-top mb-3 fieldset-index-title">
         <legend class="float-none w-auto px-3 index-title">Today's</legend>
         </fieldset>
         <div class="today_body">
@@ -31,8 +31,8 @@
 
 
 
-    <div class="mb-4">
-        <fieldset class="border-top px-6 mb-3">
+    <div class="month_main">
+        <fieldset class="border-top mb-3 fieldset-index-title">
         <legend class="float-none w-auto px-3 index-title">This Month</legend>
         </fieldset>
         <div class="month_body">
@@ -57,8 +57,8 @@
 
 
 
-    <div class="mb-4">
-        <fieldset class="border-top px-6 mb-3">
+    <div class="system_main">
+        <fieldset class="border-top mb-3 fieldset-index-title">
         <legend class="float-none w-auto px-3 index-title">System</legend>
         </fieldset>
         <div class="system_body">

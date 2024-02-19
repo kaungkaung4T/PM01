@@ -91,65 +91,75 @@
 
 
 /* System index group */
-.system1 { margin-right: 150px; }
+.system1 { margin-right: 120px; min-width: 130px; }
 .system1 h3 { font-weight: 400; color:#464646; }
 .system1 p { color:#b2b2b2; }
 
-.system2 { margin-right: 150px; }
+.system2 { margin-right: 120px; min-width: 130px; }
 .system2 h3 { font-weight: 400; color:#464646; }
 .system2 p { color:#b2b2b2; }
 
-.system3 { margin-right: 150px; }
+.system3 { margin-right: 120px; min-width: 130px; }
 .system3 h3 { font-weight: 400; color:#464646; }
 .system3 p { color:#b2b2b2; }
 
-.system4 { margin-right: 150px; }
+.system4 { margin-right: 120px; min-width: 130px; }
 .system4 h3 { font-weight: 400; color:#464646; }
 .system4 p { color:#b2b2b2; }
 
-.system5 { margin-right: 150px; }
+.system5 { margin-right: 120px; min-width: 130px; }
 .system5 h3 { font-weight: 400; color:#464646; }
 .system5 p { font-weight: 500; }
 
 /* Month index group */
-.month_deposit_amount { margin-right: 150px; }
+.month_deposit_amount { margin-right: 120px; min-width: 180px; }
 .month_deposit_amount h3 { font-weight: 600; }
 .month_deposit_amount p { font-weight: 500; }
 
-.month_deposit_count { margin-right: 150px; }
+.month_deposit_count { margin-right: 120px; min-width: 180px; }
 .month_deposit_count h3 { font-weight: 400; color:#464646; }
 .month_deposit_count p { color:#b2b2b2; }
 
-.month_withdrawal_amount { margin-right: 150px; }
+.month_withdrawal_amount { margin-right: 120px; min-width: 180px; }
 .month_withdrawal_amount h3 { font-weight: 600; }
 .month_withdrawal_amount p { font-weight: 500; }
 
-.month_customer { margin-right: 150px; }
+.month_customer { margin-right: 120px; min-width: 180px; }
 .month_customer h3 { font-weight: 400; color:#464646; }
 .month_customer p { color:#b2b2b2; }
 
 /* Today index group */
-.today_deposit_amount { margin-right: 150px; }
+.today_deposit_amount { margin-right: 120px; min-width: 180px; }
 .today_deposit_amount h3 { font-weight: 600; }
 .today_deposit_amount p { font-weight: 500; }
 
-.today_deposit_count { margin-right: 150px; }
+.today_deposit_count { margin-right: 120px; min-width: 180px; }
 .today_deposit_count h3 { font-weight: 400; color:#464646; }
 .today_deposit_count p { color:#b2b2b2; }
 
-.today_withdrawal_amount { margin-right: 150px; }
+.today_withdrawal_amount { margin-right: 120px; min-width: 180px; }
 .today_withdrawal_amount h3 { font-weight: 600; }
 .today_withdrawal_amount p { font-weight: 500; }
 
-.today_customer { margin-right: 150px; }
+.today_customer { margin-right: 120px; min-width: 180px; }
 .today_customer h3 { font-weight: 400; color:#464646; }
 .today_customer p { color:#b2b2b2; }
 
 /* index body */
-.today_body { display: flex;}
-.month_body { display: flex;}
+.today_body { display: flex; }
+.month_body { display: flex; }
 .system_body { display: flex; padding-bottom: 32px; border-bottom: 1px solid #e9ecef; }
+
+.today_main { margin-bottom: 24px; }
+.month_main { margin-bottom: 24px; }
+.system_main { margin-bottom: 24px; }
+
+.fieldset-index-title {padding-left: 72px;}
 .index-title { font-size: 1rem;font-weight: 500;color:#464646; }
+
+/* header */
+.header-calendar-icon { position: relative; left: 200px; }
+.header-calendar { padding-right: 55px !important; }
 
 /* sidebar */
 .sidebar .sidebar-body .nav .bottom-item {
@@ -185,6 +195,135 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   color: red;
+}
+
+@media (max-width: 1410px) {
+  .system1 { margin-right: 100px; min-width: 130px; }
+  .system2 { margin-right: 100px; min-width: 130px; }
+  .system3 { margin-right: 100px; min-width: 130px; }
+  .system4 { margin-right: 100px; min-width: 130px; }
+  .system5 { margin-right: 100px; min-width: 130px; }
+}
+
+@media (max-width: 1350px) {
+  .system1 { margin-right: 70px; min-width: 130px; }
+  .system2 { margin-right: 70px; min-width: 130px; }
+  .system3 { margin-right: 70px; min-width: 130px; }
+  .system4 { margin-right: 70px; min-width: 130px; }
+  .system5 { margin-right: 70px; min-width: 130px; }
+
+  .month_deposit_amount { margin-right: 80px; min-width: 180px; }
+  .month_deposit_count { margin-right: 80px; min-width: 180px; }
+  .month_withdrawal_amount { margin-right: 80px; min-width: 180px; }
+  .month_customer { margin-right: 80px; min-width: 180px; }
+  
+  .today_deposit_amount { margin-right: 80px; min-width: 180px; }
+  .today_deposit_count { margin-right: 80px; min-width: 180px; }
+  .today_withdrawal_amount { margin-right: 80px; min-width: 180px; }
+  .today_customer { margin-right: 80px; min-width: 180px; }
+}
+
+@media (max-width: 1250px) {
+  .system1 { margin-right: 20px; min-width: 130px; }
+  .system1 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system1 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system2 { margin-right: 20px; min-width: 130px; }
+  .system2 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system2 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system3 { margin-right: 20px; min-width: 130px; }
+  .system3 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system3 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system4 { margin-right: 20px; min-width: 130px; }
+  .system4 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system4 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system5 { margin-right: 20px; min-width: 130px; }
+  .system5 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system5 p { font-weight: 500; font-size: 0.8rem; }
+
+
+  
+  .month_deposit_amount { margin-right: 30px; min-width: 180px; }
+  .month_deposit_amount h3 { font-weight: 600; font-size: 0.9rem; }
+  .month_deposit_amount p { font-weight: 500; font-size: 0.8rem; }
+
+  .month_deposit_count { margin-right: 30px; min-width: 180px; }
+  .month_deposit_count h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .month_deposit_count p { color:#b2b2b2; font-size: 0.8rem; }
+  
+  .month_withdrawal_amount { margin-right: 30px; min-width: 180px; }
+  .month_withdrawal_amount h3 { font-weight: 600; font-size: 0.9rem; }
+  .month_withdrawal_amount p { font-weight: 500; font-size: 0.8rem; }
+  
+  .month_customer { margin-right: 30px; min-width: 180px; }
+  .month_customer h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .month_customer p { color:#b2b2b2; font-size: 0.8rem; }
+
+
+
+  .today_deposit_amount { margin-right: 30px; min-width: 180px; }
+  .today_deposit_amount h3 { font-weight: 600; font-size: 0.9rem;}
+  .today_deposit_amount p { font-weight: 500; font-size: 0.8rem;}
+
+  .today_deposit_count { margin-right: 30px; min-width: 180px; }
+  .today_deposit_count h3 { font-weight: 400; color:#464646; font-size: 0.9rem;}
+  .today_deposit_count p { color:#b2b2b2; font-size: 0.8rem;}
+
+  .today_withdrawal_amount { margin-right: 30px; min-width: 180px; }
+  .today_withdrawal_amount h3 { font-weight: 600; font-size: 0.9rem;}
+  .today_withdrawal_amount p { font-weight: 500;font-size: 0.8rem; }
+
+  .today_customer { margin-right: 30px; min-width: 180px; }
+  .today_customer h3 { font-weight: 400; color:#464646; font-size: 0.9rem;}
+  .today_customer p { color:#b2b2b2; font-size: 0.8rem;}
+}
+
+@media (max-width: 1080px) {
+  .today_body { display: contents; }
+  .month_body { display: contents; }
+  .system_body { display: contents; }
+  .today_main { margin-left: 70px; margin-bottom: 44px; }
+  .month_main { margin-left: 70px; margin-bottom: 44px; }
+  .system_main { margin-left: 70px; margin-bottom: 44px; }
+
+  .system1 { margin-bottom: 15px; }
+  .system2 { margin-bottom: 15px; }
+  .system3 { margin-bottom: 15px; }
+  .system4 { margin-bottom: 15px; }
+  .system5 { margin-bottom: 15px; }
+
+  .month_deposit_amount { margin-bottom: 15px; }
+  .month_deposit_count { margin-bottom: 15px; }
+  .month_withdrawal_amount { margin-bottom: 15px; }
+  .month_customer { margin-bottom: 15px; }
+
+  .today_deposit_amount { margin-bottom: 15px; }
+  .today_deposit_count { margin-bottom: 15px; }
+  .today_withdrawal_amount { margin-bottom: 15px; }
+  .today_customer { margin-bottom: 15px; }
+  
+  .fieldset-index-title {padding-left: 12px;}
+}
+
+@media (max-width: 400px) {
+  .today_main { margin-left: 50px; }
+  .month_main { margin-left: 50px; }
+  .system_main { margin-left: 50px; }
+}
+
+@media (max-width: 330px) {
+  .today_main { margin-left: 30px; }
+  .month_main { margin-left: 30px; }
+  .system_main { margin-left: 30px; }
+}
+
+@media (max-width: 276px) {
+  .today_main { margin-left: 0; }
+  .month_main { margin-left: 0; }
+  .system_main { margin-left: 0; }
 }
 
 body {
