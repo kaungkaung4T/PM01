@@ -90,57 +90,68 @@
 
 
 
-.today_deposit_amount {
-  margin-right: 150px;
-}
-.today_deposit_amount h3 {
-  font-weight: 600;
-}
-.today_deposit_amount p {
-  font-weight: 500;
-}
+/* System index group */
+.system1 { margin-right: 150px; }
+.system1 h3 { font-weight: 400; color:#464646; }
+.system1 p { color:#b2b2b2; }
 
-.today_deposit_count {
-  margin-right: 150px;
-}
-.today_deposit_count h3 {
-  font-weight: 400;
-  color:#464646;
-}
-.today_deposit_count p {
-  color:#b2b2b2;
-}
+.system2 { margin-right: 150px; }
+.system2 h3 { font-weight: 400; color:#464646; }
+.system2 p { color:#b2b2b2; }
 
-.today_withdrawal_amount {
-  margin-right: 150px;
-}
-.today_withdrawal_amount h3 {
-  font-weight: 600;
-}
-.today_withdrawal_amount p {
-  font-weight: 500;
-}
+.system3 { margin-right: 150px; }
+.system3 h3 { font-weight: 400; color:#464646; }
+.system3 p { color:#b2b2b2; }
 
-.today_customer {
-  margin-right: 150px;
-}
-.today_customer h3 {
-  font-weight: 400;
-  color:#464646;
-}
-.today_customer p {
-  color:#b2b2b2;
-}
+.system4 { margin-right: 150px; }
+.system4 h3 { font-weight: 400; color:#464646; }
+.system4 p { color:#b2b2b2; }
 
-.today_body {
-  display: flex;
-}
-.month_body {
-  display: flex;
-}
-.system_body {
-  display: flex;
-}
+.system5 { margin-right: 150px; }
+.system5 h3 { font-weight: 400; color:#464646; }
+.system5 p { font-weight: 500; }
+
+/* Month index group */
+.month_deposit_amount { margin-right: 150px; }
+.month_deposit_amount h3 { font-weight: 600; }
+.month_deposit_amount p { font-weight: 500; }
+
+.month_deposit_count { margin-right: 150px; }
+.month_deposit_count h3 { font-weight: 400; color:#464646; }
+.month_deposit_count p { color:#b2b2b2; }
+
+.month_withdrawal_amount { margin-right: 150px; }
+.month_withdrawal_amount h3 { font-weight: 600; }
+.month_withdrawal_amount p { font-weight: 500; }
+
+.month_customer { margin-right: 150px; }
+.month_customer h3 { font-weight: 400; color:#464646; }
+.month_customer p { color:#b2b2b2; }
+
+/* Today index group */
+.today_deposit_amount { margin-right: 150px; }
+.today_deposit_amount h3 { font-weight: 600; }
+.today_deposit_amount p { font-weight: 500; }
+
+.today_deposit_count { margin-right: 150px; }
+.today_deposit_count h3 { font-weight: 400; color:#464646; }
+.today_deposit_count p { color:#b2b2b2; }
+
+.today_withdrawal_amount { margin-right: 150px; }
+.today_withdrawal_amount h3 { font-weight: 600; }
+.today_withdrawal_amount p { font-weight: 500; }
+
+.today_customer { margin-right: 150px; }
+.today_customer h3 { font-weight: 400; color:#464646; }
+.today_customer p { color:#b2b2b2; }
+
+/* index body */
+.today_body { display: flex;}
+.month_body { display: flex;}
+.system_body { display: flex; padding-bottom: 32px; border-bottom: 1px solid #e9ecef; }
+.index-title { font-size: 1rem;font-weight: 500;color:#464646; }
+
+/* sidebar */
 .sidebar .sidebar-body .nav .bottom-item {
   position: absolute;
   bottom: 0;
