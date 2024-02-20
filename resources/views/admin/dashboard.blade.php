@@ -13,19 +13,18 @@
 
   <title>@yield('title','PM01')</title>
 
-
-
+  <!-- Bootstrap modal dialog external -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- End Bootstrap modal dialog -->
 
   <!-- Table Search and pagination -->
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
   <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
   
   <!-- <link href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" rel="stylesheet"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css" rel="stylesheet">
-
   <!-- End Table  -->
 
 

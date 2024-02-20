@@ -4,34 +4,78 @@
 
     <div class="page-content">
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-sm border mb-2" id="modal_button" data-toggle="modal" data-target="#exampleModalCenter">
+  Create
+</button>
 
-    <button class="btn btn-sm border dropdown-toggle" type="button" data-bs-toggle="dropdown-menu" aria-expanded="false">
-              wef
-            </button>
-    <div class="dropdown-menu">
-  <form class="px-4 py-3">
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-    </div>
-    <div class="mb-3">
-      <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-    </div>
-    <div class="mb-3">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="dropdownCheck">
-        <label class="form-check-label" for="dropdownCheck">
-          Remember me
-        </label>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" id="top_close_modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="close_modal" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
-  <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#">New around here? Sign up</a>
-  <a class="dropdown-item" href="#">Forgot password?</a>
+  </div>
 </div>
+
+<script>
+
+    $('#modal_button').click( function () {
+        $('#exampleModalCenter').modal('show');
+    });
+    
+    $('#close_modal').click( function () {
+        $('#exampleModalCenter').modal('hide');
+    });
+
+    $('#top_close_modal').click( function () {
+        $('#exampleModalCenter').modal('hide');
+    });
+
+</script>
 
         <div class="table-responsive">
                 <!-- <table  id="dataTableExample" class="table table-dark table-image mb-2"> -->
