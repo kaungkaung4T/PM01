@@ -77,7 +77,7 @@
                   <a href="" class="nav-link">Exchange Rate</a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">System User</a>
+                  <a href="{{ route('admin.system') }}" class="nav-link">System User</a>
                 </li>
               </ul>
             </div>

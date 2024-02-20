@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SystemUser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Dashboard
 Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
+
+
+// System Users
+Route::get('/system-user', [SystemUser::class, 'system'])->name('admin.system');
+

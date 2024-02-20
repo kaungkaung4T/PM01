@@ -18,8 +18,14 @@
 
   <!-- Table Search and pagination -->
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-  <link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" rel="stylesheet">
-  <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
+  
+  <!-- <link href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" rel="stylesheet"> -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css" rel="stylesheet">
+
   <!-- End Table  -->
 
 
