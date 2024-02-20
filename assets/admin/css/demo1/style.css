@@ -161,6 +161,8 @@
 .header-calendar-icon { position: relative;left: 200px;cursor: pointer;color: #b2b2b2; }
 .header-calendar { padding-right: 55px !important; }
 
+.navbar .navbar-content2 { display: none; }
+
 /* sidebar */
 .sidebar .sidebar-body .nav .bottom-item {
   position: absolute;
@@ -306,6 +308,10 @@
   .today_customer { margin-bottom: 15px; }
   
   .fieldset-index-title {padding-left: 12px;}
+}
+
+@media (max-width: 991.98px) {
+  .navbar .navbar-content .calendar_main { margin-left: -30px; }
 }
 
 @media (max-width: 400px) {
@@ -22769,4 +22775,17 @@ div.tox .tox-dialog__body {
   margin-bottom: -100px;
   width: 220px;
 }
+}
+
+@media (max-width: 605px) {
+  .navbar { justify-content: start; }
+  .navbar .navbar-content { display: none; }
+  .navbar .navbar-content2 { display: contents;position: relative; }
+  .navbar .navbar-content2 .dropdown { margin-left: 15px !important; }
+  .navbar .navbar-content2 .dropdown .dropdown-menu { margin-left: -8px;min-width: 118px; }
+
+  .header-calendar-icon2 { position: relative;cursor: pointer;color: #b2b2b2; }
+  .header-calendar { display: none; width: 98px; padding-right: 0 !important; }
+  .daterangepicker { margin-left: 80px;margin-top: 25px; }
+
 }
