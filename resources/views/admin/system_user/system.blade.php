@@ -162,7 +162,7 @@
                                 <span class="mr-1"> * </span><label>Password:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="password" type="password" class="form-control" value="{{ $each_user->password }}" required>
+                                <input name="password" type="password" class="form-control" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
