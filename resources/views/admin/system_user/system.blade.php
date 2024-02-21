@@ -19,14 +19,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.create_system_user') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="modal-body system_modal_form">
                 <div class="mb-3 row modal_form_group">
                     <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Username:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" required>
+                    <input name="username" type="text" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -34,7 +35,7 @@
                     <span class="mr-1"> * </span><label>Password:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input type="password" class="form-control" required>
+                    <input name="password" type="password" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -42,7 +43,7 @@
                     <span class="mr-1"> * </span><label>Name:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" required>
+                    <input name="name" type="text" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -50,7 +51,7 @@
                     <span class="mr-1">  </span><label>Email:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input type="email" class="form-control">
+                    <input name="email" type="email" class="form-control">
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -98,14 +99,14 @@
 
             <thead>
                 <tr>
-                <th scope="col" class="text-dark">ID</th>
-                <th scope="col" class="text-dark">Username</th>
-                <th scope="col" class="text-dark">Name</th>
-                <th scope="col" class="text-dark">Role</th>
-                <th scope="col" class="text-dark">Updated At</th>
-                <th scope="col" class="text-dark">Created At</th>
-                <th scope="col" class="text-dark">Status</th>
-                <th scope="col" class="text-dark">Action</th>
+                <th scope="col" class="text-start text-dark">ID</th>
+                <th scope="col" class="text-start text-dark">Username</th>
+                <th scope="col" class="text-start text-dark">Name</th>
+                <th scope="col" class="text-start text-dark">Role</th>
+                <th scope="col" class="text-start text-dark">Updated At</th>
+                <th scope="col" class="text-start text-dark">Created At</th>
+                <th scope="col" class="text-start text-dark">Status</th>
+                <th scope="col" class="text-start text-dark">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -115,15 +116,14 @@
                 @foreach ($all_user as $each_user)
 
                 <tr>
-            <th scope="row">{{ $i }}</th>
-            <td class="text-secondary">{{ $each_user->username }}</td>
-            <td class="text-secondary">{{ $each_user->name }}</td>
-            <td class="text-secondary">{{ $each_user->role }}</td>
-            <td class="text-secondary">{{ $each_user->updated_at }}</td>
-            <td class="text-secondary">{{ $each_user->created_at }}</td>
-            <td class="text-secondary">{{ $each_user->status }}</td>
-            <td class="text-secondary">{{ Str::limit($each_services->text, 25, $end='...') }}</td>
-            <td class="text-secondary"><a href="" class="btn btn-sm btn-outline-primary">Edit</a></td>
+            <th scope="row" class="text-start" style="color: #495057;font-weight: normal;">{{ $each_user->id }}</th>
+            <td class="text-start" style="color: #495057;">{{ $each_user->username }}</td>
+            <td class="text-start" style="color: #495057;">{{ $each_user->name }}</td>
+            <td class="text-start" style="color: #495057;">{{ $each_user->role }}</td>
+            <td class="text-start" style="color: #495057;">{{ $each_user->updated_at }}</td>
+            <td class="text-start" style="color: #495057;">{{ $each_user->created_at }}</td>
+            <td class="text-start" style="color: #495057;">{{ $each_user->status }}</td>
+            <td class="text-start" style="color: #495057;"> Edit </td>
             </tr>
                 
             <?php $i++ ?>
