@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\admin\Customer;
+use App\Http\Controllers\Admin\Customer;
 use App\Http\Controllers\Admin\SystemUser;
 use Illuminate\Support\Facades\Route;
 
