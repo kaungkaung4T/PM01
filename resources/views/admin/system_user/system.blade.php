@@ -58,9 +58,10 @@
                     <span class="mr-1"> * </span><label>Role:</label>
                     </div>
                     <div class="col-sm-9">
-                    <select name="role" class="form-select">
-                          <option value="admin">Admin</option>
-                          <option value="service">Service</option>
+                    <select name="role" class="form-select" required>
+                        <option disabled selected value> --select role-- </option>
+                        <option value="admin">Admin</option>
+                        <option value="service">Service</option>
                     </select>
                     </div>
                 </div>
