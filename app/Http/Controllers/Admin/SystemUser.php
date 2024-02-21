@@ -29,4 +29,17 @@ class SystemUser extends Controller
         ]);
         return redirect()->route('admin.system')->with('success', 'System User Created Successfully');
     }
+
+    public function update_system_user (Request $request, $id) {
+
+        $user = User::find($id);
+        $update_user = $user->update([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password,
+            'name' => $request->name,
+            'role' => $request->role,
+        ]);
+        return redirect()->route('admin.system')->with('success', 'System User Created Successfully');
+    }
 }

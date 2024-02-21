@@ -26,4 +26,5 @@ Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->nam
 // System Users
 Route::get('/system-user', [SystemUser::class, 'system'])->name('admin.system');
 Route::post('/system-user/create-system-user', [SystemUser::class, 'create_system_user'])->name('admin.create_system_user');
+Route::post('/system-user/update-system-user/{id}', [SystemUser::class, 'update_system_user'])->name('admin.update_system_user');
 
