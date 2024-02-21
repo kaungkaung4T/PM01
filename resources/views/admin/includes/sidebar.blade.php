@@ -20,7 +20,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin.customer') }}" class="nav-link">
             <i class="link-icon bi bi-person"></i>
               <span class="link-title">Customers</span>
             </a>

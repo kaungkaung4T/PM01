@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\admin\Customer;
 use App\Http\Controllers\Admin\SystemUser;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,6 @@ Route::get('/system-user', [SystemUser::class, 'system'])->name('admin.system');
 Route::post('/system-user/create-system-user', [SystemUser::class, 'create_system_user'])->name('admin.create_system_user');
 Route::post('/system-user/update-system-user/{id}', [SystemUser::class, 'update_system_user'])->name('admin.update_system_user');
 
+
+// Customer
+Route::get('/customer', [Customer::class, 'customer'])->name('admin.customer');
