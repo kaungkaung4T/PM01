@@ -14,49 +14,63 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Admin/CS</h5>
         <button type="button" class="close" data-dismiss="modal" id="top_close_modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputPassword">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="modal-body system_modal_form">
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Username:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Password:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input type="password" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Name:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1">  </span><label>Email:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input type="email" class="form-control">
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Role:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <select name="role" class="form-select">
+                          <option value="admin">Admin</option>
+                          <option value="service">Service</option>
+                    </select>
+                    </div>
                 </div>
+            
             </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="close_modal" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm border" id="close_modal" data-dismiss="modal">Back</button>
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
   </div>
 </div>
