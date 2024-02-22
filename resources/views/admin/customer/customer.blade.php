@@ -19,11 +19,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <form action="{{ route('admin.create_system_user') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.create_customer') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="modal-body customer_modal_form">
+            <div class="modal-body customer_modal_form pb-5">
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Username:</label>
                     </div>
                     <div class="col-sm-9">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Password:</label>
                     </div>
                     <div class="col-sm-9">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Phone:</label>
                     </div>
                     <div class="col-sm-9">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>NRIC:</label>
                     </div>
                     <div class="col-sm-9">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Name:</label>
                     </div>
                     <div class="col-sm-9">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Bank Type:</label>
                     </div>
                     <div class="col-sm-9">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1"> * </span><label>Bank Number:</label>
                     </div>
                     <div class="col-sm-9">
@@ -79,11 +79,11 @@
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 col-form-label mr-3 modal_form_group_word">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
                     <span class="mr-1">  </span><label>Remarks:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="remark" type="text" class="form-control">
+                    <textarea name="remark" type="text" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -99,7 +99,7 @@
                     <span class="mr-1">  </span><label>Fake:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input type="checkbox" name="fake" class="form-check-input" id="check_count_down">
+                    <input type="checkbox" name="fake" class="form-check-input" id="check_count_down"><label class="fake_label">FAKE</label>
                     </div>
                 </div>
             </div>
@@ -108,6 +108,23 @@
                 <button type="submit" class="btn btn-sm btn-primary">Submit</button>
             </div>
         </form>
+
+        <form action="" class="customer_modal_form_reset_password">
+            <div class="row g-3 align-items-center modal_form_group">
+            <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Reset Password:</label>
+            </div>
+            <div class="col-auto">
+                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+            </div>
+            <div class="col-auto">
+                <span id="passwordHelpInline" class="form-text">
+                    <button class="btn btn-sm border text-danger">Reset Here</button>
+                </span>
+            </div>
+            </div>
+        </form>
+
     </div>
   </div>
 </div>
@@ -152,18 +169,15 @@
 
                 @foreach ($all_customer as $each_customer)
                 <tr>
-            <th scope="row" class="text-start" style="color: #495057;font-weight: normal;">  </th>
-            <td class="text-start" style="color: #495057;">  </td>
-            <td class="text-start" style="color: #495057;">  </td>
-            <td class="text-start" style="color: #495057;">  </td>
-            <td class="text-start" style="color: #495057;">  </td>
-            <td class="text-start" style="color: #495057;">  </td>
-            <td class="text-start" style="color: #495057;">  </td>
-            <td class="text-start" style="color: #495057;">  </td>
+            <th scope="row" class="text-start" style="color: #495057;font-weight: normal;"> {{ $each_customer->id }} </th>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->username }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->phone }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->name }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->deposit_amount }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->system_user }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->updated_at }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->created_at }} </td>
             
-
-            <td class="text-start" style="color: #495057;">  </td> <!-- TESTING -->
-            <td class="text-start" style="color: #495057;">  </td> <!-- TESTING -->
             
             @if ( $each_customer->status == 'Active' )
             <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-success" 
@@ -176,7 +190,7 @@
             <!-- Button trigger modal -->
             <td id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')"
             class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
-            Edit
+            Edit <--- on processing
             </td>
 
             <!-- Modal -->
@@ -184,7 +198,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Update Admin/CS</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Update Customer</h5>
                     <button type="button" class="close" data-dismiss="modal" id="update_top_close_modal_{{ $each_customer->id }}" 
                     onclick="update_top_close_modal('{{ $each_customer->id }}')" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -228,8 +242,8 @@
                         
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_user->id }}s" 
-                            onclick="update_close_modal('{{ $each_user->id }}')" data-dismiss="modal">Back</button>
+                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_customer->id }}s" 
+                            onclick="update_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </div>
                     </form>

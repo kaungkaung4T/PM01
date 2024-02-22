@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Customer;
 use App\Http\Controllers\Admin\SystemUser;
+use App\Http\Controllers\Auth\AuthManager;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,15 +21,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', [AuthManager::class, 'login'])->name('login');
+Route::post('/login/post_login', [AuthManager::class, 'post_login'])->name('post_login');
+
 // Dashboard
-Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
+Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 
 // System Users
-Route::get('/system-user', [SystemUser::class, 'system'])->name('admin.system');
-Route::post('/system-user/create-system-user', [SystemUser::class, 'create_system_user'])->name('admin.create_system_user');
-Route::post('/system-user/update-system-user/{id}', [SystemUser::class, 'update_system_user'])->name('admin.update_system_user');
+Route::get('/system-user', [SystemUser::class, 'system'])->middleware(['auth', 'verified'])->name('admin.system');
+Route::post('/system-user/create-system-user', [SystemUser::class, 'create_system_user'])->middleware(['auth', 'verified'])->name('admin.create_system_user');
+Route::post('/system-user/update-system-user/{id}', [SystemUser::class, 'update_system_user'])->middleware(['auth', 'verified'])->name('admin.update_system_user');
 
 
 // Customer
-Route::get('/customer', [Customer::class, 'customer'])->name('admin.customer');
+Route::get('/customer', [Customer::class, 'customer'])->middleware(['auth', 'verified'])->name('admin.customer');
+Route::post('/customer/create_customer', [Customer::class, 'create_customer'])->middleware(['auth', 'verified'])->name('admin.create_customer');

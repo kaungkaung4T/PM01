@@ -15,15 +15,16 @@ return new class extends Migration
             $table->id();
 
             // One to One on System User Model (default -->>User Model<<--)
-            $table->bigInteger('system_user')->unsigned();
-            $table->foreign('system_user')->references('id')->on('users')->onDelete('cascade')->nullable();
+            $table->bigInteger('system_user')->unsigned()->nullable();
+            $table->foreign('system_user')->nullable()->constrained()->references('id')->on('users')->onDelete('cascade');
 
             // One to One on Deposit Model
-            $table->bigInteger('deposit_amount')->unsigned();
-            $table->foreign('deposit_amount')->references('id')->on('deposits')->onDelete('cascade')->nullable();
+            $table->bigInteger('deposit_amount')->unsigned()->nullable();
+            $table->foreign('deposit_amount')->nullable()->constrained()->references('id')->on('deposits')->onDelete('cascade');
 
             $table->string('username');
             $table->string('password');
+            $table->string('phone');
             $table->string('nric');
             $table->string('name');
             $table->string('bank_type');

@@ -15,6 +15,7 @@ class Customer extends Model
         'deposit_id',
         'username',
         'password',
+        'phone',
         'nric',
         'name',
         'bank_type',
