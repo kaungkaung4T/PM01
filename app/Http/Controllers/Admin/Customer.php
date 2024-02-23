@@ -56,4 +56,44 @@ class Customer extends Controller
         ];
         return redirect()->route('admin.customer')->with('success', 'Customer Created Successfully');
     }
+
+    public function update_customer (Request $request, $id) {
+
+        $customer = ModelsCustomer::find($id);
+
+        if (isset($request->fake)) {
+            $all_customer = $customer->update([
+                'system_user' => Auth::id(),
+                'username' => $request->username,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'nric' => $request->nric,
+                'name' => $request->name,
+                'bank_type' => $request->bank_type,
+                'bank_number' => $request->bank_number,
+                'remark' => $request->remark,
+                'parent_user' => $request->parent_user,
+                'fake' => true
+            ]);
+        }
+        else {
+            $all_customer = $customer->update([
+                'system_user' => Auth::id(),
+                'username' => $request->username,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'nric' => $request->nric,
+                'name' => $request->name,
+                'bank_type' => $request->bank_type,
+                'bank_number' => $request->bank_number,
+                'remark' => $request->remark,
+                'parent_user' => $request->parent_user,
+                'fake' => false
+            ]);
+        }
+        $context = [
+            "all_customer" => $all_customer
+        ];
+        return redirect()->route('admin.customer')->with('success', 'Customer Created Successfully');
+    }
 }

@@ -38,3 +38,5 @@ Route::post('/system-user/update-system-user/{id}', [SystemUser::class, 'update_
 // Customer
 Route::get('/customer', [Customer::class, 'customer'])->middleware(['auth', 'verified'])->name('admin.customer');
 Route::post('/customer/create_customer', [Customer::class, 'create_customer'])->middleware(['auth', 'verified'])->name('admin.create_customer');
+Route::post('/customer/update_customer/{id}', [Customer::class, 'update_customer'])->middleware(['auth', 'verified'])->name('admin.update_customer');
+

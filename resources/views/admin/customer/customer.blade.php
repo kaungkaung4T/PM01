@@ -108,23 +108,23 @@
                 <button type="submit" class="btn btn-sm btn-primary">Submit</button>
             </div>
         </form>
-
-        <form action="" class="customer_modal_form_reset_password">
-            <div class="row g-3 align-items-center modal_form_group">
-            <div class="col-auto">
-                <label for="inputPassword6" class="col-form-label">Reset Password:</label>
+            <div>
+                <form action="" class="customer_modal_form_reset_password">
+                    <div class="row g-3 align-items-center modal_form_group">
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label">Reset Password:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    </div>
+                    <div class="col-auto">
+                        <span id="passwordHelpInline" class="form-text">
+                            <button class="btn btn-sm border text-danger">Reset Here</button>
+                        </span>
+                    </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-auto">
-                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-            </div>
-            <div class="col-auto">
-                <span id="passwordHelpInline" class="form-text">
-                    <button class="btn btn-sm border text-danger">Reset Here</button>
-                </span>
-            </div>
-            </div>
-        </form>
-
     </div>
   </div>
 </div>
@@ -204,100 +204,113 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                    <form action="{{ route('admin.update_system_user', $each_customer->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.update_customer', $each_customer->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body customer_modal_form pb-5">
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>Username:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="username" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>Password:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="password" type="password" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>Phone:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="phone" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>NRIC:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="nric" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>Name:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="name" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>Bank Type:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="bank_type" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1"> * </span><label>Bank Number:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="bank_number" type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                    <span class="mr-1">  </span><label>Remarks:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <textarea name="remark" type="text" class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-4 col-form-label modal_form_group_word">
-                    <span class="mr-1">  </span><label>Parent User:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input name="parent_user" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="mb-3 row modal_form_group">
-                    <div class="col-sm-3 form-check-label mr-3 modal_form_group_word">
-                    <span class="mr-1">  </span><label>Fake:</label>
-                    </div>
-                    <div class="col-sm-9">
-                    <input type="checkbox" name="fake" class="form-check-input" id="check_count_down"><label class="fake_label">FAKE</label>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm border" id="close_modal" data-dismiss="modal">Back</button>
-                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_customer->id }}" 
-                            onclick="update_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
-                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Username:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="username" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Password:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="password" type="password" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Phone:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="phone" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>NRIC:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="nric" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Name:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="name" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Bank Type:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="bank_type" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Bank Number:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="bank_number" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1">  </span><label>Remarks:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <textarea name="remark" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label modal_form_group_word">
+                                <span class="mr-1">  </span><label>Parent User:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input name="parent_user" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-3 form-check-label mr-3 modal_form_group_word">
+                                <span class="mr-1">  </span><label>Fake:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input type="checkbox" name="fake" class="form-check-input" id="check_count_down"><label class="fake_label">FAKE</label>
+                                </div>
+                            </div>
                         </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_customer->id }}" 
+                        onclick="update_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                    </div>
                     </form>
+                        <div class="customer_modal_form_reset_password">
+                            <form action="">
+                                <div class="row g-3 align-items-center modal_form_group">
+                                <div class="col-auto">
+                                    <label for="inputPassword6" class="col-form-label">Reset Password:</label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                                </div>
+                                <div class="col-auto">
+                                    <span id="passwordHelpInline" class="form-text">
+                                        <button class="btn btn-sm border text-danger">Reset Here</button>
+                                    </span>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
                     <script>
                         function update_open_modal(customer_id){
                             $(`#update_exampleModalCenter_${customer_id}`).modal('show');
