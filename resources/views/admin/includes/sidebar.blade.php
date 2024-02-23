@@ -89,7 +89,7 @@
               <i class="link-icon bi bi-person"></i>
               <label>Main<label>
             </div>
-              <form action="" method="POST">
+              <form action="{{ route('logout') }}" method="POST">
                   @csrf
               <button type="submit" class="link-title" style="border: none;background: transparent;margin-left: 24.6px;">Logout</button>
               </form>

@@ -26,6 +26,8 @@ class Customer extends Model
     ];
 
     public function system_user_data ()  {
-        return $this->hasMany('App\Models\User', 'id', 'id');
+        // return $this->hasMany('App\Models\User', 'id', 'system_user');       // For Many
+        return $this->hasOne('App\Models\User', 'id', 'system_user');
     }
+
 }

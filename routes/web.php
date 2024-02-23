@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login/post_login', [AuthManager::class, 'post_login'])->name('post_login');
+Route::post('/logout', [AuthManager::class, 'logout'])->name('logout');
 
 // Dashboard
 Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');

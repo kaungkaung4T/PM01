@@ -25,4 +25,9 @@ class AuthManager extends Controller
         
         return redirect()->route('login')->with('fail', 'Login Failed');
     }
+
+    public function logout (Request $request) {
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'Successfully Logout');
+    }
 }
