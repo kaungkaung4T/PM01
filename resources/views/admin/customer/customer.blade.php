@@ -287,6 +287,14 @@
                                 <input type="checkbox" name="fake" class="form-check-input" id="check_count_down"><label class="fake_label">FAKE</label>
                                 </div>
                             </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-3 form-check-label mr-3 modal_form_group_word">
+                                <span class="mr-1">  </span><label>Status:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                <input type="checkbox" name="status" class="form-check-input" id="check_count_down">
+                                </div>
+                            </div>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_customer->id }}" 
