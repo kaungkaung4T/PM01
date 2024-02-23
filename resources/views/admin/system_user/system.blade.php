@@ -198,6 +198,18 @@
                                 </select>
                                 </div>
                             </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-3 form-check-label mr-3 modal_form_group_word">
+                                <span class="mr-1">  </span><label>Status:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    @if ($each_user->status == "Active")
+                                <input type="checkbox" name="status" class="form-check-input" id="check_count_down" checked>
+                                    @else
+                                <input type="checkbox" name="status" class="form-check-input" id="check_count_down">
+                                    @endif
+                                </div>
+                            </div>
                         
                         </div>
                         <div class="modal-footer">

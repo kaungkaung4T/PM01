@@ -61,7 +61,7 @@ class Customer extends Controller
 
         $customer = ModelsCustomer::find($id);
 
-        if (isset($request->fake)) {
+        if (isset($request->fake) && isset($request->status)) {
             $all_customer = $customer->update([
                 'system_user' => Auth::id(),
                 'username' => $request->username,
@@ -73,7 +73,56 @@ class Customer extends Controller
                 'bank_number' => $request->bank_number,
                 'remark' => $request->remark,
                 'parent_user' => $request->parent_user,
-                'fake' => true
+                'fake' => true,
+                'status' => 'Active'
+            ]);
+        }
+        elseif (isset($request->fake) && !isset($request->status)) {
+            $all_customer = $customer->update([
+                'system_user' => Auth::id(),
+                'username' => $request->username,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'nric' => $request->nric,
+                'name' => $request->name,
+                'bank_type' => $request->bank_type,
+                'bank_number' => $request->bank_number,
+                'remark' => $request->remark,
+                'parent_user' => $request->parent_user,
+                'fake' => true,
+                'status' => 'Inactive'
+            ]);
+        }
+        elseif (!isset($request->fake) && isset($request->status)) {
+            $all_customer = $customer->update([
+                'system_user' => Auth::id(),
+                'username' => $request->username,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'nric' => $request->nric,
+                'name' => $request->name,
+                'bank_type' => $request->bank_type,
+                'bank_number' => $request->bank_number,
+                'remark' => $request->remark,
+                'parent_user' => $request->parent_user,
+                'fake' => false,
+                'status' => 'Active'
+            ]);
+        }
+        elseif (!isset($request->fake) && !isset($request->status)) {
+            $all_customer = $customer->update([
+                'system_user' => Auth::id(),
+                'username' => $request->username,
+                'password' => $request->password,
+                'phone' => $request->phone,
+                'nric' => $request->nric,
+                'name' => $request->name,
+                'bank_type' => $request->bank_type,
+                'bank_number' => $request->bank_number,
+                'remark' => $request->remark,
+                'parent_user' => $request->parent_user,
+                'fake' => false,
+                'status' => 'Inactive'
             ]);
         }
         else {
@@ -88,7 +137,8 @@ class Customer extends Controller
                 'bank_number' => $request->bank_number,
                 'remark' => $request->remark,
                 'parent_user' => $request->parent_user,
-                'fake' => false
+                'fake' => false,
+                'status' => 'Inactive'
             ]);
         }
         $context = [

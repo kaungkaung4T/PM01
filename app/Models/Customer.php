@@ -22,7 +22,8 @@ class Customer extends Model
         'bank_number',
         'remark',
         'parent_user',
-        'fake'
+        'fake',
+        'status'
     ];
 
     public function system_user_data ()  {

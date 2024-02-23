@@ -330,7 +330,7 @@
                                 <span class="mr-1">  </span><label>Status:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    @if ($each_customer->status)
+                                    @if ($each_customer->status == "Active")
                                 <input type="checkbox" name="status" class="form-check-input" id="check_count_down" checked>
                                     @else
                                 <input type="checkbox" name="status" class="form-check-input" id="check_count_down">

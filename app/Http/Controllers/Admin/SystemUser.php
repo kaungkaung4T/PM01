@@ -33,13 +33,27 @@ class SystemUser extends Controller
     public function update_system_user (Request $request, $id) {
 
         $user = User::find($id);
-        $update_user = $user->update([
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => $request->password,
-            'name' => $request->name,
-            'role' => $request->role,
-        ]);
+
+        if (isset($request->status)) {
+            $update_user = $user->update([
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => $request->password,
+                'name' => $request->name,
+                'role' => $request->role,
+                'status' => 'Active',
+            ]);
+        }
+        else {
+            $update_user = $user->update([
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => $request->password,
+                'name' => $request->name,
+                'role' => $request->role,
+                'status' => 'Inactive',
+            ]);
+        }
         return redirect()->route('admin.system')->with('success', 'System User Created Successfully');
     }
 }
