@@ -91,7 +91,7 @@
                     <span class="mr-1">  </span><label>Parent User:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="parent_user" type="text" class="form-control" required>
+                    <input name="parent_user" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -206,43 +206,94 @@
                 </div>
                     <form action="{{ route('admin.update_system_user', $each_customer->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="modal-body system_modal_form">
-                            <div class="mb-3 row modal_form_group">
-                                <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1"> * </span><label>Username:</label>
-                                </div>
-                                <div class="col-sm-9">
-                                <input name="username" type="text" class="form-control" value="" required>
-                                </div>
-                            </div>
-                            <div class="mb-3 row modal_form_group">
-                                <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1"> * </span><label>Password:</label>
-                                </div>
-                                <div class="col-sm-9">
-                                <input name="password" type="password" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="mb-3 row modal_form_group">
-                                <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1"> * </span><label>Name:</label>
-                                </div>
-                                <div class="col-sm-9">
-                                <input name="name" type="text" class="form-control" value="" required>
-                                </div>
-                            </div>
-                            <div class="mb-3 row modal_form_group">
-                                <div class="col-sm-2 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1">  </span><label>Email:</label>
-                                </div>
-                                <div class="col-sm-9">
-                                <input name="email" type="email" class="form-control" value="">
-                                </div>
-                            </div>
-                        
-                        </div>
+                        <div class="modal-body customer_modal_form pb-5">
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Username:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="username" type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Password:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="password" type="password" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Phone:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="phone" type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>NRIC:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="nric" type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Name:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="name" type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Bank Type:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="bank_type" type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1"> * </span><label>Bank Number:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="bank_number" type="text" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                    <span class="mr-1">  </span><label>Remarks:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <textarea name="remark" type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-4 col-form-label modal_form_group_word">
+                    <span class="mr-1">  </span><label>Parent User:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input name="parent_user" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="mb-3 row modal_form_group">
+                    <div class="col-sm-3 form-check-label mr-3 modal_form_group_word">
+                    <span class="mr-1">  </span><label>Fake:</label>
+                    </div>
+                    <div class="col-sm-9">
+                    <input type="checkbox" name="fake" class="form-check-input" id="check_count_down"><label class="fake_label">FAKE</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm border" id="close_modal" data-dismiss="modal">Back</button>
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+            </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_customer->id }}s" 
+                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_customer->id }}" 
                             onclick="update_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </div>

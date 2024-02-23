@@ -201,7 +201,7 @@
                         
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_user->id }}s" 
+                            <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_user->id }}" 
                             onclick="update_close_modal('{{ $each_user->id }}')" data-dismiss="modal">Back</button>
                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </div>
