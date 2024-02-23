@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Customer;
+use App\Http\Controllers\Admin\Deposit;
 use App\Http\Controllers\Admin\SystemUser;
 use App\Http\Controllers\Auth\AuthManager;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,7 @@ Route::post('/system-user/update-system-user/{id}', [SystemUser::class, 'update_
 Route::get('/customer', [Customer::class, 'customer'])->middleware(['auth', 'verified'])->name('admin.customer');
 Route::post('/customer/create_customer', [Customer::class, 'create_customer'])->middleware(['auth', 'verified'])->name('admin.create_customer');
 Route::post('/customer/update_customer/{id}', [Customer::class, 'update_customer'])->middleware(['auth', 'verified'])->name('admin.update_customer');
+
+// Deposit
+Route::get('/deposit', [Deposit::class, 'deposit'])->middleware(['auth', 'verified'])->name('admin.deposit');
 

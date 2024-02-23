@@ -27,7 +27,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin.deposit') }}" class="nav-link">
             <i class="link-icon bi bi-coin"></i>
               <span class="link-title">Deposits</span>
             </a>

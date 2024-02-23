@@ -16,4 +16,10 @@ class Deposit extends Model
         'system_user',
         'status'
     ];
+
+    public function system_user_data ()  {
+        // return $this->hasMany('App\Models\User', 'id', 'system_user');       // For Many
+        return $this->hasOne('App\Models\User', 'id', 'system_user');
+    }
+    
 }
