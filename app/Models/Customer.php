@@ -24,4 +24,8 @@ class Customer extends Model
         'parent_user',
         'fake'
     ];
+
+    public function system_user_data ()  {
+        return $this->hasMany('App\Models\User', 'id', 'id');
+    }
 }

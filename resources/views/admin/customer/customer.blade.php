@@ -174,7 +174,7 @@
             <td class="text-start" style="color: #495057;"> {{ $each_customer->phone }} </td>
             <td class="text-start" style="color: #495057;"> {{ $each_customer->name }} </td>
             <td class="text-start" style="color: #495057;"> {{ $each_customer->deposit_amount }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->system_user }} </td>
+            <td class="text-start" style="color: #495057;"> {{ $each_customer->system_user_data[0]['username'] }} </td>
             <td class="text-start" style="color: #495057;"> {{ $each_customer->updated_at }} </td>
             <td class="text-start" style="color: #495057;"> {{ $each_customer->created_at }} </td>
             
