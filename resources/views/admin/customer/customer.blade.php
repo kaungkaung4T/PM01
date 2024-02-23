@@ -169,28 +169,62 @@
 
                 @foreach ($all_customer as $each_customer)
                 <tr>
-            <th scope="row" class="text-start" style="color: #495057;font-weight: normal;"> {{ $each_customer->id }} </th>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->username }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->phone }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->name }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->deposit_amount }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->system_user_data->username }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->updated_at }} </td>
-            <td class="text-start" style="color: #495057;"> {{ $each_customer->created_at }} </td>
+            <th scope="row" class="text-start align-middle" style="color: #495057;font-weight: normal;"> {{ $each_customer->id }} </th>
+            <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->username }} </td>
+            <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->phone }} </td>
+            <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->name }} </td>
+            <td class="text-start align-middle" style="color: #495057;"> 
+                {{ $each_customer->deposit_amount }} 
+                <div class="main_amount_group">
+                    <ul>
+                        <li>Total Amount: <span>0.00</span></li>
+                        <li>Wallet 1 Amount: <span>0.00</span></li>
+                        <li>Wallet 2 Amount: <span>0.00</span></li>
+                        <li>Wallet 2 Real Amount <span>0.00</span></li>
+                        <li>Wallet 3 Amount: <span>0.00</span></li>
+                        <li>Pending Withdrawal Amount: <span>0.00</span></li>
+                        <li>Stacked Amount: <span>0.00</span></li>
+                    </ul>
+                </div>
+            </td>
+            <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->system_user_data->username }} </td>
+            <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->updated_at }} </td>
+            <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->created_at }} </td>
             
             
             @if ( $each_customer->status == 'Active' )
-            <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-success" 
+            <td class="text-start align-middle" style="color: #495057;"><i class="bi bi-circle-fill text-success" 
             style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_customer->status }}</td>
             @else
-            <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-danger" 
+            <td class="text-start align-middle" style="color: #495057;"><i class="bi bi-circle-fill text-danger" 
             style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_customer->status }}</td>
             @endif
 
             <!-- Button trigger modal -->
-            <td id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')"
-            class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
-            Edit <--- on processing
+            <td class="text-start align-self-start" style="color: #495057;">
+                <div class="align-self-start main_action_group">
+                    <div class="top_action_group">
+                        <ul>
+                            <li><a class="btn btn-sm btn-success text-white">Deposit</a></li>
+                            <li><a class="btn btn-sm btn-danger text-white">Deduct</a></li>
+                            <li><a class="btn btn-sm border">Add Downline</a></li>
+                            <li><div id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')" class="edit_action btn btn-sm text-danger"
+                                style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+                                Edit
+                            </div></li>
+                            <li><a class="btn btn-sm border">Buy Package</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="bottom_action_group">
+                        <ul>
+                            <li><a class="btn btn-sm btn-primary text-white">Add|Deduct Reinvest Wallet</a></li>
+                            <li><a class="btn btn-sm btn-primary text-white">Add|Deduct Referral Wallet</a></li>
+                            <li><a class="btn btn-sm btn-primary text-white">Withdraw Referral Wallet</a></li>
+                            <li><a class="claim_action btn btn-sm border">Claim Wallet 2</a></li>
+                        </ul>
+                    </div>
+                </div>
             </td>
 
             <!-- Modal -->
@@ -212,7 +246,7 @@
                                 <span class="mr-1"> * </span><label>Username:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="username" type="text" class="form-control" required>
+                                <input name="username" type="text" class="form-control" value="{{ $each_customer->username }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -228,7 +262,7 @@
                                 <span class="mr-1"> * </span><label>Phone:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="phone" type="text" class="form-control" required>
+                                <input name="phone" type="text" class="form-control" value="{{ $each_customer->phone }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -236,7 +270,7 @@
                                 <span class="mr-1"> * </span><label>NRIC:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="nric" type="text" class="form-control" required>
+                                <input name="nric" type="text" class="form-control" value="{{ $each_customer->nric }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -244,7 +278,7 @@
                                 <span class="mr-1"> * </span><label>Name:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="name" type="text" class="form-control" required>
+                                <input name="name" type="text" class="form-control" value="{{ $each_customer->name }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -252,7 +286,7 @@
                                 <span class="mr-1"> * </span><label>Bank Type:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="bank_type" type="text" class="form-control" required>
+                                <input name="bank_type" type="text" class="form-control" value="{{ $each_customer->bank_type }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -260,7 +294,7 @@
                                 <span class="mr-1"> * </span><label>Bank Number:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="bank_number" type="text" class="form-control" required>
+                                <input name="bank_number" type="text" class="form-control" value="{{ $each_customer->bank_number }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -268,7 +302,7 @@
                                 <span class="mr-1">  </span><label>Remarks:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <textarea name="remark" type="text" class="form-control"></textarea>
+                                <textarea name="remark" type="text" class="form-control">{{ $each_customer->remark }}</textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -276,7 +310,7 @@
                                 <span class="mr-1">  </span><label>Parent User:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="parent_user" type="text" class="form-control">
+                                <input name="parent_user" type="text" class="form-control" value="{{ $each_customer->parent_user }}">
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -284,7 +318,11 @@
                                 <span class="mr-1">  </span><label>Fake:</label>
                                 </div>
                                 <div class="col-sm-9">
+                                    @if ($each_customer->fake)
+                                <input type="checkbox" name="fake" class="form-check-input" id="check_count_down" checked><label class="fake_label">FAKE</label>
+                                    @else
                                 <input type="checkbox" name="fake" class="form-check-input" id="check_count_down"><label class="fake_label">FAKE</label>
+                                    @endif
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -292,7 +330,11 @@
                                 <span class="mr-1">  </span><label>Status:</label>
                                 </div>
                                 <div class="col-sm-9">
+                                    @if ($each_customer->status)
+                                <input type="checkbox" name="status" class="form-check-input" id="check_count_down" checked>
+                                    @else
                                 <input type="checkbox" name="status" class="form-check-input" id="check_count_down">
+                                    @endif
                                 </div>
                             </div>
                         </div>

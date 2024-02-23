@@ -138,6 +138,27 @@
 .customer_modal_form .modal_form_group:nth-child(11) .modal_form_group_word { margin-left: 45px;width: 62px; }
 .customer_modal_form .modal_form_group:nth-child(11) input { margin-left: -23px; }
 
+/* Table Amount of Customer  */
+.main_amount_group { display: block; }
+.main_amount_group ul { display: contents;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
+.main_amount_group ul li:nth-child(2) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(3) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(4) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(5) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(6) span { color:#dc3545; }
+
+/* Table Action of Customer */
+.main_action_group { display: block;width: 200px; }
+.main_action_group .top_action_group { border-bottom: 1px solid #e9ecef;margin-bottom: 20px; }
+.main_action_group .top_action_group ul { display: inline-flex;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
+.main_action_group .top_action_group ul li a { margin-right: 3px;margin-bottom: 3px;border-color:#ced4da !important; }
+.main_action_group .top_action_group ul li .edit_action { margin-right: 3px;margin-bottom: 3px;border: 2.4px dotted #adb5bd !important; }
+
+.main_action_group .bottom_action_group ul { display: inline-flex;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
+.main_action_group .bottom_action_group ul a { margin-right: 3px;margin-bottom: 3px;border-color:#ced4da !important; }
+.main_action_group .bottom_action_group ul li .claim_action { margin-right: 3px;margin-bottom: 3px;border: 2.4px dotted #adb5bd !important; }
+
+
 /* System User form group */
 .system_modal_form { margin-left: 80px; }
 .system_modal_form .modal_form_group { flex-wrap: nowrap !important; }
