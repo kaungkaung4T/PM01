@@ -159,6 +159,12 @@
 .main_action_group .bottom_action_group ul li .claim_action { margin-right: 3px;margin-bottom: 3px;border: 2.4px dotted #adb5bd !important; }
 
 
+/* Table Deposit View */
+.table_deposit_view ul { list-style-type: none; }
+.table_deposit_view ul li { color:#495057;font-weight: 700;margin-bottom: 3px; }
+.table_deposit_view ul li span { color:#495057;font-weight: 400; }
+
+
 /* System User form group */
 .system_modal_form { margin-left: 80px; }
 .system_modal_form .modal_form_group { flex-wrap: nowrap !important; }

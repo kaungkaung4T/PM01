@@ -208,10 +208,10 @@
                             <li><a class="btn btn-sm btn-success text-white">Deposit</a></li>
                             <li><a class="btn btn-sm btn-danger text-white">Deduct</a></li>
                             <li><a class="btn btn-sm border">Add Downline</a></li>
-                            <li><div id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')" class="edit_action btn btn-sm text-danger"
+                            <li><a id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')" class="edit_action btn btn-sm border text-danger"
                                 style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
                                 Edit
-                            </div></li>
+                            </a></li>
                             <li><a class="btn btn-sm border">Buy Package</a></li>
                         </ul>
                     </div>
@@ -221,7 +221,7 @@
                             <li><a class="btn btn-sm btn-primary text-white">Add|Deduct Reinvest Wallet</a></li>
                             <li><a class="btn btn-sm btn-primary text-white">Add|Deduct Referral Wallet</a></li>
                             <li><a class="btn btn-sm btn-primary text-white">Withdraw Referral Wallet</a></li>
-                            <li><a class="claim_action btn btn-sm border">Claim Wallet 2</a></li>
+                            <li><a class="claim_action btn btn-sm border text-danger">Claim Wallet 2</a></li>
                         </ul>
                     </div>
                 </div>
