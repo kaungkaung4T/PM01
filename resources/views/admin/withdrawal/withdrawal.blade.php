@@ -73,7 +73,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Deposits</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Withdrawal</h5>
                     <button type="button" class="close" data-dismiss="modal" id="update_top_close_modal_{{ $each_withdrawal->id }}" 
                     onclick="update_top_close_modal('{{ $each_withdrawal->id }}')" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
