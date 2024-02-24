@@ -3,7 +3,9 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Customer;
 use App\Http\Controllers\Admin\Deposit;
+use App\Http\Controllers\Admin\Subscriptions;
 use App\Http\Controllers\Admin\SystemUser;
+use App\Http\Controllers\Admin\Withdrawal;
 use App\Http\Controllers\Auth\AuthManager;
 use Illuminate\Support\Facades\Route;
 
@@ -43,4 +45,10 @@ Route::post('/customer/update_customer/{id}', [Customer::class, 'update_customer
 
 // Deposit
 Route::get('/deposit', [Deposit::class, 'deposit'])->middleware(['auth', 'verified'])->name('admin.deposit');
+
+//withdrawal
+Route::get('/withdrawal', [Withdrawal::class, 'withdrawal'])->middleware(['auth', 'verified'])->name('admin.withdrawal');
+
+//withdrawal
+Route::get('/subscriptions', [Subscriptions::class, 'subscriptions'])->middleware(['auth', 'verified'])->name('admin.subscriptions');
 

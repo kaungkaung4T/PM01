@@ -34,14 +34,14 @@
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin.withdrawal') }}" class="nav-link">
             <i class="link-icon bi bi-pass"></i>
               <span class="link-title">Withdrawals</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin.subscriptions') }}" class="nav-link">
             <i class="link-icon bi bi-card-checklist"></i>
               <span class="link-title">Subscriptions</span>
             </a>
