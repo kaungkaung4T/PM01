@@ -22,7 +22,7 @@ return new class extends Migration
             $table->bigInteger('system_user')->unsigned()->nullable();
             $table->foreign('system_user')->nullable()->constrained()->references('id')->on('users')->onDelete('cascade')->nullable();
             
-            $table->enum('status', ['Completed', 'Incompleted'])->default('Completed');
+            $table->enum('status', ['Completed', 'Pending'])->default('Completed');
             $table->timestamps();
         });
     }
