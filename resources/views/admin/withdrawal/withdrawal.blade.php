@@ -4,7 +4,7 @@
 
     <div class="page-content">
 
-<div class="mb-2">Deposits</div>
+<div class="mb-2">Withdrawal</div>
   
 
         <div class="table-responsive">
