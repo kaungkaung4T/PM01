@@ -22,4 +22,9 @@ class Subscriptions extends Model
         // return $this->hasMany('App\Models\User', 'id', 'customer');       // For Many
         return $this->hasOne('App\Models\Customer', 'id', 'customer');
     }
+
+    public function package_data ()  {
+        // return $this->hasMany('App\Models\User', 'id', 'customer');       // For Many
+        return $this->hasOne('App\Models\Package', 'id', 'package');
+    }
 }
