@@ -16,6 +16,8 @@ $(document).ready( function () {
 
             new DataTable('.display', {
                 destroy: true,
+                columnDefs: [ { orderable: false, targets: [3,4,9] },
+                      { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
                 order: [[0, "desc"]],
             });
         });
@@ -28,6 +30,8 @@ $(document).ready( function () {
 
             new DataTable('.display', {
                 destroy: true,
+                columnDefs: [ { orderable: false, targets: [3,4,9] },
+                      { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
                 order: [[0, "desc"]],
             });
         });
@@ -40,6 +44,8 @@ $(document).ready( function () {
 
             new DataTable('.display', {
                 destroy: true,
+                columnDefs: [ { orderable: false, targets: [3,4,9] },
+                      { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
                 order: [[0, "desc"]],
             });
         });
@@ -58,6 +64,8 @@ $(document).ready( function () {
 
             new DataTable('.display', {
                 destroy: true,
+                columnDefs: [ { orderable: false, targets: [3,4,9] },
+                      { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
                 order: [[0, "desc"]],
             });
         })
@@ -70,6 +78,8 @@ $(document).ready( function () {
 
             new DataTable('.display', {
                 destroy: true,
+                columnDefs: [ { orderable: false, targets: [3,4,9] },
+                      { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
                 order: [[0, "desc"]],
             });
             
