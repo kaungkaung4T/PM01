@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SystemUser extends Controller
 {
     public function system (Request $request) {
-        $all_user = User::all();
+        $all_user = User::orderBy('id', 'DESC')->get();
 
         $context = [
             "all_user" => $all_user

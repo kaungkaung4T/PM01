@@ -500,7 +500,7 @@
         </script>
 
         <!-- display table -->
-        <script src="{{asset('assets/admin/js/table_display.js')}}"></script>
+        <script src="{{asset('assets/admin/js/table/customer_table_display.js')}}"></script>
 
     </div>
 

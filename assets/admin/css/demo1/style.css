@@ -138,6 +138,10 @@ table.dataTable>thead>tr>td:nth-child(3) {
 table.dataTable>thead>tr>th:nth-child(4),
 table.dataTable>thead>tr>td:nth-child(4) {
   min-width: 80px;
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
 }
 table.dataTable>thead>tr>th:nth-child(7),
 table.dataTable>thead>tr>td:nth-child(7) {
@@ -156,16 +160,27 @@ table.dataTable>tbody>tr>th {
 }
 
 table.dataTable>tbody>tr>td:nth-child(2) {
-  
+
 }
 table.dataTable>tbody>tr>td:nth-child(3) {
-  
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
 }
 table.dataTable>tbody>tr>td:nth-child(4) {
   min-width: 80px;
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
 }
 table.dataTable>tbody>tr>td:nth-child(5) {
   min-width: 90px;
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
 }
 table.dataTable>tbody>tr>td:nth-child(6) {
   min-width: 100px;
