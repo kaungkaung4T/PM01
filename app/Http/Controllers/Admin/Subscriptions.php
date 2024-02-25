@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Subscriptions extends Controller
 {
     public function subscriptions (Request $request) {
-        $all_subscriptions = ModelsSubscriptions::all();
+        $all_subscriptions = ModelsSubscriptions::orderBy('id', 'DESC')->get();
 
         $context = [
             "all_subscriptions" => $all_subscriptions

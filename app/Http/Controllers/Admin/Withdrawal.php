@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Withdrawal extends Controller
 {
     public function withdrawal (Request $request) {
-        $all_withdrawal = ModelsWithdrawal::all();
+        $all_withdrawal = ModelsWithdrawal::orderBy('id', 'DESC')->get();
 
         $context = [
             "all_withdrawal" => $all_withdrawal
