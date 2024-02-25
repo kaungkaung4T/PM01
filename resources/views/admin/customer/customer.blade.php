@@ -165,16 +165,99 @@
 
             <thead>
                 <tr>
-                <th scope="col" class="text-start text-dark">ID</th>
-                <th scope="col" class="text-start text-dark">Username</th>
-                <th scope="col" class="text-start text-dark">Phone</th>
-                <th scope="col" class="text-start text-dark">Name</th>
-                <th scope="col" class="text-start text-dark">Amount(s)</th>
-                <th scope="col" class="text-start text-dark">Created By</th>
-                <th scope="col" class="text-start text-dark">Updated At</th>
-                <th scope="col" class="text-start text-dark">Created At</th>
-                <th scope="col" class="text-start text-dark">Status</th>
-                <th scope="col" class="text-start text-dark">Action</th>
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">ID</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                    </div>
+                </th>
+
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Username</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                        <a class="stop_propagation">
+                            <i class="bi bi-search search_button1 stop_propagation search_icon"></i>
+                            <div class="search_group1">
+                                <input type="text" class="form-control col-search-input search_table1 stop_propagation" placeholder="Search" />
+                                <div class="search_group_bottom stop_propagation">
+                                    <button class="btn btn-sm btn-primary text-white stop_propagation table_search_button">Search</button>
+                                    <button class="btn btn-sm border stop_propagation table_search_reset" style="border-color: #ced4da !important;">Reset</button>
+                                    <button class="btn text-primary stop_propagation">Filter</button>
+                                    <button class="btn text-primary stop_propagation table_search_close">Close</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </th>
+                
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Phone</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                        <a class="stop_propagation">
+                            <i class="bi bi-search search_button2 stop_propagation search_icon"></i>
+                            <div class="search_group2">
+                                <input type="search" class="form-control col-search-input search_table2 stop_propagation";  placeholder="Search" />
+                                <div class="search_group_bottom stop_propagation">
+                                    <button type="submit" class="btn btn-sm btn-primary text-white stop_propagation table_search_button">Search</button>
+                                    <button class="btn btn-sm border stop_propagation table_search_reset" style="border-color: #ced4da !important;">Reset</button>
+                                    <button class="btn text-primary stop_propagation">Filter</button>
+                                    <button class="btn text-primary stop_propagation table_search_close">Close</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </th>
+                
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Name</label>
+                    <div class="float-right">
+                        <a class="stop_propagation">
+                            <i class="bi bi-search search_button3 stop_propagation search_icon"></i>
+                            <div class="search_group3">
+                                <input type="text" class="form-control col-search-input search_table3 stop_propagation" placeholder="Search" />
+                                <div class="search_group_bottom stop_propagation">
+                                    <button class="btn btn-sm btn-primary text-white stop_propagation table_search_button">Search</button>
+                                    <button class="btn btn-sm border stop_propagation table_search_reset" style="border-color: #ced4da !important;">Reset</button>
+                                    <button class="btn text-primary stop_propagation">Filter</button>
+                                    <button class="btn text-primary stop_propagation table_search_close">Close</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </th>
+                
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Amount(s)</label>
+                </th>
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Created By</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                    </div>
+                </th>
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Updated At</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                    </div>
+                </th>
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Created At</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                    </div>
+                </th>
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Status</label>
+                    <div class="float-right table_top_right">
+                        <i class="bi bi-arrow-down-up arrow_icon"></i>
+                    </div>
+                </th>
+                <th scope="col" class="text-start text-dark">
+                    <label class="stop_propagation">Action</label>
+                </th>
                 </tr>
             </thead>
             <tbody>
