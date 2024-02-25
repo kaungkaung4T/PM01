@@ -58,7 +58,7 @@
             <div class="collapse" id="my-setting">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="" class="nav-link">my</a>
+                  <a href="" class="nav-link">Setting</a>
                 </li>
               </ul>
             </div>
@@ -73,9 +73,6 @@
             </a>
             <div class="collapse" id="system-setting">
               <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="" class="nav-link">Exchange Rate</a>
-                </li>
                 <li class="nav-item">
                   <a href="{{ route('admin.system') }}" class="nav-link">System User</a>
                 </li>

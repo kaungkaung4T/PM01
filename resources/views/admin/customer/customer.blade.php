@@ -2,6 +2,10 @@
 
 @section('content')
 
+<script>
+    
+</script>
+
     <div class="page-content">
 
 <!-- Button trigger modal -->
@@ -67,7 +71,17 @@
                     <span class="mr-1"> * </span><label>Bank Type:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="bank_type" type="text" class="form-control" required>
+                    <select name="bank_type" class="form-select" required>
+                        <option disabled selected value>  </option>
+                        <option  value="kpay">KPAY</option>
+                        <option  value="wave_pay"> WavePay </option>
+                        <option  value="kbz_bank"> KBZ Bank </option>
+                        <option  value="uab_bank"> UAB Bank </option>
+                        <option  value="yoma_bank"> YOMA Bank </option>
+                        <option  value="aya_bank"> AYA Bank </option>
+                        <option  value="cb_bank"> CB Bank </option>
+                        <option  value="agd_bank"> AGD Bank </option>
+                    </select>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -147,7 +161,7 @@
 
         <div class="table-responsive">
                 <!-- <table  id="dataTableExample" class="table table-dark table-image mb-2"> -->
-                <table id="" class="display table table-image mb-2">
+                <table id="tbl-contact" class="display table table-image mb-2">
 
             <thead>
                 <tr>
@@ -286,7 +300,18 @@
                                 <span class="mr-1"> * </span><label>Bank Type:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="bank_type" type="text" class="form-control" value="{{ $each_customer->bank_type }}" required>
+                                <select name="bank_type" class="form-select" required>
+                                    <!-- <option disabled selected value>  </option> -->
+                                    <option selected value="{{ $each_customer->bank_type }}"> {{ $each_customer->bank_type }} </option>
+                                    <option  value="kpay">KPAY</option>
+                                    <option  value="wave_pay"> WavePay </option>
+                                    <option  value="kbz_bank"> KBZ Bank </option>
+                                    <option  value="uab_bank"> UAB Bank </option>
+                                    <option  value="yoma_bank"> YOMA Bank </option>
+                                    <option  value="aya_bank"> AYA Bank </option>
+                                    <option  value="cb_bank"> CB Bank </option>
+                                    <option  value="agd_bank"> AGD Bank </option>
+                                </select>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -389,6 +414,28 @@
 
         <!-- display table -->
         <script src="{{asset('assets/admin/js/table_display.js')}}"></script>
+        <script>
+                $(document).ready(function ()
+                {
+                    $('#tbl-contact thead th').each(function () {
+                        var title = $(this).text();
+                        $(this).html(title+' <input type="text" class="col-search-input" placeholder="Search ' + title + '" />');
+                    });
+                    
+                    table.columns().every(function () {
+                        var table = this;
+                        $('input', this.header()).on('keyup change', function () {
+                            if (table.search() !== this.value) {
+                                table.search(this.value).draw();
+                            }
+                        });
+                    });
+                });
+
+                $('.col-search-input').on('keyup', function () {
+                            alert(this.value);
+                        });
+        </script>
 
     </div>
 

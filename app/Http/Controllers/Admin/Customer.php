@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class Customer extends Controller
 {
     public function customer (Request $request) {
-        $all_customer = ModelsCustomer::all();
+        $all_customer = ModelsCustomer::orderBy('id', 'DESC')->get();
 
         $context = [
             "all_customer" => $all_customer
