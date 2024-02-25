@@ -412,30 +412,18 @@
             </table>
         </div>
 
-        <!-- display table -->
-        <script src="{{asset('assets/admin/js/table_display.js')}}"></script>
         <script>
                 $(document).ready(function ()
                 {
-                    $('#tbl-contact thead th').each(function () {
+                    $('.display thead th').each(function () {
                         var title = $(this).text();
-                        $(this).html(title+' <input type="text" class="col-search-input" placeholder="Search ' + title + '" />');
-                    });
-                    
-                    table.columns().every(function () {
-                        var table = this;
-                        $('input', this.header()).on('keyup change', function () {
-                            if (table.search() !== this.value) {
-                                table.search(this.value).draw();
-                            }
-                        });
+                        $(this).html(title+' <input type="text" class="col-search-input search_table" placeholder="Search ' + title + '" />');
                     });
                 });
-
-                $('.col-search-input').on('keyup', function () {
-                            alert(this.value);
-                        });
         </script>
+
+        <!-- display table -->
+        <script src="{{asset('assets/admin/js/table_display.js')}}"></script>
 
     </div>
 
