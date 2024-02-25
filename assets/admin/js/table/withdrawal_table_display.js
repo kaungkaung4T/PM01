@@ -112,16 +112,28 @@ $(document).ready( function () {
             var that = this;
 
             $('.search_table1', this.header()).on('keyup change clear', function () {
+                that
+                    .search( '' )
+                    .columns().search( '' )
+                    .draw();
                 if ( that.search() !== this.value) {
                     that.search( this.value ).draw();    
                 }
                 });
             $('.search_table2', this.header()).on('keyup change clear', function () {
+                that
+                    .search( '' )
+                    .columns().search( '' )
+                    .draw();
                 if ( that.search() !== this.value) {
                     that.search( this.value ).draw();    
                 }
                 });
             $('.search_table3', this.header()).on('keyup change clear', function () {
+                that
+                    .search( '' )
+                    .columns().search( '' )
+                    .draw();
                 if ( that.search() !== this.value) {
                     that.search( this.value ).draw();    
                 }

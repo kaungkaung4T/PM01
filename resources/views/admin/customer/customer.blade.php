@@ -216,7 +216,7 @@
                         <a class="stop_propagation">
                             <i class="bi bi-search search_button3 stop_propagation search_icon"></i>
                             <div class="search_group3">
-                                <input type="text" class="form-control col-search-input search_table3 stop_propagation" placeholder="Search" />
+                                <input type="search" class="form-control col-search-input search_table3 stop_propagation" placeholder="Search" />
                                 <div class="search_group_bottom stop_propagation">
                                     <button class="btn btn-sm btn-primary text-white stop_propagation table_search_button">Search</button>
                                     <button class="btn btn-sm border stop_propagation table_search_reset" style="border-color: #ced4da !important;">Reset</button>

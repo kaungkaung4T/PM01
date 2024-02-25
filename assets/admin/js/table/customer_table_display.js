@@ -26,9 +26,9 @@ $(document).ready( function () {
             $('.search_group2').show();
             $('.search_group1').hide();
             $('.search_group3').hide();
-            $('.col-search-input').val("");
-
-            new DataTable('.display', {
+            $('.col-search-input').val( '' );
+            
+            let table = new DataTable('.display', {
                 destroy: true,
                 columnDefs: [ { orderable: false, targets: [3,4,9] },
                       { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
@@ -81,6 +81,7 @@ $(document).ready( function () {
                 columnDefs: [ { orderable: false, targets: [3,4,9] },
                       { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
                 order: [[0, "desc"]],
+                
             });
             
         });
@@ -102,7 +103,7 @@ $(document).ready( function () {
 
 
     var table = $(".display").DataTable({
-
+        destroy: true,
         columnDefs: [ { orderable: false, targets: [3,4,9] },
                       { "orderSequence": [ "desc", "asc"], "targets": '_all' } ],
         order: [[0, "desc"]],
@@ -112,16 +113,29 @@ $(document).ready( function () {
             var that = this;
 
             $('.search_table1', this.header()).on('keyup change clear', function () {
+                that
+                    .search( '' )
+                    .columns().search( '' )
+                    .draw();
                 if ( that.search() !== this.value) {
                     that.search( this.value ).draw();    
                 }
                 });
             $('.search_table2', this.header()).on('keyup change clear', function () {
+                that
+                    .search( '' )
+                    .columns().search( '' )
+                    .draw();
                 if ( that.search() !== this.value) {
-                    that.search( this.value ).draw();    
+                    that.search( this.value ).draw();
+                       
                 }
                 });
             $('.search_table3', this.header()).on('keyup change clear', function () {
+                that
+                    .search( '' )
+                    .columns().search( '' )
+                    .draw();
                 if ( that.search() !== this.value) {
                     that.search( this.value ).draw();    
                 }
