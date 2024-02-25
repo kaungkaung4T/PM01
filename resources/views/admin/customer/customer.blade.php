@@ -413,13 +413,7 @@
         </div>
 
         <script>
-                $(document).ready(function ()
-                {
-                    $('.display thead th').each(function () {
-                        var title = $(this).text();
-                        $(this).html(title+' <input type="text" class="col-search-input search_table" placeholder="Search ' + title + '" />');
-                    });
-                });
+
         </script>
 
         <!-- display table -->
