@@ -31,4 +31,8 @@ class Customer extends Model
         return $this->hasOne('App\Models\User', 'id', 'system_user');
     }
 
+    public function deposit_data ()  {
+        return $this->hasOne('App\Models\Deposit', 'id', 'deposit_amount');
+    }
+
 }

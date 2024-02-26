@@ -40,7 +40,7 @@
                 </th>
                 
                 <th scope="col" class="text-start text-dark">
-                    <label class="stop_propagation">Code</label>
+                    <label class="stop_propagation">Reference number</label>
                     <div class="float-right table_top_right">
                         <a class="stop_propagation">
                             <i class="bi bi-search search_button2 stop_propagation search_icon"></i>

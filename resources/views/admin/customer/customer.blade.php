@@ -271,17 +271,47 @@
             <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->phone }} </td>
             <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->name }} </td>
             <td class="text-start align-middle" style="color: #495057;"> 
-                {{ $each_customer->deposit_amount }} 
+ 
                 <div class="main_amount_group">
+                    @if (!empty($each_customer->deposit_data->wallet))
+                            @if ($each_customer->deposit_data->wallet == 'wallet_1')
+                            <ul>
+                                <li>Total Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 1 Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 2 Amount: <span>0.00</span></li>
+                                <li>Wallet 3 Amount: <span>0.00</span></li>
+                                <li>Pending Withdrawal Amount: <span>0.00</span></li>
+                                <li>Stacked Amount: <span>0.00</span></li>
+                            </ul>
+                            @elseif ($each_customer->deposit_data->wallet == 'wallet_2')
+                            <ul>
+                                <li>Total Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 1 Amount: <span>0.00</span></li>
+                                <li>Wallet 2 Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 3 Amount: <span>0.00</span></li>
+                                <li>Pending Withdrawal Amount: <span>0.00</span></li>
+                                <li>Stacked Amount: <span>0.00</span></li>
+                            </ul>
+                            @elseif ($each_customer->deposit_data->wallet == 'wallet_3')
+                            <ul>
+                                <li>Total Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 1 Amount: <span>0.00</span></li>
+                                <li>Wallet 2 Amount: <span>0.00</span></li>
+                                <li>Wallet 3 Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Pending Withdrawal Amount: <span>0.00</span></li>
+                                <li>Stacked Amount: <span>0.00</span></li>
+                            </ul>
+                            @endif
+                    @else
                     <ul>
                         <li>Total Amount: <span>0.00</span></li>
                         <li>Wallet 1 Amount: <span>0.00</span></li>
                         <li>Wallet 2 Amount: <span>0.00</span></li>
-                        <li>Wallet 2 Real Amount <span>0.00</span></li>
                         <li>Wallet 3 Amount: <span>0.00</span></li>
                         <li>Pending Withdrawal Amount: <span>0.00</span></li>
                         <li>Stacked Amount: <span>0.00</span></li>
                     </ul>
+                    @endif
                 </div>
             </td>
             <td class="text-start align-middle" style="color: #495057;"> {{ $each_customer->system_user_data->username }} </td>
@@ -302,7 +332,7 @@
                 <div class="align-self-start main_action_group">
                     <div class="top_action_group">
                         <ul>
-                            <li><a class="btn btn-sm btn-success text-white">Deposit</a></li>
+                            <li><a id="deposit_modal_button_{{ $each_customer->id }}" onclick="deposit_open_modal('{{ $each_customer->id }}')" class="btn btn-sm btn-success text-white">Deposit</a></li>
                             <li><a class="btn btn-sm btn-danger text-white">Deduct</a></li>
                             <li><a class="btn btn-sm border">Add Downline</a></li>
                             <li><a id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')" class="edit_action btn btn-sm border text-danger"
@@ -323,8 +353,86 @@
                     </div>
                 </div>
             </td>
+            <!-- Modal of Customer Deposit -->
+            <div class="modal fade" id="deposit_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Deposit Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" id="deposit_top_close_modal_{{ $each_customer->id }}" 
+                    onclick="deposit_top_close_modal('{{ $each_customer->id }}')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="{{ route('admin.create_deposit') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        
+                        <!-- To get Customer ID -->
+                        <input name="userid" type="hidden" class="form-control" value="{{ $each_customer->id }}">
 
-            <!-- Modal -->
+                        <div class="modal-body customer_deposit_modal_form pb-5">
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Username:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <input name="username" type="text" class="form-control" value="{{ $each_customer->username }}" readonly required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Deposit Amount MMK:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                <input name="amount" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1">  </span><label>Remarks:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <textarea name="remark" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Wallet:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <select name="wallet" class="form-select" required>
+                                    <option disabled selected value>  </option>
+                                    <option  value="wallet_1"> Wallet 1 </option>
+                                    <option  value="wallet_2"> Wallet 2 </option>
+                                    <option  value="wallet_3"> Wallet 3 </option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm border" id="deposit_close_modal_{{ $each_customer->id }}" 
+                        onclick="deposit_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Deposit</button>
+                    </div>
+                    </form>
+                    <script>
+                        function deposit_open_modal(customer_id){
+                            $(`#deposit_exampleModalCenter_${customer_id}`).modal('show');
+                        }
+
+                        function deposit_close_modal(customer_id){
+                            $(`#deposit_exampleModalCenter_${customer_id}`).modal('hide');
+                        }
+
+                        function deposit_top_close_modal(customer_id){
+                            $(`#deposit_exampleModalCenter_${customer_id}`).modal('hide');
+                        }
+                    </script>
+                </div>
+            </div>
+            </div>
+
+            <!-- Modal of Customer Update -->
             <div class="modal fade" id="update_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">

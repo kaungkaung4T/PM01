@@ -14,7 +14,9 @@ class Deposit extends Model
         'code',
         'amount',
         'system_user',
-        'status'
+        'status',
+        'remark',
+        'wallet'
     ];
 
     public function system_user_data ()  {
