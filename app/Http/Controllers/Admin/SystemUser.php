@@ -54,6 +54,6 @@ class SystemUser extends Controller
                 'status' => 'Inactive',
             ]);
         }
-        return redirect()->route('admin.system')->with('success', 'System User Created Successfully');
+        return redirect()->route('admin.system')->with('success', 'System User Updated Successfully');
     }
 }

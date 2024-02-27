@@ -58,7 +58,7 @@
             <div class="collapse" id="my-setting">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="" class="nav-link">Setting</a>
+                  <a href="{{ route('admin.setting', Auth::id()) }}" class="nav-link">Setting</a>
                 </li>
               </ul>
             </div>

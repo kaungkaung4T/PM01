@@ -28,8 +28,14 @@ Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login/post_login', [AuthManager::class, 'post_login'])->name('post_login');
 Route::post('/logout', [AuthManager::class, 'logout'])->name('logout');
 
+// --------------- Admin Group ---------------
 // Dashboard
 Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
+
+// Setting
+Route::get('/setting/{id}', [AdminController::class, 'admin_setting'])->middleware(['auth', 'verified'])->name('admin.setting');
+Route::post('/setting/update_name/{id}', [AdminController::class, 'update_admin_name'])->middleware(['auth', 'verified'])->name('admin.update_name');
+Route::post('/setting/update_password/{id}', [AdminController::class, 'update_admin_password'])->middleware(['auth', 'verified'])->name('admin.update_password');
 
 
 // System Users
@@ -47,9 +53,9 @@ Route::post('/customer/update_customer/{id}', [Customer::class, 'update_customer
 Route::get('/deposit', [Deposit::class, 'deposit'])->middleware(['auth', 'verified'])->name('admin.deposit');
 Route::post('/deposit/create_deposit', [Deposit::class, 'create_deposit'])->middleware(['auth', 'verified'])->name('admin.create_deposit');
 
-//withdrawal
+//  Withdrawal
 Route::get('/withdrawal', [Withdrawal::class, 'withdrawal'])->middleware(['auth', 'verified'])->name('admin.withdrawal');
 
-//withdrawal
+//  Subscriptions
 Route::get('/subscriptions', [Subscriptions::class, 'subscriptions'])->middleware(['auth', 'verified'])->name('admin.subscriptions');
 

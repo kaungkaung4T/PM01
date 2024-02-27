@@ -63,6 +63,6 @@ class Deposit extends Controller
         $context = [
             "all_deposit" => $all_deposit
         ];
-        return redirect()->route('admin.customer')->with('success', 'Customer Created Successfully');
+        return redirect()->route('admin.customer')->with('success', 'Deposit Created Successfully');
     }
 }

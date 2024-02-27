@@ -144,6 +144,6 @@ class Customer extends Controller
         $context = [
             "all_customer" => $all_customer
         ];
-        return redirect()->route('admin.customer')->with('success', 'Customer Created Successfully');
+        return redirect()->route('admin.customer')->with('success', 'Customer Updated Successfully');
     }
 }
