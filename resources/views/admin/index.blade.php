@@ -12,11 +12,11 @@
         <div class="today_body">
             <div class="today_deposit_amount">
                 <p class="text-muted mb-2">Today's Deposit Amount</p>
-                <h3>200.00</h3>
+                <h3>{{ $today_deposit_amount_total }}</h3>
             </div>
             <div class="today_deposit_count">
                 <p class="mb-2">Today's Deposit Count</p>
-                <h3>4</h3>
+                <h3>{{ $today_deposit }}</h3>
             </div>
             <div class="today_withdrawal_amount">
                 <p class="text-muted mb-2">Today's Withdrawal Amount</p>
@@ -24,7 +24,7 @@
             </div>
             <div class="today_customer">
                 <p class="mb-2">Today's New Customer</p>
-                <h3>3</h3>
+                <h3>{{ $today_user }}</h3>
             </div>
         </div>
     </div>
@@ -38,11 +38,11 @@
         <div class="month_body">
             <div class="month_deposit_amount">
                 <p class="text-muted mb-2">Month's Deposit Amount</p>
-                <h3>14,671.40</h3>
+                <h3>{{ $month_deposit_amount_total }}</h3>
             </div>
             <div class="month_deposit_count">
                 <p class="mb-2">Month's Deposit Count</p>
-                <h3>96</h3>
+                <h3>{{ $month_deposit }}</h3>
             </div>
             <div class="month_withdrawal_amount">
                 <p class="text-muted mb-2">Month's Withdrawal Amount</p>
@@ -50,7 +50,7 @@
             </div>
             <div class="month_customer">
                 <p class="mb-2">Month's New Customer</p>
-                <h3>90</h3>
+                <h3>{{ $month_users }}</h3>
             </div>
         </div>
     </div>
