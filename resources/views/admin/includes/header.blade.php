@@ -67,7 +67,11 @@
                   <i class="bi bi-calendar4 header-calendar-icon2 btn btn-sm border" id="header_cicon2"></i>
                   <input type="text" name="dates2" class="btn btn-sm border header-calendar" id="header_c"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
                   <script>
-                    $('input[name="dates2"]').daterangepicker();
+                    $('input[name="dates2"]').daterangepicker({
+                      locale: {
+                      cancelLabel: 'Clear'
+                    }
+                    });
 
                     $('#header_cicon2').click(function () {
                         $('input[name="dates2"]').click();
