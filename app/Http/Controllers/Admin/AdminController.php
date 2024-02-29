@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\Deposit;
 use App\Models\User;
 use Carbon\Carbon;
@@ -13,8 +14,8 @@ class AdminController extends Controller
 {
     public function admin_dashboard (Request $request) {
         
-        $today_user = User::whereDate('created_at', date('Y-m-d'))->get();
-        $month_users = User::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
+        $today_user = Customer::whereDate('created_at', date('Y-m-d'))->get();
+        $month_users = Customer::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
 
         $today_deposit = Deposit::whereDate('created_at', date('Y-m-d'))->get();
         $month_deposit = Deposit::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
