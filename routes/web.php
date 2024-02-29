@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Customer;
 use App\Http\Controllers\Admin\Deposit;
+use App\Http\Controllers\Admin\Setting;
 use App\Http\Controllers\Admin\Subscriptions;
 use App\Http\Controllers\Admin\SystemUser;
 use App\Http\Controllers\Admin\Withdrawal;
@@ -33,9 +34,9 @@ Route::post('/logout', [AuthManager::class, 'logout'])->name('logout');
 Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 // Setting
-Route::get('/setting/{id}', [AdminController::class, 'admin_setting'])->middleware(['auth', 'verified'])->name('admin.setting');
-Route::post('/setting/update_name/{id}', [AdminController::class, 'update_admin_name'])->middleware(['auth', 'verified'])->name('admin.update_name');
-Route::post('/setting/update_password/{id}', [AdminController::class, 'update_admin_password'])->middleware(['auth', 'verified'])->name('admin.update_password');
+Route::get('/setting/{id}', [Setting::class, 'admin_setting'])->middleware(['auth', 'verified'])->name('admin.setting');
+Route::post('/setting/update_name/{id}', [Setting::class, 'update_admin_name'])->middleware(['auth', 'verified'])->name('admin.update_name');
+Route::post('/setting/update_password/{id}', [Setting::class, 'update_admin_password'])->middleware(['auth', 'verified'])->name('admin.update_password');
 
 
 // System Users
