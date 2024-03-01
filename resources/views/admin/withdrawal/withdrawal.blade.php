@@ -144,10 +144,18 @@
             @endif
 
             <!-- Button trigger modal -->
+            @if ( $each_withdrawal->status == 'Completed' )
             <td id="update_modal_button_{{ $each_withdrawal->id }}" onclick="update_open_modal('{{ $each_withdrawal->id }}')"
             class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
             View
             </td>
+            @else
+            <td id="update_modal_button_{{ $each_withdrawal->id }}" onclick="update_open_modal('{{ $each_withdrawal->id }}')"
+            class="text-start" style="color: #000;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+                <button class="text-start btn btn-sm btn-info" style="margin-left: -13px;">View</button>
+            </td>
+            @endif
+            
 
             <!-- Modal -->
             <div class="modal fade" id="update_exampleModalCenter_{{ $each_withdrawal->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

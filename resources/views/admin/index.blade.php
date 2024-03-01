@@ -20,7 +20,7 @@
             </div>
             <div class="today_withdrawal_amount">
                 <p class="text-muted mb-2">Today's Withdrawal Amount</p>
-                <h3>101.17</h3>
+                <h3>{{ $today_withdrawal_amount_total }}</h3>
             </div>
             <div class="today_customer">
                 <p class="mb-2">Today's New Customer</p>
@@ -46,7 +46,7 @@
             </div>
             <div class="month_withdrawal_amount">
                 <p class="text-muted mb-2">Month's Withdrawal Amount</p>
-                <h3>5,368.50</h3>
+                <h3>{{ $month_withdrawal_amount_total }}</h3>
             </div>
             <div class="month_customer">
                 <p class="mb-2">Month's New Customer</p>
