@@ -25,7 +25,7 @@ return new class extends Migration
             
             $table->timestamp('complete_date')->nullable();
             $table->timestamp('reject_date')->nullable();
-            $table->enum('status', ['Completed', 'Pending'])->default('Completed');
+            $table->enum('status', ['Completed', 'Pending', 'Rejected'])->default('Completed');
             $table->timestamps();
         });
     }

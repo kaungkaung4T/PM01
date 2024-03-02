@@ -28,10 +28,14 @@ class AdminController extends Controller
         $month_deposit_amount_total = 0;
         
         for($i = 0; $i < $today_deposit_amount->count() ; $i++) {
+            if ( $today_deposit_amount[$i]->status == 'Completed' ) {
             $today_deposit_amount_total = $today_deposit_amount[$i]->amount + $today_deposit_amount_total;
+            }
         }
         for($i = 0; $i < $month_deposit_amount->count() ; $i++) {
+            if ( $month_deposit_amount[$i]->status == 'Completed' ) {
             $month_deposit_amount_total = $month_deposit_amount[$i]->amount + $month_deposit_amount_total;
+            }
         }
 
         // ------------- Group By All Months -------------

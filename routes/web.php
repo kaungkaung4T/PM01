@@ -56,6 +56,7 @@ Route::post('/deposit/create_deposit', [Deposit::class, 'create_deposit'])->midd
 
 //  Withdrawal
 Route::get('/withdrawal', [Withdrawal::class, 'withdrawal'])->middleware(['auth', 'verified'])->name('admin.withdrawal');
+Route::post('/withdrawal/update_withdrawal/{id}', [Withdrawal::class, 'update_withdrawal'])->middleware(['auth', 'verified'])->name('admin.update_withdrawal');
 
 //  Subscriptions
 Route::get('/subscriptions', [Subscriptions::class, 'subscriptions'])->middleware(['auth', 'verified'])->name('admin.subscriptions');

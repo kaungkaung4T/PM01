@@ -17,11 +17,17 @@ class Withdrawal extends Model
         'system_user',
         'complete_date',
         'reject_date',
-        'status'
+        'status',
+        'completed_rejected_user'
     ];
 
     public function system_user_data ()  {
         // return $this->hasMany('App\Models\User', 'id', 'system_user');       // For Many
         return $this->hasOne('App\Models\User', 'id', 'system_user');
+    }
+
+    public function completed_rejected_user_user_data ()  {
+        // return $this->hasMany('App\Models\User', 'id', 'completed_rejected_user');       // For Many
+        return $this->hasOne('App\Models\User', 'id', 'completed_rejected_user');
     }
 }

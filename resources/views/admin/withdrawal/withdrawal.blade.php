@@ -144,7 +144,7 @@
             @endif
 
             <!-- Button trigger modal -->
-            @if ( $each_withdrawal->status == 'Completed' )
+            @if ( $each_withdrawal->status == 'Completed' || $each_withdrawal->status == 'Rejected' )
             <td id="update_modal_button_{{ $each_withdrawal->id }}" onclick="update_open_modal('{{ $each_withdrawal->id }}')"
             class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
             View
@@ -168,7 +168,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.update_withdrawal', $each_withdrawal->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body table_deposit_view">
                             <ul>
@@ -192,12 +192,48 @@
                                     @endif
 
                                 <li> Status: <span> {{ $each_withdrawal->status }} </span></li>
+                                <li> Completed: 
+                                    <span class="ml-4">
+                                        
+                                        @if ($each_withdrawal->status == "Completed")
+                                    <input type="checkbox" id="com_check_{{ $each_withdrawal->id }}" name="completed" onchange="com(this, '{{ $each_withdrawal->id }}')" class="form-check-input" checked>
+                                        @else
+                                    <input type="checkbox" id="com_check_{{ $each_withdrawal->id }}" name="completed" onchange="com(this, '{{ $each_withdrawal->id }}')" class="form-check-input" required>
+                                        @endif
+          
+                                    </span>
+                                </li>
+                                <li> Rejected: 
+                                    <span class="ml-4">
+                                            @if ($each_withdrawal->status == "Rejected")
+                                        <input type="checkbox" id="rej_check_{{ $each_withdrawal->id }}" name="rejected" onchange="rej(this, '{{ $each_withdrawal->id }}')" class="form-check-input" checked>
+                                            @else
+                                        <input type="checkbox" id="rej_check_{{ $each_withdrawal->id }}" name="rejected" onchange="rej(this, '{{ $each_withdrawal->id }}')" class="form-check-input" required>
+                                            @endif
+                                    </span>
+                                </li>
+                                <script>
+                                    function com (event, id) {
+                                        if($(event).prop('checked')) {
+                                            $(`#rej_check_${id}`).hide();
+                                        } else {
+                                            $(`#rej_check_${id}`).show();
+                                        }
+                                    }
+                                    function rej (event, id) {
+                                        if($(event).prop('checked')) {
+                                            $(`#com_check_${id}`).hide();
+                                        } else {
+                                            $(`#com_check_${id}`).show();
+                                        }
+                                    }
+                                </script>
                             </ul>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sm border" id="update_close_modal_{{ $each_withdrawal->id }}" 
                             onclick="update_close_modal('{{ $each_withdrawal->id }}')" data-dismiss="modal">Back</button>
-                            <!-- <button type="submit" class="btn btn-sm btn-primary">Update</button> -->
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </div>
                     </form>
                     <script>
