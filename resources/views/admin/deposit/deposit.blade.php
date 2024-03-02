@@ -120,7 +120,7 @@
             <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-success" 
             style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_deposit->status }}</td>
             @else
-            <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-danger" 
+            <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-warning" 
             style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_deposit->status }}</td>
             @endif
 
