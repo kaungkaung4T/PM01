@@ -19,23 +19,27 @@ class Withdrawal extends Controller
     }
 
     public function update_withdrawal (Request $request, $id) {
-        $withdrawal = ModelsWithdrawal::find($id)->get();
+        $withdrawal = ModelsWithdrawal::find($id);
         
         if (isset($request->completed)) {
             $withdrawal->completed_rejected_user = Auth::id();
-            $withdrawal->status = $request->completed;
+            $withdrawal->status = 'Completed';
             $withdrawal->complete_date = date('Y-m-d H:i:s');
+            $withdrawal->reject_date = null;
+            $withdrawal->save();
         }
 
         if (isset($request->rejected)) {
             $withdrawal->completed_rejected_user = Auth::id();
-            $withdrawal->status = $request->rejected;
+            $withdrawal->status = 'Rejected';
+            $withdrawal->complete_date = null;
             $withdrawal->reject_date = date('Y-m-d H:i:s');
+            $withdrawal->save();
         }
 
         $context = [
             "withdrawal" => $withdrawal
         ];
-        return redirect()->route('admin.withdrawal.withdrawal')->with('success', 'Withdrawal Updated Successfully');
+        return redirect()->route('admin.withdrawal')->with('success', 'Withdrawal Updated Successfully');
     }
 }

@@ -126,17 +126,30 @@
                 @if ($each_withdrawal->complete_date == NULL || $each_withdrawal->complete_date == "0000-00-00 00:00:00")
             <td class="text-start" style="color: #495057;"> - </td>
                 @else
-            <td class="text-start" style="color: #495057;"> {{ $each_withdrawal->complete_date }} </td>
+            <td class="text-start" style="color: #495057;"> 
+                <ul style="list-style: none;margin-left: -30px;">
+                    <li>{{ $each_withdrawal->complete_date }}</li>
+                    <li class="text-primary">{{ $each_withdrawal->completed_rejected_user_user_data->username }}</li>
+                </ul>
+            </td>
                 @endif
 
                 @if ($each_withdrawal->reject_date == NULL || $each_withdrawal->reject_date == "0000-00-00 00:00:00")
             <td class="text-start" style="color: #495057;"> - </td>
                 @else
-            <td class="text-start" style="color: #495057;"> {{ $each_withdrawal->reject_date }} </td>
+            <td class="text-start" style="color: #495057;">
+                <ul style="list-style: none;margin-left: -30px;">
+                    <li>{{ $each_withdrawal->reject_date }}</li>
+                    <li class="text-primary">{{ $each_withdrawal->completed_rejected_user_user_data->username }}</li>
+                </ul>
+            </td>
                 @endif
 
             @if ( $each_withdrawal->status == 'Completed' )
             <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-success" 
+            style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_withdrawal->status }}</td>
+            @elseif ( $each_withdrawal->status == 'Rejected' )
+            <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-warning" 
             style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_withdrawal->status }}</td>
             @else
             <td class="text-start" style="color: #495057;"><i class="bi bi-circle-fill text-danger" 
@@ -198,7 +211,7 @@
                                         @if ($each_withdrawal->status == "Completed")
                                     <input type="checkbox" id="com_check_{{ $each_withdrawal->id }}" name="completed" onchange="com(this, '{{ $each_withdrawal->id }}')" class="form-check-input" checked>
                                         @else
-                                    <input type="checkbox" id="com_check_{{ $each_withdrawal->id }}" name="completed" onchange="com(this, '{{ $each_withdrawal->id }}')" class="form-check-input" required>
+                                    <input type="checkbox" id="com_check_{{ $each_withdrawal->id }}" name="completed" onchange="com(this, '{{ $each_withdrawal->id }}')" class="form-check-input">
                                         @endif
           
                                     </span>
@@ -208,13 +221,14 @@
                                             @if ($each_withdrawal->status == "Rejected")
                                         <input type="checkbox" id="rej_check_{{ $each_withdrawal->id }}" name="rejected" onchange="rej(this, '{{ $each_withdrawal->id }}')" class="form-check-input" checked>
                                             @else
-                                        <input type="checkbox" id="rej_check_{{ $each_withdrawal->id }}" name="rejected" onchange="rej(this, '{{ $each_withdrawal->id }}')" class="form-check-input" required>
+                                        <input type="checkbox" id="rej_check_{{ $each_withdrawal->id }}" name="rejected" onchange="rej(this, '{{ $each_withdrawal->id }}')" class="form-check-input">
                                             @endif
                                     </span>
                                 </li>
                                 <script>
                                     function com (event, id) {
                                         if($(event).prop('checked')) {
+                                            $(`#rej_check_${id}`).prop('checked', false);
                                             $(`#rej_check_${id}`).hide();
                                         } else {
                                             $(`#rej_check_${id}`).show();
@@ -222,6 +236,7 @@
                                     }
                                     function rej (event, id) {
                                         if($(event).prop('checked')) {
+                                            $(`#com_check_${id}`).prop('checked', false);
                                             $(`#com_check_${id}`).hide();
                                         } else {
                                             $(`#com_check_${id}`).show();
