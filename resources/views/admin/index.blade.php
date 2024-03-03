@@ -72,11 +72,11 @@
             </div>
             <div class="system3">
                 <p class="mb-2">Pending Deposit</p>
-                <h3>0.00</h3>
+                <h3>{{ $pending_deposit_amount_total }}</h3>
             </div>
             <div class="system4">
                 <p class="mb-2">Pending Withdrawal</p>
-                <h3>171.60</h3>
+                <h3>{{ $pending_withdrawal_amount_total }}</h3>
             </div>
             <div class="system5">
                 <p class="text-muted mb-2">Today's Profit</p>
