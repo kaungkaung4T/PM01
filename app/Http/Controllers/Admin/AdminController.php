@@ -21,6 +21,13 @@ class AdminController extends Controller
         $today_deposit = Deposit::whereDate('created_at', date('Y-m-d'))->get();
         $month_deposit = Deposit::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
 
+                // ------------- Group By All Months -------------
+        // $month_users = User::select('id', 'created_at')
+        //                 ->get()
+        //                 ->groupBy(function($date) {
+        //                     return Carbon::parse($date->created_at)->format('m'); // grouping by months
+        //                 });
+        
         $today_deposit_amount = Deposit::whereDate('created_at', date('Y-m-d'))->get();
         $month_deposit_amount = Deposit::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
         $pending_deposit_amount = Deposit::all();
@@ -44,13 +51,6 @@ class AdminController extends Controller
                 $pending_deposit_amount_total = $pending_deposit_amount[$i]->amount + $pending_deposit_amount_total;
             }
         }
-
-        // ------------- Group By All Months -------------
-        // $month_users = User::select('id', 'created_at')
-        //                 ->get()
-        //                 ->groupBy(function($date) {
-        //                     return Carbon::parse($date->created_at)->format('m'); // grouping by months
-        //                 });
 
         $today_withdrawal_amount = Withdrawal::whereDate('created_at', date('Y-m-d'))->get();
         $month_withdrawal_amount = Withdrawal::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
