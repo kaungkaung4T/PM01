@@ -12,7 +12,7 @@
         <div class="today_body">
             <div class="today_deposit_amount">
                 <p class="text-muted mb-2">Today's Deposit Amount</p>
-                <h3>{{ $today_deposit_amount_total }}</h3>
+                <h3>{{ number_format($today_deposit_amount_total, 2) }}</h3>
             </div>
             <div class="today_deposit_count">
                 <p class="mb-2">Today's Deposit Count</p>
@@ -20,7 +20,7 @@
             </div>
             <div class="today_withdrawal_amount">
                 <p class="text-muted mb-2">Today's Withdrawal Amount</p>
-                <h3>{{ $today_withdrawal_amount_total }}</h3>
+                <h3>{{ number_format($today_withdrawal_amount_total, 2) }}</h3>
             </div>
             <div class="today_customer">
                 <p class="mb-2">Today's New Customer</p>
@@ -38,7 +38,7 @@
         <div class="month_body">
             <div class="month_deposit_amount">
                 <p class="text-muted mb-2">Month's Deposit Amount</p>
-                <h3>{{ $month_deposit_amount_total }}</h3>
+                <h3>{{ number_format($month_deposit_amount_total, 2) }}</h3>
             </div>
             <div class="month_deposit_count">
                 <p class="mb-2">Month's Deposit Count</p>
@@ -46,7 +46,7 @@
             </div>
             <div class="month_withdrawal_amount">
                 <p class="text-muted mb-2">Month's Withdrawal Amount</p>
-                <h3>{{ $month_withdrawal_amount_total }}</h3>
+                <h3>{{ number_format($month_withdrawal_amount_total, 2) }}</h3>
             </div>
             <div class="month_customer">
                 <p class="mb-2">Month's New Customer</p>
@@ -64,7 +64,7 @@
         <div class="system_body">
             <div class="system1">
                 <p class="mb-2">System Profit</p>
-                <h3>17,213.27</h3>
+                <h3>{{ number_format($system_profit, 2) }}</h3>
             </div>
             <div class="system2">
                 <p class="mb-2">Bonus Issued</p>
@@ -72,15 +72,15 @@
             </div>
             <div class="system3">
                 <p class="mb-2">Pending Deposit</p>
-                <h3>{{ $pending_deposit_amount_total }}</h3>
+                <h3>{{ number_format($pending_deposit_amount_total, 2) }}</h3>
             </div>
             <div class="system4">
                 <p class="mb-2">Pending Withdrawal</p>
-                <h3>{{ $pending_withdrawal_amount_total }}</h3>
+                <h3>{{ number_format($pending_withdrawal_amount_total, 2) }}</h3>
             </div>
             <div class="system5">
                 <p class="text-muted mb-2">Today's Profit</p>
-                <h3>98.83</h3>
+                <h3>{{ number_format($today_profit, 2) }}</h3>
             </div>
         </div>
     </div>

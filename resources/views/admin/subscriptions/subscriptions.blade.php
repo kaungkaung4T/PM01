@@ -131,8 +131,10 @@
             @endif
 
             <!-- Button trigger modal -->
-            <td id="update_modal_button_{{ $each_subscriptions->id }}" onclick="update_open_modal('{{ $each_subscriptions->id }}')"
-            class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+            <!-- <td id="update_modal_button_{{ $each_subscriptions->id }}" onclick="update_open_modal('{{ $each_subscriptions->id }}')"
+            class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter"> -->
+            <td id="update_modal_button_{{ $each_subscriptions->id }}"
+            class="text-start" style="color: #495057;" data-toggle="modal" data-target="#exampleModalCenter">
             
             </td>
 

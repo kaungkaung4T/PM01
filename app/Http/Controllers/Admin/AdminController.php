@@ -28,14 +28,21 @@ class AdminController extends Controller
         //                     return Carbon::parse($date->created_at)->format('m'); // grouping by months
         //                 });
         
+        $deposit_amount = Deposit::all();
         $today_deposit_amount = Deposit::whereDate('created_at', date('Y-m-d'))->get();
         $month_deposit_amount = Deposit::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
         $pending_deposit_amount = Deposit::all();
 
+        $all_deposit_amount_total = 0;
         $today_deposit_amount_total = 0;
         $month_deposit_amount_total = 0;
         $pending_deposit_amount_total = 0;
         
+        for($i = 0; $i < $deposit_amount->count() ; $i++) {
+            if ( $deposit_amount[$i]->status == 'Completed' ) {
+                $all_deposit_amount_total = $deposit_amount[$i]->amount + $all_deposit_amount_total;
+            }
+        }
         for($i = 0; $i < $today_deposit_amount->count() ; $i++) {
             if ( $today_deposit_amount[$i]->status == 'Completed' ) {
                 $today_deposit_amount_total = $today_deposit_amount[$i]->amount + $today_deposit_amount_total;
@@ -52,14 +59,21 @@ class AdminController extends Controller
             }
         }
 
+        $withdrawal_amount = Withdrawal::all();
         $today_withdrawal_amount = Withdrawal::whereDate('created_at', date('Y-m-d'))->get();
         $month_withdrawal_amount = Withdrawal::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
         $pending_withdrawal_amount = Withdrawal::all();
 
+        $all_withdrawal_amount_total = 0;
         $today_withdrawal_amount_total = 0;
         $month_withdrawal_amount_total = 0;
         $pending_withdrawal_amount_total = 0;
         
+        for($i = 0; $i < $withdrawal_amount->count() ; $i++) {
+            if ( $withdrawal_amount[$i]->status == 'Completed' ) {
+                $all_withdrawal_amount_total = $withdrawal_amount[$i]->amount + $all_withdrawal_amount_total;
+            }
+        }
         for($i = 0; $i < $today_withdrawal_amount->count() ; $i++) {
             if ( $today_withdrawal_amount[$i]->status == 'Completed' ) {
                 $today_withdrawal_amount_total = $today_withdrawal_amount[$i]->amount + $today_withdrawal_amount_total;
@@ -76,6 +90,9 @@ class AdminController extends Controller
             }
         }
 
+        $system_profit = $all_deposit_amount_total - $all_withdrawal_amount_total;
+        $today_profit = $today_deposit_amount_total - $today_withdrawal_amount_total;
+
         $context = [
             'today_user'=> $today_user->count(),
             'month_users'=> $month_users->count(),
@@ -87,6 +104,8 @@ class AdminController extends Controller
             'month_deposit_amount_total'=> $month_deposit_amount_total,
             'pending_deposit_amount_total'=> $pending_deposit_amount_total,
 
+            'system_profit'=> $system_profit,
+            'today_profit'=> $today_profit,
             'today_withdrawal_amount_total'=> $today_withdrawal_amount_total,
             'month_withdrawal_amount_total'=> $month_withdrawal_amount_total,
             'pending_withdrawal_amount_total'=> $pending_withdrawal_amount_total
