@@ -112,4 +112,80 @@ class AdminController extends Controller
         ];
         return view('admin.index', $context);
     }
+
+    public function admin_search (Request $request) {
+        $dates = $request->dates;
+        $modify_dates = (explode("-", $dates));
+        $f = $modify_dates[0];
+        $t = $modify_dates[1];
+
+        $modify_f = (explode("/", $f));
+        $modify_t = (explode("/", $t));
+
+        $modify_f_2 = preg_replace('/\s+/', '', $modify_f[2]);
+        $modify_f_0 = preg_replace('/\s+/', '', $modify_f[0]);
+        $modify_f_1 = preg_replace('/\s+/', '', $modify_f[1]);
+
+        $modify_t_2 = preg_replace('/\s+/', '', $modify_t[2]);
+        $modify_t_0 = preg_replace('/\s+/', '', $modify_t[0]);
+        $modify_t_1 = preg_replace('/\s+/', '', $modify_t[1]);
+
+        $modify_from = "$modify_f_2-$modify_f_0-$modify_f_1";
+        $modify_to = "$modify_t_2-$modify_t_0-$modify_t_1";
+
+
+        $from = date('2024-02-01');
+        $to = date('2024-02-25');
+        $search_deposit_amount = Deposit::whereBetween('created_at', [$modify_from, $modify_to])->get();
+        $search_withdrawal_amount = Withdrawal::whereBetween('created_at', [$modify_from, $modify_to])->get();
+
+        $context = [
+            "dates"=> $dates,
+
+            "search_deposit_amount"=> $search_deposit_amount,
+            "search_withdrawal_amount"=> $search_withdrawal_amount,
+
+            "f"=> $modify_from,
+            "s"=> $modify_to,
+        ];
+        return view('admin.search.search', $context);
+    }
+
+    public function admin_mobile_search (Request $request) {
+        $dates = $request->dates2;
+        $modify_dates = (explode("-", $dates));
+        $f = $modify_dates[0];
+        $t = $modify_dates[1];
+
+        $modify_f = (explode("/", $f));
+        $modify_t = (explode("/", $t));
+
+        $modify_f_2 = preg_replace('/\s+/', '', $modify_f[2]);
+        $modify_f_0 = preg_replace('/\s+/', '', $modify_f[0]);
+        $modify_f_1 = preg_replace('/\s+/', '', $modify_f[1]);
+
+        $modify_t_2 = preg_replace('/\s+/', '', $modify_t[2]);
+        $modify_t_0 = preg_replace('/\s+/', '', $modify_t[0]);
+        $modify_t_1 = preg_replace('/\s+/', '', $modify_t[1]);
+
+        $modify_from = "$modify_f_2-$modify_f_0-$modify_f_1";
+        $modify_to = "$modify_t_2-$modify_t_0-$modify_t_1";
+
+
+        $from = date('2024-02-01');
+        $to = date('2024-02-25');
+        $search_deposit_amount = Deposit::whereBetween('created_at', [$modify_from, $modify_to])->get();
+        $search_withdrawal_amount = Withdrawal::whereBetween('created_at', [$modify_from, $modify_to])->get();
+
+        $context = [
+            "dates"=> $dates,
+
+            "search_deposit_amount"=> $search_deposit_amount,
+            "search_withdrawal_amount"=> $search_withdrawal_amount,
+
+            "f"=> $modify_from,
+            "s"=> $modify_to,
+        ];
+        return view('admin.search.search', $context);
+    }
 }

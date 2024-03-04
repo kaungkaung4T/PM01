@@ -5,54 +5,57 @@
         </a>
         <div class="navbar-content mt-3">
             <div class="calendar_main">
-            <i class="bi bi-calendar4 header-calendar-icon" id="header_cicon"></i>
-            <input type="text" name="dates" class="btn btn-sm border header-calendar" id="header_c"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
-            <script>
-              $('input[name="dates"]').daterangepicker({
-                  locale: {
-                      cancelLabel: 'Clear'
-                  }
-              });
+              <form action="{{ route('admin.search') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+              <i class="bi bi-calendar4 header-calendar-icon" id="header_cicon"></i>
+              <input type="text" name="dates" class="btn btn-sm border header-calendar" id="header_c"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
+              <script>
+                $('input[name="dates"]').daterangepicker({
+                    locale: {
+                        cancelLabel: 'Clear'
+                    }
+                });
 
-              $('#header_cicon').click(function () {
-                  $('input[name="dates"]').click();
-              })
+                $('#header_cicon').click(function () {
+                    $('input[name="dates"]').click();
+                })
 
-              $('input[name="dates"]').on('apply.daterangepicker', function(ev, picker) {
-                  $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-              });
+                $('input[name="dates"]').on('apply.daterangepicker', function(ev, picker) {
+                    $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+                });
 
-              $('input[name="dates"]').on('cancel.daterangepicker', function(ev, picker) {
-                  let fullDate = new Date();
-                  let twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
-                  let twoDigitDate = fullDate.getDate()+"";if(twoDigitDate.length==1)	twoDigitDate="0" +twoDigitDate;
-                  let currentDate = twoDigitMonth + "/" + twoDigitDate + "/" + fullDate.getFullYear();console.log(currentDate);
+                $('input[name="dates"]').on('cancel.daterangepicker', function(ev, picker) {
+                    let fullDate = new Date();
+                    let twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
+                    let twoDigitDate = fullDate.getDate()+"";if(twoDigitDate.length==1)	twoDigitDate="0" +twoDigitDate;
+                    let currentDate = twoDigitMonth + "/" + twoDigitDate + "/" + fullDate.getFullYear();console.log(currentDate);
 
-                  $('input[name="dates"]').val(currentDate + ' - ' + currentDate);
+                    $('input[name="dates"]').val(currentDate + ' - ' + currentDate);
 
-                  picker.setStartDate({})
-                  picker.setEndDate({})
-              });
-            </script>
-            </div>
+                    picker.setStartDate({})
+                    picker.setEndDate({})
+                });
+              </script>
+              </div>
 
-            <div style="margin-left: 10px;">
-            <button class="btn btn-sm border">Search Date</button>
-            </div>
+              <div style="margin-left: 10px;">
+              <button class="btn btn-sm border">Search Date</button>
+              </div>
 
-            <div style="margin-left: 10px;">
-            <button class="btn btn-sm border" id="reset_date">Reset Date</button>
-            <script>
-                  let fullDate = new Date();
-                  let twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
-                  let twoDigitDate = fullDate.getDate()+"";if(twoDigitDate.length==1)	twoDigitDate="0" +twoDigitDate;
-                  let currentDate = twoDigitMonth + "/" + twoDigitDate + "/" + fullDate.getFullYear();
+              <div style="margin-left: 10px;">
+              <button class="btn btn-sm border" id="reset_date">Reset Date</button>
+              <script>
+                    let fullDate = new Date();
+                    let twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
+                    let twoDigitDate = fullDate.getDate()+"";if(twoDigitDate.length==1)	twoDigitDate="0" +twoDigitDate;
+                    let currentDate = twoDigitMonth + "/" + twoDigitDate + "/" + fullDate.getFullYear();
 
-                    $('#reset_date').on('click', function () {
-                        $('input[name="dates"]').val(currentDate + ' - ' + currentDate);
-                        $('.cancelBtn').click();
-                    });
-            </script>
+                      $('#reset_date').on('click', function () {
+                          $('input[name="dates"]').val(currentDate + ' - ' + currentDate);
+                          $('.cancelBtn').click();
+                      });
+              </script>
+              </form>
             </div>
         </div>
         
@@ -64,6 +67,8 @@
             <ul class="dropdown-menu">
               <li class="mb-2" style="margin-left: 3px;">
                 <div class="calendar_main">
+                  <form action="{{ route('admin.mobile_search') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                   <i class="bi bi-calendar4 header-calendar-icon2 btn btn-sm border" id="header_cicon2"></i>
                   <input type="text" name="dates2" class="btn btn-sm border header-calendar" id="header_c"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
                   <script>
@@ -123,6 +128,7 @@
                               $('.cancelBtn').click();
                       });
                   </script>
+                  </form>
                 </div>
               </li>
             </ul>

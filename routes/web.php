@@ -32,6 +32,8 @@ Route::post('/logout', [AuthManager::class, 'logout'])->name('logout');
 // --------------- Admin Group ---------------
 // Dashboard
 Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->middleware(['auth', 'verified'])->name('admin.dashboard');
+Route::post('/admin-dashboard/search', [AdminController::class, 'admin_search'])->middleware(['auth', 'verified'])->name('admin.search');
+Route::post('/admin-dashboard/mobile_search', [AdminController::class, 'admin_mobile_search'])->middleware(['auth', 'verified'])->name('admin.mobile_search');
 
 // Setting
 Route::get('/setting/{id}', [Setting::class, 'admin_setting'])->middleware(['auth', 'verified'])->name('admin.setting');
