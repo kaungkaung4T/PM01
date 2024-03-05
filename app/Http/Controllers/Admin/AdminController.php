@@ -133,14 +133,33 @@ class AdminController extends Controller
         $modify_from = "$modify_f_2-$modify_f_0-$modify_f_1";
         $modify_to = "$modify_t_2-$modify_t_0-$modify_t_1";
 
+        $search_customer = Customer::whereBetween('created_at', [$modify_from, $modify_to])->get();
         $search_deposit_amount = Deposit::whereBetween('created_at', [$modify_from, $modify_to])->get();
         $search_withdrawal_amount = Withdrawal::whereBetween('created_at', [$modify_from, $modify_to])->get();
+
+        $search_deposit_amount_total = 0;
+        $search_withdrawal_amount_total = 0;
+
+        for($i = 0; $i < $search_deposit_amount->count() ; $i++) {
+            if ( $search_deposit_amount[$i]->status == 'Completed' ) {
+                $search_deposit_amount_total = $search_deposit_amount[$i]->amount + $search_deposit_amount_total;
+            }
+        }
+
+        for($i = 0; $i < $search_withdrawal_amount->count() ; $i++) {
+            if ( $search_withdrawal_amount[$i]->status == 'Completed' ) {
+                $search_withdrawal_amount_total = $search_withdrawal_amount[$i]->amount + $search_withdrawal_amount_total;
+            }
+        }
 
         $context = [
             "dates"=> $dates,
 
-            "search_deposit_amount"=> $search_deposit_amount,
-            "search_withdrawal_amount"=> $search_withdrawal_amount,
+            "search_customer"=> $search_customer->count(),
+            "search_deposit"=> $search_deposit_amount->count(),
+
+            "search_deposit_amount_total"=> $search_deposit_amount_total,
+            "search_withdrawal_amount_total"=> $search_withdrawal_amount_total,
 
             "f"=> $modify_from,
             "s"=> $modify_to,
