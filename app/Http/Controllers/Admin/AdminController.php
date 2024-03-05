@@ -133,9 +133,6 @@ class AdminController extends Controller
         $modify_from = "$modify_f_2-$modify_f_0-$modify_f_1";
         $modify_to = "$modify_t_2-$modify_t_0-$modify_t_1";
 
-
-        $from = date('2024-02-01');
-        $to = date('2024-02-25');
         $search_deposit_amount = Deposit::whereBetween('created_at', [$modify_from, $modify_to])->get();
         $search_withdrawal_amount = Withdrawal::whereBetween('created_at', [$modify_from, $modify_to])->get();
 
