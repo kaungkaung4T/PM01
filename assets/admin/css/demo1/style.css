@@ -456,6 +456,8 @@ table.dataTable>tbody>tr>td:nth-child(9) {
 
 .navbar .navbar-content2 { display: none; }
 
+.search_result_main { margin-left: 27px;margin-bottom: 20px; }
+
 /* sidebar */
 .sidebar .sidebar-body .nav .bottom-item {
   position: absolute;
@@ -627,6 +629,7 @@ table.dataTable>tbody>tr>td:nth-child(9) {
   .today_main { margin-left: 0; }
   .month_main { margin-left: 0; }
   .system_main { margin-left: 0; }
+  .search_result_main { margin-left: 0px;margin-bottom: 20px; }
 }
 
 body {

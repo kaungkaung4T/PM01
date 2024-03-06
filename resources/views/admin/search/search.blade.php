@@ -5,9 +5,10 @@
 
     <div class="page-content" style="color: #495057;">
 
+    <div class="search_result_main">
     <h4 style="color: #343a40;">Your search: <span style="color: #495057;">{{ $dates }}</span></h4>
     <p>Result: <span>({{$f}}) - ({{$s}})</span></p> 
-
+    </div>
 
     <br><br>
 
