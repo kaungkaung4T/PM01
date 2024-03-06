@@ -8,7 +8,11 @@
               <form action="{{ route('admin.search') }}" method="POST" enctype="multipart/form-data">
                 @csrf
               <i class="bi bi-calendar4 header-calendar-icon" id="header_cicon"></i>
+                @if (empty($dates))
               <input type="text" name="dates" class="btn btn-sm border header-calendar" id="header_c"/>   <!-- giving specific value="01/01/2018 - 01/15/2018" -->
+                @else
+              <input type="text" name="dates" class="btn btn-sm border header-calendar" value="{{ $dates }}" id="header_c"/>
+                @endif
               <script>
                 $('input[name="dates"]').daterangepicker({
                     locale: {
