@@ -23077,6 +23077,25 @@ div.tox .tox-dialog__body {
 }
 }
 
+@media (max-width: 687px) {
+  .setting_modal_form { margin: 0;width: auto;margin-left: 20px; }
+  .setting_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0; }
+  .setting_modal_form .modal_form_group:nth-child(1) input { margin-left: 0; }
+
+  .setting_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 0; }
+  .setting_modal_form .modal_form_group:nth-child(2) button { margin-left: 0; }
+
+  .setting_modal_form .submit_change { border-color:#ced4da;float: none;margin-right: 97px; }
+  
+  .setting_modal_form_password .modal_form_group { flex-wrap: wrap !important; }
+  .setting_modal_form_password .modal_form_group label { color:#343a40; }
+  .setting_modal_form_password .modal_form_group input { border-color:#ced4da; }
+  .setting_modal_form_password .modal_form_group .modal_form_group_word { display: flex; }
+
+  .setting_modal_form_password .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0;width: auto; }
+  .setting_modal_form_password .modal_form_group:nth-child(1) input { margin-left: 0; }
+}
+
 @media (max-width: 580px) {
   .system_modal_form { margin-left: 10px; }
   .system_modal_form .modal_form_group { flex-wrap: wrap !important; }
@@ -23154,23 +23173,6 @@ div.tox .tox-dialog__body {
 
   .customer_deposit_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 0;width: auto; }
   .customer_deposit_modal_form .modal_form_group:nth-child(4) select { margin-left: 0; }
-
-  .setting_modal_form { margin: 0;width: auto;margin-left: 20px; }
-  .setting_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0; }
-  .setting_modal_form .modal_form_group:nth-child(1) input { margin-left: 0; }
-
-  .setting_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 0; }
-  .setting_modal_form .modal_form_group:nth-child(2) button { margin-left: 0; }
-
-  .setting_modal_form .submit_change { border-color:#ced4da;float: none;margin-right: 97px; }
-  
-  .setting_modal_form_password .modal_form_group { flex-wrap: wrap !important; }
-  .setting_modal_form_password .modal_form_group label { color:#343a40; }
-  .setting_modal_form_password .modal_form_group input { border-color:#ced4da; }
-  .setting_modal_form_password .modal_form_group .modal_form_group_word { display: flex; }
-
-  .setting_modal_form_password .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0;width: auto; }
-  .setting_modal_form_password .modal_form_group:nth-child(1) input { margin-left: 0; }
 }
 
 @media (max-width: 425px) {
