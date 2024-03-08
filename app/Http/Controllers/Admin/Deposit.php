@@ -15,7 +15,8 @@ class Deposit extends Controller
      */
     public function generate_reference_number () {
 
-        $number = mt_rand(100000000000000000, 999999999999999999);
+        // $number = mt_rand(100000000000000000, 999999999999999999);
+        $number = mt_rand(100000000000000000, PHP_INT_MAX);
   
         if ($this->barcodeNumberExists($number)) {
             return $this->generate_reference_number();
@@ -24,12 +25,12 @@ class Deposit extends Controller
         return $number;
         }
   
-      /**
-       * Check reference number is duplicate or not.
-       */
-      public function barcodeNumberExists($number) {
-          return ModelsDeposit::where("code", "=", $number)->exists();
-      } 
+    /**
+     * Check reference number is duplicate or not.
+     */
+    public function barcodeNumberExists($number) {
+        return ModelsDeposit::where("code", "=", $number)->exists();
+    } 
 
     public function deposit (Request $request) {
         $all_deposit = ModelsDeposit::orderBy('id', 'DESC')->get();
