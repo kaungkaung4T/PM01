@@ -187,7 +187,7 @@
                             <ul>
                                 <li> Username: <span> {{ $each_withdrawal->customer_name }} </span></li>
                                 <li> Code: <span> {{ $each_withdrawal->code }} </span></li>
-                                <li> Request Amount: <span> {{ $each_withdrawal->amount }} </span></li>
+                                <li> Request Amount: <span> {{ number_format($each_withdrawal->amount, 2) }} </span></li>
                                 <li> Remarks: <span> {{ $each_withdrawal->remark }} </span></li>
                                 <li> Created At: <span> {{ $each_withdrawal->system_user_data->created_at }} </span></li>
                                 <li> Created By: <span> {{ $each_withdrawal->system_user_data->username }} </span></li>

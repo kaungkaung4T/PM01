@@ -4,9 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer as ModelsCustomer;
+use App\Models\Deposit;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class Customer extends Controller
 {
@@ -21,36 +23,42 @@ class Customer extends Controller
 
     public function create_customer (Request $request) {
 
-        if (isset($request->fake)) {
-            $all_customer = ModelsCustomer::create([
-                'system_user' => Auth::id(),
-                'username' => $request->username,
-                'password' => $request->password,
-                'phone' => $request->phone,
-                'nric' => $request->nric,
-                'name' => $request->name,
-                'bank_type' => $request->bank_type,
-                'bank_number' => $request->bank_number,
-                'remark' => $request->remark,
-                'parent_user' => $request->parent_user,
-                'fake' => true
-            ]);
+        try {
+            if (isset($request->fake)) {
+                $all_customer = ModelsCustomer::create([
+                    'system_user' => Auth::id(),
+                    'username' => $request->username,
+                    'password' => $request->password,
+                    'phone' => $request->phone,
+                    'nric' => $request->nric,
+                    'name' => $request->name,
+                    'bank_type' => $request->bank_type,
+                    'bank_number' => $request->bank_number,
+                    'remark' => $request->remark,
+                    'parent_user' => $request->parent_user,
+                    'fake' => true
+                ]);
+            }
+            else {
+                $all_customer = ModelsCustomer::create([
+                    'system_user' => Auth::id(),
+                    'username' => $request->username,
+                    'password' => $request->password,
+                    'phone' => $request->phone,
+                    'nric' => $request->nric,
+                    'name' => $request->name,
+                    'bank_type' => $request->bank_type,
+                    'bank_number' => $request->bank_number,
+                    'remark' => $request->remark,
+                    'parent_user' => $request->parent_user,
+                    'fake' => false
+                ]);
+            }
+        } 
+        catch (\Exception $e) {
+            return Redirect::back()->withErrors(['msg' => 'Customer username can not be created with same username!']);
         }
-        else {
-            $all_customer = ModelsCustomer::create([
-                'system_user' => Auth::id(),
-                'username' => $request->username,
-                'password' => $request->password,
-                'phone' => $request->phone,
-                'nric' => $request->nric,
-                'name' => $request->name,
-                'bank_type' => $request->bank_type,
-                'bank_number' => $request->bank_number,
-                'remark' => $request->remark,
-                'parent_user' => $request->parent_user,
-                'fake' => false
-            ]);
-        }
+
         $context = [
             "all_customer" => $all_customer
         ];

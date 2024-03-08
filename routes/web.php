@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Customer;
+use App\Http\Controllers\Admin\Deduct;
 use App\Http\Controllers\Admin\Deposit;
 use App\Http\Controllers\Admin\Setting;
 use App\Http\Controllers\Admin\Subscriptions;
@@ -55,6 +56,9 @@ Route::post('/customer/update_customer/{id}', [Customer::class, 'update_customer
 // Deposit
 Route::get('/deposit', [Deposit::class, 'deposit'])->middleware(['auth', 'verified'])->name('admin.deposit');
 Route::post('/deposit/create_deposit', [Deposit::class, 'create_deposit'])->middleware(['auth', 'verified'])->name('admin.create_deposit');
+
+// Deduct
+Route::post('/deduct/{id}', [Deduct::class, 'deduct'])->middleware(['auth', 'verified'])->name('admin.deduct');
 
 //  Withdrawal
 Route::get('/withdrawal', [Withdrawal::class, 'withdrawal'])->middleware(['auth', 'verified'])->name('admin.withdrawal');

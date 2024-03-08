@@ -112,7 +112,7 @@
             <th scope="row" class="text-start" style="color: #495057;font-weight: normal;">{{ $each_deposit->id }}</th>
             <td class="text-start" style="color: #495057;">{{ $each_deposit->customer_name }}</td>
             <td class="text-start" style="color: #495057;">{{ $each_deposit->code }}</td>
-            <td class="text-start" style="color: #495057;">{{ $each_deposit->amount }}</td>
+            <td class="text-start" style="color: #495057;">{{ number_format($each_deposit->amount, 2) }}</td>
             <td class="text-start" style="color: #495057;">{{ $each_deposit->system_user_data->username }}</td>
             <td class="text-start" style="color: #495057;">{{ $each_deposit->updated_at }}</td>
             <td class="text-start" style="color: #495057;">{{ $each_deposit->created_at }}</td>

@@ -109,7 +109,7 @@
             <th scope="row" class="text-start" style="color: #495057;font-weight: normal;">{{ $each_subscriptions->id }}</th>
             <td class="text-start" style="color: #495057;">{{ $each_subscriptions->customer_data->username }}</td>
             <td class="text-start" style="color: #495057;">{{ $each_subscriptions->code }}</td>
-            <td class="text-start" style="color: #495057;">{{ $each_subscriptions->amount }}</td>
+            <td class="text-start" style="color: #495057;">{{ number_format($each_subscriptions->amount, 2) }}</td>
             <td class="text-start" style="color: #495057;">
                 <ul style="list-style: none;margin-left: -30px;">
                     <li> Name: <span> {{ $each_subscriptions->package_data->name }} </span></li>

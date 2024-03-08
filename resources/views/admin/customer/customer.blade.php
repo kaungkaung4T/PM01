@@ -8,6 +8,12 @@
 
     <div class="page-content">
 
+                    @if($errors->any())
+                    <div class="alert alert-danger" role="alert" style="margin-left: 30px;width: 500px;margin-top: 10px;margin-bottom: 20px;">
+                        <b class="" role="alert">{{ $errors->first() }}</b>
+                    </div>
+                    @endif
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-sm border mb-2" id="modal_button" data-toggle="modal" data-target="#exampleModalCenter">
   Create
@@ -333,7 +339,7 @@
                     <div class="top_action_group">
                         <ul>
                             <li><a id="deposit_modal_button_{{ $each_customer->id }}" onclick="deposit_open_modal('{{ $each_customer->id }}')" class="btn btn-sm btn-success text-white">Deposit</a></li>
-                            <li><a class="btn btn-sm btn-danger text-white">Deduct</a></li>
+                            <li><a id="deduct_modal_button_{{ $each_customer->id }}" onclick="deduct_open_modal('{{ $each_customer->id }}')" class="btn btn-sm btn-danger text-white">Deduct</a></li>
                             <li><a class="btn btn-sm border">Add Downline</a></li>
                             <li><a id="update_modal_button_{{ $each_customer->id }}" onclick="update_open_modal('{{ $each_customer->id }}')" class="edit_action btn btn-sm border text-danger"
                                 style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
@@ -353,6 +359,68 @@
                     </div> -->
                 </div>
             </td>
+            <!-- Modal of Customer Deduct -->
+            <div class="modal fade" id="deduct_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Deduct Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" id="deduct_top_close_modal_{{ $each_customer->id }}" 
+                    onclick="deduct_top_close_modal('{{ $each_customer->id }}')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="{{ route('admin.deduct', $each_customer->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        
+                        <!-- To get Customer ID -->
+                        <input name="userid" type="hidden" class="form-control" value="{{ $each_customer->id }}">
+
+                        <div class="modal-body customer_deduct_modal_form pb-5">
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Username:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <input name="username" type="text" class="form-control" value="{{ $each_customer->username }}" readonly required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Deposit Amount MMK:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    @if (!empty($each_customer->deposit_data->amount))
+                                <input name="amount" type="number" class="form-control" placeholder="{{ number_format($each_customer->deposit_data->amount, 2) }}" required>
+                                    @else
+                                <input name="amount" type="number" class="form-control" required>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm border" id="deduct_close_modal_{{ $each_customer->id }}" 
+                        onclick="deduct_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Deduct</button>
+                    </div>
+                    </form>
+                    <script>
+                        function deduct_open_modal(customer_id){
+                            $(`#deduct_exampleModalCenter_${customer_id}`).modal('show');
+                        }
+
+                        function deduct_close_modal(customer_id){
+                            $(`#deduct_exampleModalCenter_${customer_id}`).modal('hide');
+                        }
+
+                        function deduct_top_close_modal(customer_id){
+                            $(`#deduct_exampleModalCenter_${customer_id}`).modal('hide');
+                        }
+                    </script>
+                </div>
+            </div>
+            </div>
+
             <!-- Modal of Customer Deposit -->
             <div class="modal fade" id="deposit_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

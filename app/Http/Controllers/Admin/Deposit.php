@@ -45,21 +45,35 @@ class Deposit extends Controller
 
         $reference_number = $this->generate_reference_number();
         
-        $all_deposit = ModelsDeposit::create([
-            'customer_id' => $request->userid,
-            'customer_name' => $request->username,
-            'code' => $reference_number,
-            'amount' => $request->amount,
-            'remark' => $request->remark,
-            'wallet' => $request->wallet,
-            'system_user' => Auth::id(),
-            'status' => 'Completed'
-        ]);
+        if (ModelsDeposit::where("customer_id", $request->userid)->exists()) {
+            $all_deposit = ModelsDeposit::where("customer_id", $request->userid)->update([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $request->remark,
+                'wallet' => $request->wallet,
+                'system_user' => Auth::id(),
+                'status' => 'Completed'
+            ]);
+        }
+        else {
+            $all_deposit = ModelsDeposit::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $request->remark,
+                'wallet' => $request->wallet,
+                'system_user' => Auth::id(),
+                'status' => 'Completed'
+            ]);
 
-        $customer = Customer::find($request->userid);
-        $customer->update([
-            'deposit_amount' => $all_deposit->id
-        ]);
+            $customer = Customer::find($request->userid);
+            $customer->update([
+                'deposit_amount' => $all_deposit->id
+            ]);
+        }
 
         $context = [
             "all_deposit" => $all_deposit

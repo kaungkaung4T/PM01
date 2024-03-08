@@ -267,6 +267,22 @@ table.dataTable>tbody>tr>td:nth-child(9) {
 .setting_modal_form_password .modal_form_group:nth-child(1) input { margin-left: -35px; }
 
 
+/* customer_deduct_modal_form */
+.customer_deduct_modal_form { margin-left: 20px; }
+.customer_deduct_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.customer_deduct_modal_form .modal_form_group label { color:#343a40; }
+.customer_deduct_modal_form .modal_form_group input { border-color:#ced4da; }
+.customer_deduct_modal_form .modal_form_group textarea { border-color:#ced4da; }
+.customer_deduct_modal_form .modal_form_group select { border-color:#ced4da; }
+.customer_deduct_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+
+.customer_deduct_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 55px;width: 95px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(1) input { margin-left: -27px; }
+
+.customer_deduct_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: -18px;width: 180px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(2) input { margin-left: -38px; }
+
+
 /* customer_deposit_modal_form */
 .customer_deposit_modal_form { margin-left: 20px; }
 .customer_deposit_modal_form .modal_form_group { flex-wrap: nowrap !important; }
@@ -23173,6 +23189,15 @@ div.tox .tox-dialog__body {
 
   .customer_deposit_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 0;width: auto; }
   .customer_deposit_modal_form .modal_form_group:nth-child(4) select { margin-left: 0; }
+
+  .customer_deduct_modal_form { margin-left: 20px; }
+  .customer_deduct_modal_form .modal_form_group { flex-wrap: wrap !important; }
+
+  .customer_deduct_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0;width: auto; }
+  .customer_deduct_modal_form .modal_form_group:nth-child(1) input { margin-left: 0; }
+
+  .customer_deduct_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 0;width: auto; }
+  .customer_deduct_modal_form .modal_form_group:nth-child(2) input { margin-left: 0; }
 }
 
 @media (max-width: 425px) {
