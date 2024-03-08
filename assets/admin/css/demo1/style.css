@@ -348,7 +348,7 @@ table.dataTable>tbody>tr>td:nth-child(9) {
 
 /* Table Action of Customer */
 .main_action_group { display: block;width: 200px; }
-.main_action_group .top_action_group { border-bottom: 1px solid #e9ecef;margin-bottom: 20px; }
+/* .main_action_group .top_action_group { border-bottom: 1px solid #e9ecef;margin-bottom: 20px; } */
 .main_action_group .top_action_group ul { display: inline-flex;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
 .main_action_group .top_action_group ul li a { margin-right: 3px;margin-bottom: 3px;border-color:#ced4da !important; }
 .main_action_group .top_action_group ul li .edit_action { margin-right: 3px;margin-bottom: 3px;border: 2.4px dotted #adb5bd !important; }

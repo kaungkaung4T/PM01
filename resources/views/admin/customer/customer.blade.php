@@ -276,8 +276,8 @@
                     @if (!empty($each_customer->deposit_data->wallet))
                             @if ($each_customer->deposit_data->wallet == 'wallet_1')
                             <ul>
-                                <li>Total Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
-                                <li>Wallet 1 Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Total Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
+                                <li>Wallet 1 Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
                                 <li>Wallet 2 Amount: <span>0.00</span></li>
                                 <li>Wallet 3 Amount: <span>0.00</span></li>
                                 <li>Pending Withdrawal Amount: <span>0.00</span></li>
@@ -285,19 +285,19 @@
                             </ul>
                             @elseif ($each_customer->deposit_data->wallet == 'wallet_2')
                             <ul>
-                                <li>Total Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Total Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
                                 <li>Wallet 1 Amount: <span>0.00</span></li>
-                                <li>Wallet 2 Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 2 Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
                                 <li>Wallet 3 Amount: <span>0.00</span></li>
                                 <li>Pending Withdrawal Amount: <span>0.00</span></li>
                                 <li>Stacked Amount: <span>0.00</span></li>
                             </ul>
                             @elseif ($each_customer->deposit_data->wallet == 'wallet_3')
                             <ul>
-                                <li>Total Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Total Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
                                 <li>Wallet 1 Amount: <span>0.00</span></li>
                                 <li>Wallet 2 Amount: <span>0.00</span></li>
-                                <li>Wallet 3 Amount: <span>{{ $each_customer->deposit_data->amount }}</span></li>
+                                <li>Wallet 3 Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
                                 <li>Pending Withdrawal Amount: <span>0.00</span></li>
                                 <li>Stacked Amount: <span>0.00</span></li>
                             </ul>
@@ -343,14 +343,14 @@
                         </ul>
                     </div>
 
-                    <div class="bottom_action_group">
+                    <!-- <div class="bottom_action_group">
                         <ul>
                             <li><a class="btn btn-sm btn-primary text-white">Add|Deduct Reinvest Wallet</a></li>
                             <li><a class="btn btn-sm btn-primary text-white">Add|Deduct Referral Wallet</a></li>
                             <li><a class="btn btn-sm btn-primary text-white">Withdraw Referral Wallet</a></li>
                             <li><a class="claim_action btn btn-sm border text-danger">Claim Wallet 2</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </td>
             <!-- Modal of Customer Deposit -->
