@@ -386,7 +386,8 @@
                                 </div>
                                 <div class="col-sm-5">
                                     @if (!empty($each_customer->deposit_data->amount))
-                                <input name="amount" type="number" class="form-control" placeholder="{{ number_format($each_customer->deposit_data->amount, 2) }}" required>
+                                <!-- <input name="amount" type="number" class="form-control" placeholder="{{ number_format($each_customer->deposit_data->amount, 2) }}" required> -->
+                                <input name="amount" type="number" class="form-control" required>
                                     @else
                                 <input name="amount" type="number" class="form-control" required>
                                     @endif
