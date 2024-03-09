@@ -282,8 +282,8 @@ table.dataTable>tbody>tr>td:nth-child(9) {
 .customer_deduct_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 79px;width: 68px; }
 .customer_deduct_modal_form .modal_form_group:nth-child(2) select { margin-left: -24px; }
 
-.customer_deduct_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: -18px;width: 180px; }
-.customer_deduct_modal_form .modal_form_group:nth-child(3) input { margin-left: -38px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: -16px;width: 180px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(3) input { margin-left: -41px; }
 
 
 /* customer_deposit_modal_form */

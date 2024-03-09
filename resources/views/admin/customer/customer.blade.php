@@ -382,7 +382,7 @@
                             </div>
                             <div class="mb-3 row modal_form_group">
                                 <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1"> * </span><label>Deposit Amount MMK:</label>
+                                <span class="mr-1"> * </span><label>Deduct Amount MMK:</label>
                                 </div>
                                 <div class="col-sm-5">
                                     @if (!empty($each_customer->deposit_data->amount))
