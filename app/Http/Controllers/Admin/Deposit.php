@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Deposit as ModelsDeposit;
+use App\Models\DepositNoti;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +34,7 @@ class Deposit extends Controller
     } 
 
     public function deposit (Request $request) {
-        $all_deposit = ModelsDeposit::orderBy('id', 'DESC')->get();
+        $all_deposit = DepositNoti::orderBy('id', 'DESC')->get();
 
         $context = [
             "all_deposit" => $all_deposit
@@ -46,34 +47,163 @@ class Deposit extends Controller
         $reference_number = $this->generate_reference_number();
         
         if (ModelsDeposit::where("customer_id", $request->userid)->exists()) {
-            $all_deposit = ModelsDeposit::where("customer_id", $request->userid)->update([
-                'customer_id' => $request->userid,
-                'customer_name' => $request->username,
-                'code' => $reference_number,
-                'amount' => $request->amount,
-                'remark' => $request->remark,
-                'wallet' => $request->wallet,
-                'system_user' => Auth::id(),
-                'status' => 'Completed'
-            ]);
+            if ($request->wallet == "wallet_1") {
+                ModelsDeposit::where("customer_id", $request->userid)->update([
+                    'customer_id' => $request->userid,
+                    'customer_name' => $request->username,
+                    'code' => $reference_number,
+                    'amount' => $request->amount,
+                    'remark' => $request->remark,
+                    'wallet' => $request->amount,
+                    'system_user' => Auth::id(),
+                    'status' => 'Completed'
+                ]);
+            }if ($request->wallet == "wallet_2") {
+                ModelsDeposit::where("customer_id", $request->userid)->update([
+                    'customer_id' => $request->userid,
+                    'customer_name' => $request->username,
+                    'code' => $reference_number,
+                    'amount' => $request->amount,
+                    'remark' => $request->remark,
+                    'wallet2' => $request->amount,
+                    'system_user' => Auth::id(),
+                    'status' => 'Completed'
+                ]);
+            }if ($request->wallet == "wallet_3") {
+                ModelsDeposit::where("customer_id", $request->userid)->update([
+                    'customer_id' => $request->userid,
+                    'customer_name' => $request->username,
+                    'code' => $reference_number,
+                    'amount' => $request->amount,
+                    'remark' => $request->remark,
+                    'wallet3' => $request->amount,
+                    'system_user' => Auth::id(),
+                    'status' => 'Completed'
+                ]);
+            }
         }
         else {
-            $all_deposit = ModelsDeposit::create([
-                'customer_id' => $request->userid,
-                'customer_name' => $request->username,
-                'code' => $reference_number,
-                'amount' => $request->amount,
-                'remark' => $request->remark,
-                'wallet' => $request->wallet,
-                'system_user' => Auth::id(),
-                'status' => 'Completed'
-            ]);
+            if ($request->wallet == "wallet_1") {
+                $all_deposit = ModelsDeposit::create([
+                    'customer_id' => $request->userid,
+                    'customer_name' => $request->username,
+                    'code' => $reference_number,
+                    'amount' => $request->amount,
+                    'remark' => $request->remark,
+                    'wallet' => $request->amount,
+                    'system_user' => Auth::id(),
+                    'status' => 'Completed'
+                ]);
+            }else if ($request->wallet == "wallet_2") {
+                $all_deposit = ModelsDeposit::create([
+                    'customer_id' => $request->userid,
+                    'customer_name' => $request->username,
+                    'code' => $reference_number,
+                    'amount' => $request->amount,
+                    'remark' => $request->remark,
+                    'wallet2' => $request->amount,
+                    'system_user' => Auth::id(),
+                    'status' => 'Completed'
+                ]);
+            }else if ($request->wallet == "wallet_3") {
+                $all_deposit = ModelsDeposit::create([
+                    'customer_id' => $request->userid,
+                    'customer_name' => $request->username,
+                    'code' => $reference_number,
+                    'amount' => $request->amount,
+                    'remark' => $request->remark,
+                    'wallet3' => $request->amount,
+                    'system_user' => Auth::id(),
+                    'status' => 'Completed'
+                ]);
+            }
 
             $customer = Customer::find($request->userid);
             $customer->update([
                 'deposit_amount' => $all_deposit->id
             ]);
         }
+
+
+            // Deposit Noti For Display in Deposit Page
+            if (DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->exists()) {
+                if ($request->wallet == "wallet_1") {
+                    $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
+                        'customer_id' => $request->userid,
+                        'customer_name' => $request->username,
+                        'code' => $reference_number,
+                        'amount' => $request->amount,
+                        'remark' => $request->remark,
+                        'wallet' => $request->wallet,
+                        'wallet1' => $request->amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }if ($request->wallet == "wallet_2") {
+                    $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
+                        'customer_id' => $request->userid,
+                        'customer_name' => $request->username,
+                        'code' => $reference_number,
+                        'amount' => $request->amount,
+                        'remark' => $request->remark,
+                        'wallet' => $request->wallet,
+                        'wallet2' => $request->amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }if ($request->wallet == "wallet_3") {
+                    $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
+                        'customer_id' => $request->userid,
+                        'customer_name' => $request->username,
+                        'code' => $reference_number,
+                        'amount' => $request->amount,
+                        'remark' => $request->remark,
+                        'wallet' => $request->wallet,
+                        'wallet3' => $request->amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }
+            }
+            else {
+                if ($request->wallet == "wallet_1") {
+                    $all_deposit = DepositNoti::create([
+                        'customer_id' => $request->userid,
+                        'customer_name' => $request->username,
+                        'code' => $reference_number,
+                        'amount' => $request->amount,
+                        'remark' => $request->remark,
+                        'wallet' => $request->wallet,
+                        'wallet1' => $request->amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }else if ($request->wallet == "wallet_2") {
+                    $all_deposit = DepositNoti::create([
+                        'customer_id' => $request->userid,
+                        'customer_name' => $request->username,
+                        'code' => $reference_number,
+                        'amount' => $request->amount,
+                        'remark' => $request->remark,
+                        'wallet' => $request->wallet,
+                        'wallet2' => $request->amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }else if ($request->wallet == "wallet_3") {
+                    $all_deposit = DepositNoti::create([
+                        'customer_id' => $request->userid,
+                        'customer_name' => $request->username,
+                        'code' => $reference_number,
+                        'amount' => $request->amount,
+                        'remark' => $request->remark,
+                        'wallet' => $request->wallet,
+                        'wallet3' => $request->amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }
+            }
 
         $context = [
             "all_deposit" => $all_deposit

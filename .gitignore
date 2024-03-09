@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+
+database/migrations/2024_01_22_292907_create_deposits_table.php
+database/migrations/2024_01_24_153959_create_packages_table.php

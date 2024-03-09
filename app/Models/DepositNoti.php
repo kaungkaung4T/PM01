@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Deposit extends Model
+class DepositNoti extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -17,6 +17,7 @@ class Deposit extends Model
         'status',
         'remark',
         'wallet',
+        'wallet1',
         'wallet2',
         'wallet3'
     ];
@@ -25,5 +26,4 @@ class Deposit extends Model
         // return $this->hasMany('App\Models\User', 'id', 'system_user');       // For Many
         return $this->hasOne('App\Models\User', 'id', 'system_user');
     }
-    
 }

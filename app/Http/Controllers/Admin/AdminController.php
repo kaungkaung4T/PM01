@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Deposit;
+use App\Models\DepositNoti;
 use App\Models\User;
 use App\Models\Withdrawal;
 use Carbon\Carbon;
@@ -18,8 +19,8 @@ class AdminController extends Controller
         $today_user = Customer::whereDate('created_at', date('Y-m-d'))->get();
         $month_users = Customer::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
 
-        $today_deposit = Deposit::whereDate('created_at', date('Y-m-d'))->get();
-        $month_deposit = Deposit::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
+        $today_deposit = DepositNoti::whereDate('created_at', date('Y-m-d'))->get();
+        $month_deposit = DepositNoti::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
 
                 // ------------- Group By All Months -------------
         // $month_users = User::select('id', 'created_at')
@@ -28,10 +29,10 @@ class AdminController extends Controller
         //                     return Carbon::parse($date->created_at)->format('m'); // grouping by months
         //                 });
         
-        $deposit_amount = Deposit::all();
-        $today_deposit_amount = Deposit::whereDate('created_at', date('Y-m-d'))->get();
-        $month_deposit_amount = Deposit::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
-        $pending_deposit_amount = Deposit::all();
+        $deposit_amount = DepositNoti::all();
+        $today_deposit_amount = DepositNoti::whereDate('created_at', date('Y-m-d'))->get();
+        $month_deposit_amount = DepositNoti::where('created_at', '>=', Carbon::now()->subDays(30)->toDateTimeString())->get();
+        $pending_deposit_amount = DepositNoti::all();
 
         $all_deposit_amount_total = 0;
         $today_deposit_amount_total = 0;
@@ -134,7 +135,7 @@ class AdminController extends Controller
         $modify_to = "$modify_t_2-$modify_t_0-$modify_t_1";
 
         $search_customer = Customer::whereBetween('created_at', [$modify_from, $modify_to])->get();
-        $search_deposit_amount = Deposit::whereBetween('created_at', [$modify_from, $modify_to])->get();
+        $search_deposit_amount = DepositNoti::whereBetween('created_at', [$modify_from, $modify_to])->get();
         $search_withdrawal_amount = Withdrawal::whereBetween('created_at', [$modify_from, $modify_to])->get();
 
         $search_deposit_amount_total = 0;
@@ -188,7 +189,7 @@ class AdminController extends Controller
         $modify_to = "$modify_t_2-$modify_t_0-$modify_t_1";
 
         $search_customer = Customer::whereBetween('created_at', [$modify_from, $modify_to])->get();
-        $search_deposit_amount = Deposit::whereBetween('created_at', [$modify_from, $modify_to])->get();
+        $search_deposit_amount = DepositNoti::whereBetween('created_at', [$modify_from, $modify_to])->get();
         $search_withdrawal_amount = Withdrawal::whereBetween('created_at', [$modify_from, $modify_to])->get();
 
         $search_deposit_amount_total = 0;

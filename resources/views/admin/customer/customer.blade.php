@@ -279,35 +279,17 @@
             <td class="text-start align-middle" style="color: #495057;"> 
  
                 <div class="main_amount_group">
-                    @if (!empty($each_customer->deposit_data->wallet))
-                            @if ($each_customer->deposit_data->wallet == 'wallet_1')
-                            <ul>
-                                <li>Total Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
-                                <li>Wallet 1 Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
-                                <li>Wallet 2 Amount: <span>0.00</span></li>
-                                <li>Wallet 3 Amount: <span>0.00</span></li>
-                                <li>Pending Withdrawal Amount: <span>0.00</span></li>
-                                <li>Stacked Amount: <span>0.00</span></li>
-                            </ul>
-                            @elseif ($each_customer->deposit_data->wallet == 'wallet_2')
-                            <ul>
-                                <li>Total Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
-                                <li>Wallet 1 Amount: <span>0.00</span></li>
-                                <li>Wallet 2 Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
-                                <li>Wallet 3 Amount: <span>0.00</span></li>
-                                <li>Pending Withdrawal Amount: <span>0.00</span></li>
-                                <li>Stacked Amount: <span>0.00</span></li>
-                            </ul>
-                            @elseif ($each_customer->deposit_data->wallet == 'wallet_3')
-                            <ul>
-                                <li>Total Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
-                                <li>Wallet 1 Amount: <span>0.00</span></li>
-                                <li>Wallet 2 Amount: <span>0.00</span></li>
-                                <li>Wallet 3 Amount: <span>{{ number_format($each_customer->deposit_data->amount, 2) }}</span></li>
-                                <li>Pending Withdrawal Amount: <span>0.00</span></li>
-                                <li>Stacked Amount: <span>0.00</span></li>
-                            </ul>
-                            @endif
+                    @if (!empty($each_customer->deposit_data))
+                        <ul>
+                            <?php $total = $each_customer->deposit_data->wallet + $each_customer->deposit_data->wallet2 + $each_customer->deposit_data->wallet3 ?>
+                            
+                            <li>Total Amount: <span> {{ number_format($total, 2) }} </span></li>
+                            <li>Wallet 1 Amount: <span>{{ number_format($each_customer->deposit_data->wallet, 2) }}</span></li>
+                            <li>Wallet 2 Amount: <span>{{ number_format($each_customer->deposit_data->wallet2, 2) }}</span></li>
+                            <li>Wallet 3 Amount: <span>{{ number_format($each_customer->deposit_data->wallet3, 2) }}</span></li>
+                            <li>Pending Withdrawal Amount: <span>0.00</span></li>
+                            <li>Stacked Amount: <span>0.00</span></li>
+                        </ul>
                     @else
                     <ul>
                         <li>Total Amount: <span>0.00</span></li>
@@ -383,6 +365,19 @@
                                 </div>
                                 <div class="col-sm-8">
                                 <input name="username" type="text" class="form-control" value="{{ $each_customer->username }}" readonly required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Wallet:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <select name="wallet" class="form-select" required>
+                                    <option disabled selected value>  </option>
+                                    <option  value="wallet_1"> Wallet 1 </option>
+                                    <option  value="wallet_2"> Wallet 2 </option>
+                                    <option  value="wallet_3"> Wallet 3 </option>
+                                </select>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -662,8 +657,6 @@
             </div>
             </div>
             </tr>
-                
-            <?php $i++ ?>
 
                 @endforeach
 
