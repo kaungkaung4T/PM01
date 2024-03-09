@@ -15,8 +15,8 @@ class Deduct extends Controller
 
         $customer = Customer::find($id);
 
-        if (is_null(Deposit::where("id", $customer->deposit_amount)->first())) {
-            return Redirect::back()->withErrors(['msg' => 'Please create your deposit first before deduct!']);
+        if (is_null(Deposit::where("id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->first())) {
+            return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet first before deduct!']);
         }
 
         $all_deposit = Deposit::find($customer->deposit_amount);
