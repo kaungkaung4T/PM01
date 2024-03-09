@@ -15,9 +15,53 @@ class Deduct extends Controller
 
         $customer = Customer::find($id);
 
-        if (is_null(Deposit::where("id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->first())) {
-            return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet first before deduct!']);
+        if (is_null($customer->deposit_data)) {
+            return Redirect::back()->withErrors(['msg' => 'Please create your deposit first before deduct!']);
         }
+
+        if ($request->wallet == "wallet_1") {
+            if (Deposit::where("customer_id", $customer->deposit_amount)) {
+                $d = Deposit::find($customer->deposit_data->id);
+                if (is_null($d->wallet)) {
+                    return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 1 first before deduct!']);
+                }
+            }
+            else {
+                return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 1 first before deduct!']);
+            }
+            // if (is_null(Deposit::where("customer_id", $customer->deposit_amount)->where('wallet', $request->wallet)->first())) {
+            //     return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet first before deduct!']);
+            // }
+        }
+        if ($request->wallet == "wallet_2") {
+            if (Deposit::where("customer_id", $customer->deposit_amount)) {
+                $d = Deposit::find($customer->deposit_data->id);
+                if (is_null($d->wallet2)) {
+                    return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 2 first before deduct!']);
+                }
+            }
+            else {
+                return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 2 first before deduct!']);
+            }
+            // if (is_null(Deposit::where("customer_id", $customer->deposit_amount)->where('wallet2', $request->wallet)->first())) {
+            //     return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 2 first before deduct!']);
+            // }
+        }
+        if ($request->wallet == "wallet_3") {
+            if (Deposit::where("customer_id", $customer->deposit_amount)) {
+                $d = Deposit::find($customer->deposit_data->id);
+                if (is_null($d->wallet3)) {
+                    return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 3 first before deduct!']);
+                }
+            }
+            else {
+                return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 3 first before deduct!']);
+            }
+            // if (is_null(Deposit::where("customer_id", $customer->deposit_amount)->where('wallet3', $request->wallet)->first())) {
+            //     return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 3 first before deduct!']);
+            // }
+        }
+
 
         $all_deposit = Deposit::find($customer->deposit_amount);
 
