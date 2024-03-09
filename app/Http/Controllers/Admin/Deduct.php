@@ -29,9 +29,6 @@ class Deduct extends Controller
             else {
                 return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 1 first before deduct!']);
             }
-            // if (is_null(Deposit::where("customer_id", $customer->deposit_amount)->where('wallet', $request->wallet)->first())) {
-            //     return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet first before deduct!']);
-            // }
         }
         if ($request->wallet == "wallet_2") {
             if (Deposit::where("customer_id", $customer->deposit_amount)) {
@@ -43,9 +40,6 @@ class Deduct extends Controller
             else {
                 return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 2 first before deduct!']);
             }
-            // if (is_null(Deposit::where("customer_id", $customer->deposit_amount)->where('wallet2', $request->wallet)->first())) {
-            //     return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 2 first before deduct!']);
-            // }
         }
         if ($request->wallet == "wallet_3") {
             if (Deposit::where("customer_id", $customer->deposit_amount)) {
@@ -57,9 +51,6 @@ class Deduct extends Controller
             else {
                 return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 3 first before deduct!']);
             }
-            // if (is_null(Deposit::where("customer_id", $customer->deposit_amount)->where('wallet3', $request->wallet)->first())) {
-            //     return Redirect::back()->withErrors(['msg' => 'Please create your deposit wallet 3 first before deduct!']);
-            // }
         }
 
 
