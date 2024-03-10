@@ -31,7 +31,7 @@ class Deposit extends Controller
      * Check reference number is duplicate or not.
      */
     public function barcodeNumberExists($number) {
-        return ModelsDeposit::where("code", "=", $number)->exists();
+        return DepositResult::where("code", "=", $number)->exists();
     } 
 
     public function deposit (Request $request) {

@@ -6,11 +6,35 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Deposit;
 use App\Models\DepositNoti;
+use App\Models\Withdrawal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class Deduct extends Controller
 {
+    /**
+     * Generate an unique reference number.
+     */
+    public function generate_reference_number () {
+
+        // $number = mt_rand(100000000000000000, 999999999999999999);
+        $number = mt_rand(100000000000000000, PHP_INT_MAX);
+  
+        if ($this->barcodeNumberExists($number)) {
+            return $this->generate_reference_number();
+        }
+  
+        return $number;
+        }
+  
+    /**
+     * Check reference number is duplicate or not.
+     */
+    public function barcodeNumberExists($number) {
+        return Withdrawal::where("code", "=", $number)->exists();
+    }
+
     public function deduct (Request $request, $id) {
 
         $customer = Customer::find($id);
@@ -53,6 +77,7 @@ class Deduct extends Controller
             }
         }
 
+        $reference_number = $this->generate_reference_number();
 
         $all_deposit = Deposit::find($customer->deposit_amount);
         $old_amount = $all_deposit->wallet;
@@ -74,6 +99,19 @@ class Deduct extends Controller
                 'amount' => $minus,
                 'wallet1' => $minus
             ]);
+
+            $all_withdrawal = Withdrawal::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => "Eg:Silver Level-self_subID:101",
+                'system_user' => Auth::id(),
+                'status' => 'Completed',
+                'complete_date' => date('Y-m-d H:i:s'),
+                'reject_date' => null,
+                'completed_rejected_user' => Auth::id(),
+            ]);
         }
         if ($request->wallet == "wallet_2") {
             $all_deposit ->update([
@@ -86,6 +124,19 @@ class Deduct extends Controller
                 'amount' => $minus,
                 'wallet2' => $minus
             ]);
+
+            $all_withdrawal = Withdrawal::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => "Eg:Silver Level-self_subID:101",
+                'system_user' => Auth::id(),
+                'status' => 'Completed',
+                'complete_date' => date('Y-m-d H:i:s'),
+                'reject_date' => null,
+                'completed_rejected_user' => Auth::id(),
+            ]);
         }
         if ($request->wallet == "wallet_3") {
             $all_deposit ->update([
@@ -97,6 +148,19 @@ class Deduct extends Controller
             DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
                 'amount' => $minus,
                 'wallet3' => $minus
+            ]);
+
+            $all_withdrawal = Withdrawal::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => "Eg:Silver Level-self_subID:101",
+                'system_user' => Auth::id(),
+                'status' => 'Completed',
+                'complete_date' => date('Y-m-d H:i:s'),
+                'reject_date' => null,
+                'completed_rejected_user' => Auth::id(),
             ]);
         }
 
