@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Deposit as ModelsDeposit;
 use App\Models\DepositNoti;
+use App\Models\DepositResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +35,7 @@ class Deposit extends Controller
     } 
 
     public function deposit (Request $request) {
-        $all_deposit = DepositNoti::orderBy('id', 'DESC')->get();
+        $all_deposit = DepositResult::orderBy('id', 'DESC')->get();
 
         $context = [
             "all_deposit" => $all_deposit
@@ -56,7 +57,7 @@ class Deposit extends Controller
                 ModelsDeposit::where("customer_id", $request->userid)->update([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
-                    'code' => $reference_number,
+                    // 'code' => $reference_number,
                     'amount' => $plus_amount,
                     'remark' => $request->remark,
                     'wallet' => $plus_amount,
@@ -72,7 +73,7 @@ class Deposit extends Controller
                 ModelsDeposit::where("customer_id", $request->userid)->update([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
-                    'code' => $reference_number,
+                    // 'code' => $reference_number,
                     'amount' => $plus_amount,
                     'remark' => $request->remark,
                     'wallet2' => $plus_amount,
@@ -88,7 +89,7 @@ class Deposit extends Controller
                 ModelsDeposit::where("customer_id", $request->userid)->update([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
-                    'code' => $reference_number,
+                    // 'code' => $reference_number,
                     'amount' => $plus_amount,
                     'remark' => $request->remark,
                     'wallet3' => $plus_amount,
@@ -102,7 +103,7 @@ class Deposit extends Controller
                 $all_deposit = ModelsDeposit::create([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
-                    'code' => $reference_number,
+                    // 'code' => $reference_number,
                     'amount' => $request->amount,
                     'remark' => $request->remark,
                     'wallet' => $request->amount,
@@ -113,7 +114,7 @@ class Deposit extends Controller
                 $all_deposit = ModelsDeposit::create([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
-                    'code' => $reference_number,
+                    // 'code' => $reference_number,
                     'amount' => $request->amount,
                     'remark' => $request->remark,
                     'wallet2' => $request->amount,
@@ -124,7 +125,7 @@ class Deposit extends Controller
                 $all_deposit = ModelsDeposit::create([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
-                    'code' => $reference_number,
+                    // 'code' => $reference_number,
                     'amount' => $request->amount,
                     'remark' => $request->remark,
                     'wallet3' => $request->amount,
@@ -151,7 +152,7 @@ class Deposit extends Controller
                     $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
-                        'code' => $reference_number,
+                        // 'code' => $reference_number,
                         'amount' => $plus_amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
@@ -168,7 +169,7 @@ class Deposit extends Controller
                     $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
-                        'code' => $reference_number,
+                        // 'code' => $reference_number,
                         'amount' => $plus_amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
@@ -185,7 +186,7 @@ class Deposit extends Controller
                     $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
-                        'code' => $reference_number,
+                        // 'code' => $reference_number,
                         'amount' => $plus_amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
@@ -200,7 +201,7 @@ class Deposit extends Controller
                     $all_deposit = DepositNoti::create([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
-                        'code' => $reference_number,
+                        // 'code' => $reference_number,
                         'amount' => $request->amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
@@ -212,7 +213,7 @@ class Deposit extends Controller
                     $all_deposit = DepositNoti::create([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
-                        'code' => $reference_number,
+                        // 'code' => $reference_number,
                         'amount' => $request->amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
@@ -224,7 +225,7 @@ class Deposit extends Controller
                     $all_deposit = DepositNoti::create([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
-                        'code' => $reference_number,
+                        // 'code' => $reference_number,
                         'amount' => $request->amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
@@ -234,6 +235,45 @@ class Deposit extends Controller
                     ]);
                 }
             }
+
+        // Deposit Result
+        if ($request->wallet == "wallet_1") {
+            $all_deposit = DepositResult::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $request->remark,
+                'wallet' => $request->wallet,
+                'wallet1' => $request->amount,
+                'system_user' => Auth::id(),
+                'status' => 'Completed'
+            ]);
+        }else if ($request->wallet == "wallet_2") {
+            $all_deposit = DepositResult::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $request->remark,
+                'wallet' => $request->wallet,
+                'wallet2' => $request->amount,
+                'system_user' => Auth::id(),
+                'status' => 'Completed'
+            ]);
+        }else if ($request->wallet == "wallet_3") {
+            $all_deposit = DepositResult::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $request->remark,
+                'wallet' => $request->wallet,
+                'wallet3' => $request->amount,
+                'system_user' => Auth::id(),
+                'status' => 'Completed'
+            ]);
+        }
 
         $context = [
             "all_deposit" => $all_deposit
