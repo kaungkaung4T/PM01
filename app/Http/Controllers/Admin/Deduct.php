@@ -55,41 +55,48 @@ class Deduct extends Controller
 
 
         $all_deposit = Deposit::find($customer->deposit_amount);
+        $old_amount = $all_deposit->wallet;
+        $new_amount = $request->amount;
+
+        if ($new_amount > $old_amount) {
+            return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
+        }
+        $minus = $old_amount - $new_amount;
 
         if ($request->wallet == "wallet_1") {
             $all_deposit ->update([
-                'amount' => $request->amount,
-                'wallet' => $request->amount
+                'amount' => $minus,
+                'wallet' => $minus
             ]);
 
             // Deposit Noti
             DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
-                'amount' => $request->amount,
-                'wallet1' => $request->amount
+                'amount' => $minus,
+                'wallet1' => $minus
             ]);
         }
         if ($request->wallet == "wallet_2") {
             $all_deposit ->update([
-                'amount' => $request->amount,
-                'wallet2' => $request->amount
+                'amount' => $minus,
+                'wallet2' => $minus
             ]);
 
             // Deposit Noti
             DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
-                'amount' => $request->amount,
-                'wallet2' => $request->amount
+                'amount' => $minus,
+                'wallet2' => $minus
             ]);
         }
         if ($request->wallet == "wallet_3") {
             $all_deposit ->update([
-                'amount' => $request->amount,
-                'wallet3' => $request->amount
+                'amount' => $minus,
+                'wallet3' => $minus
             ]);
 
             // Deposit Noti
             DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
-                'amount' => $request->amount,
-                'wallet3' => $request->amount
+                'amount' => $minus,
+                'wallet3' => $minus
             ]);
         }
 
