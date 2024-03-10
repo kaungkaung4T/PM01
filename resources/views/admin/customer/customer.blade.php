@@ -327,7 +327,7 @@
                                 style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
                                 Edit
                             </a></li>
-                            <li><a class="btn btn-sm border">Buy Package</a></li>
+                            <li><a id="package_modal_button_{{ $each_customer->id }}" onclick="package_open_modal('{{ $each_customer->id }}')" class="btn btn-sm border">Buy Package</a></li>
                         </ul>
                     </div>
 
@@ -341,6 +341,82 @@
                     </div> -->
                 </div>
             </td>
+            <!-- Modal of Customer Package -->
+            <div class="modal fade" id="package_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Package</h5>
+                    <button type="button" class="close" data-dismiss="modal" id="package_top_close_modal_{{ $each_customer->id }}" 
+                    onclick="package_top_close_modal('{{ $each_customer->id }}')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="" method="GET" enctype="multipart/form-data">
+                        @csrf
+                        
+                        <!-- To get Customer ID -->
+                        <input name="userid" type="hidden" class="form-control" value="{{ $each_customer->id }}">
+
+                        <div class="modal-body customer_package_modal_form pb-5">
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Username:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <input name="username" type="text" class="form-control" value="{{ $each_customer->username }}" readonly required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Wallet:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <select name="wallet" class="form-select" required>
+                                    <option disabled selected value>  </option>
+                                    <option  value="wallet_1"> Wallet 1 </option>
+                                    <option  value="wallet_2"> Wallet 2 </option>
+                                    <option  value="wallet_3"> Wallet 3 </option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Deduct Amount MMK:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    @if (!empty($each_customer->deposit_data->amount))
+                                <!-- <input name="amount" type="number" class="form-control" placeholder="{{ number_format($each_customer->deposit_data->amount, 2) }}" required> -->
+                                <input name="amount" type="number" class="form-control" required>
+                                    @else
+                                <input name="amount" type="number" class="form-control" required>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm border" id="package_close_modal_{{ $each_customer->id }}" 
+                        onclick="package_close_modal('{{ $each_customer->id }}')" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    </div>
+                    </form>
+                    <script>
+                        function package_open_modal(customer_id){
+                            $(`#package_exampleModalCenter_${customer_id}`).modal('show');
+                        }
+
+                        function package_close_modal(customer_id){
+                            $(`#package_exampleModalCenter_${customer_id}`).modal('hide');
+                        }
+
+                        function package_top_close_modal(customer_id){
+                            $(`#package_exampleModalCenter_${customer_id}`).modal('hide');
+                        }
+                    </script>
+                </div>
+            </div>
+            </div>
+
             <!-- Modal of Customer Deduct -->
             <div class="modal fade" id="deduct_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
