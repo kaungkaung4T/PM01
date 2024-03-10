@@ -48,35 +48,50 @@ class Deposit extends Controller
         
         if (ModelsDeposit::where("customer_id", $request->userid)->exists()) {
             if ($request->wallet == "wallet_1") {
+                $md = ModelsDeposit::where("customer_id", $request->userid)->first();
+                $old_amount = $md->wallet;
+                $new_amount = $request->amount;
+                $plus_amount = $old_amount + $new_amount;
+
                 ModelsDeposit::where("customer_id", $request->userid)->update([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
                     'code' => $reference_number,
-                    'amount' => $request->amount,
+                    'amount' => $plus_amount,
                     'remark' => $request->remark,
-                    'wallet' => $request->amount,
+                    'wallet' => $plus_amount,
                     'system_user' => Auth::id(),
                     'status' => 'Completed'
                 ]);
             }if ($request->wallet == "wallet_2") {
+                $md = ModelsDeposit::where("customer_id", $request->userid)->first();
+                $old_amount = $md->wallet2;
+                $new_amount = $request->amount;
+                $plus_amount = $old_amount + $new_amount;
+
                 ModelsDeposit::where("customer_id", $request->userid)->update([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
                     'code' => $reference_number,
-                    'amount' => $request->amount,
+                    'amount' => $plus_amount,
                     'remark' => $request->remark,
-                    'wallet2' => $request->amount,
+                    'wallet2' => $plus_amount,
                     'system_user' => Auth::id(),
                     'status' => 'Completed'
                 ]);
             }if ($request->wallet == "wallet_3") {
+                $md = ModelsDeposit::where("customer_id", $request->userid)->first();
+                $old_amount = $md->wallet3;
+                $new_amount = $request->amount;
+                $plus_amount = $old_amount + $new_amount;
+
                 ModelsDeposit::where("customer_id", $request->userid)->update([
                     'customer_id' => $request->userid,
                     'customer_name' => $request->username,
                     'code' => $reference_number,
-                    'amount' => $request->amount,
+                    'amount' => $plus_amount,
                     'remark' => $request->remark,
-                    'wallet3' => $request->amount,
+                    'wallet3' => $plus_amount,
                     'system_user' => Auth::id(),
                     'status' => 'Completed'
                 ]);
@@ -128,38 +143,53 @@ class Deposit extends Controller
             // Deposit Noti For Display in Deposit Page
             if (DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->exists()) {
                 if ($request->wallet == "wallet_1") {
+                    $md = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->first();
+                    $old_amount = $md->wallet1;
+                    $new_amount = $request->amount;
+                    $plus_amount = $old_amount + $new_amount;
+
                     $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
                         'code' => $reference_number,
-                        'amount' => $request->amount,
+                        'amount' => $plus_amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
-                        'wallet1' => $request->amount,
+                        'wallet1' => $plus_amount,
                         'system_user' => Auth::id(),
                         'status' => 'Completed'
                     ]);
                 }if ($request->wallet == "wallet_2") {
+                    $md = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->first();
+                    $old_amount = $md->wallet2;
+                    $new_amount = $request->amount;
+                    $plus_amount = $old_amount + $new_amount;
+
                     $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
                         'code' => $reference_number,
-                        'amount' => $request->amount,
+                        'amount' => $plus_amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
-                        'wallet2' => $request->amount,
+                        'wallet2' => $plus_amount,
                         'system_user' => Auth::id(),
                         'status' => 'Completed'
                     ]);
                 }if ($request->wallet == "wallet_3") {
+                    $md = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->first();
+                    $old_amount = $md->wallet3;
+                    $new_amount = $request->amount;
+                    $plus_amount = $old_amount + $new_amount;
+
                     $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
                         'customer_id' => $request->userid,
                         'customer_name' => $request->username,
                         'code' => $reference_number,
-                        'amount' => $request->amount,
+                        'amount' => $plus_amount,
                         'remark' => $request->remark,
                         'wallet' => $request->wallet,
-                        'wallet3' => $request->amount,
+                        'wallet3' => $plus_amount,
                         'system_user' => Auth::id(),
                         'status' => 'Completed'
                     ]);
