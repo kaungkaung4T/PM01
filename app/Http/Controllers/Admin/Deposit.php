@@ -18,7 +18,8 @@ class Deposit extends Controller
     public function generate_reference_number () {
 
         // $number = mt_rand(100000000000000000, 999999999999999999);
-        $number = mt_rand(100000000000000000, PHP_INT_MAX);
+        // $number = mt_rand(100000000000000000, PHP_INT_MAX);
+        $number = mt_rand(10000000, 99999999);
   
         if ($this->barcodeNumberExists($number)) {
             return $this->generate_reference_number();
