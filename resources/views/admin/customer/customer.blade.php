@@ -459,6 +459,14 @@
                                     <input name="amount" type="number" class="form-control" required>
                                 </div>
                             </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1">  </span><label>Remarks:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <textarea name="remark" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm border" id="deduct_close_modal_{{ $each_customer->id }}" 

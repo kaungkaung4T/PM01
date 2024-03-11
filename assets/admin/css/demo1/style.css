@@ -303,6 +303,9 @@ table.dataTable>tbody>tr>td:nth-child(9) {
 .customer_deduct_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: -16px;width: 180px; }
 .customer_deduct_modal_form .modal_form_group:nth-child(3) input { margin-left: -41px; }
 
+.customer_deduct_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 69px;width: 70px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(4) textarea { margin-left: -16px; }
+
 /* customer_deposit_modal_form */
 .customer_deposit_modal_form { margin-left: 20px; }
 .customer_deposit_modal_form .modal_form_group { flex-wrap: nowrap !important; }
@@ -23221,6 +23224,9 @@ div.tox .tox-dialog__body {
 
   .customer_deduct_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: 0;width: auto; }
   .customer_deduct_modal_form .modal_form_group:nth-child(3) input { margin-left: 0; }
+
+  .customer_deduct_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 0;width: auto; }
+  .customer_deduct_modal_form .modal_form_group:nth-child(4) textarea { margin-left: 0; }
 }
 
 @media (max-width: 425px) {
