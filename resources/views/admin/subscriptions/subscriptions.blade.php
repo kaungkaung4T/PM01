@@ -113,7 +113,7 @@
             <td class="text-start" style="color: #495057;">
                 <ul style="list-style: none;margin-left: -30px;">
                     <li> Name: <span> {{ $each_subscriptions->package_data->name }} </span></li>
-                    <li> Amount: <span class="text-primary"> {{ $each_subscriptions->package_data->amount }} </span></li>
+                    <li> Amount: <span class="text-primary"> {{ number_format($each_subscriptions->package_data->amount, 2) }} </span></li>
                     <li> Rate: <span> {{ $each_subscriptions->package_data->rate }} ~ {{ $each_subscriptions->package_data->rate }} </span></li>
                     <li> Rewarded Wallet 1: <span class="text-danger"> {{ $each_subscriptions->package_data->reward_wallet_1 }} </span></li>
                     <li> Rewarded Wallet 2: <span class="text-primary"> {{ $each_subscriptions->package_data->reward_wallet_2 }} </span></li>

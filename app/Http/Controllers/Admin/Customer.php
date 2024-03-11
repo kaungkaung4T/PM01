@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer as ModelsCustomer;
 use App\Models\Deposit;
+use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +15,11 @@ class Customer extends Controller
 {
     public function customer (Request $request) {
         $all_customer = ModelsCustomer::orderBy('id', 'DESC')->get();
+        $all_package = Package::all();
 
         $context = [
-            "all_customer" => $all_customer
+            "all_customer" => $all_customer,
+            "all_package" => $all_package
         ];
         return view('admin.customer.customer', $context);
     }

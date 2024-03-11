@@ -66,4 +66,5 @@ Route::post('/withdrawal/update_withdrawal/{id}', [Withdrawal::class, 'update_wi
 
 //  Subscriptions
 Route::get('/subscriptions', [Subscriptions::class, 'subscriptions'])->middleware(['auth', 'verified'])->name('admin.subscriptions');
+Route::post('/subscribe', [Subscriptions::class, 'subscribe'])->middleware(['auth', 'verified'])->name('admin.subscribe');
 

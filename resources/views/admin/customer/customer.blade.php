@@ -352,7 +352,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                    <form action="" method="GET" enctype="multipart/form-data">
+                    <form action="{{ route('admin.subscribe') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
                         <!-- To get Customer ID -->
@@ -372,10 +372,11 @@
                                 <span class="mr-1"> * </span><label>Package:</label>
                                 </div>
                                 <div class="col-sm-8">
-                                <select name="wallet" class="form-select" required>
+                                <select name="package" class="form-select" required>
                                     <option disabled selected value>  </option>
-                                    <option  value="plan_a"> Plan A (100,000) </option>
-                                    <option  value="plan_b"> Plan B (500,000) </option>
+                                        @foreach ($all_package as $each_package)
+                                    <option  value="{{ $each_package->id }}"> {{ $each_package->name }} ({{ number_format($each_package->amount, 2) }}) </option>
+                                        @endforeach
                                 </select>
                                 </div>
                             </div>
