@@ -369,28 +369,22 @@
                             </div>
                             <div class="mb-3 row modal_form_group">
                                 <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1"> * </span><label>Wallet:</label>
+                                <span class="mr-1"> * </span><label>Package:</label>
                                 </div>
                                 <div class="col-sm-8">
                                 <select name="wallet" class="form-select" required>
                                     <option disabled selected value>  </option>
-                                    <option  value="wallet_1"> Wallet 1 </option>
-                                    <option  value="wallet_2"> Wallet 2 </option>
-                                    <option  value="wallet_3"> Wallet 3 </option>
+                                    <option  value="plan_a"> Plan A (100,000) </option>
+                                    <option  value="plan_b"> Plan B (500,000) </option>
                                 </select>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
                                 <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
-                                <span class="mr-1"> * </span><label>Deduct Amount MMK:</label>
+                                <span class="mr-1"> * </span><label>Amount MMK:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    @if (!empty($each_customer->deposit_data->amount))
-                                <!-- <input name="amount" type="number" class="form-control" placeholder="{{ number_format($each_customer->deposit_data->amount, 2) }}" required> -->
-                                <input name="amount" type="number" class="form-control" required>
-                                    @else
-                                <input name="amount" type="number" class="form-control" required>
-                                    @endif
+                                    <input name="amount" type="number" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -461,12 +455,7 @@
                                 <span class="mr-1"> * </span><label>Deduct Amount MMK:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    @if (!empty($each_customer->deposit_data->amount))
-                                <!-- <input name="amount" type="number" class="form-control" placeholder="{{ number_format($each_customer->deposit_data->amount, 2) }}" required> -->
-                                <input name="amount" type="number" class="form-control" required>
-                                    @else
-                                <input name="amount" type="number" class="form-control" required>
-                                    @endif
+                                    <input name="amount" type="number" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -524,7 +513,7 @@
                                 <span class="mr-1"> * </span><label>Deposit Amount MMK:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                <input name="amount" type="text" class="form-control" required>
+                                    <input name="amount" type="number" class="form-control" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
