@@ -341,6 +341,7 @@
                     </div> -->
                 </div>
             </td>
+            
             <!-- Modal of Customer Package -->
             <div class="modal fade" id="package_exampleModalCenter_{{ $each_customer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -365,6 +366,19 @@
                                 </div>
                                 <div class="col-sm-8">
                                 <input name="username" type="text" class="form-control" value="{{ $each_customer->username }}" readonly required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row modal_form_group">
+                                <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
+                                <span class="mr-1"> * </span><label>Wallet:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                <select name="wallet" class="form-select" required>
+                                    <option disabled selected value>  </option>
+                                    <option  value="wallet_1"> Wallet 1 </option>
+                                    <option  value="wallet_2"> Wallet 2 </option>
+                                    <option  value="wallet_3"> Wallet 3 </option>
+                                </select>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
