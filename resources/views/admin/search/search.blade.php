@@ -21,7 +21,7 @@
         <div class="today_body">
             <div class="today_deposit_amount">
                 <p class="text-muted mb-2">Search's Deposit Amount</p>
-                <h3>{{ number_format($search_deposit_amount_total, 2) }}</h3>
+                <h3 style="color: #000;">{{ number_format($search_deposit_amount_total, 2) }}</h3>
             </div>
             <div class="today_deposit_count">
                 <p class="mb-2">Search's Deposit Count</p>
@@ -29,7 +29,7 @@
             </div>
             <div class="today_withdrawal_amount">
                 <p class="text-muted mb-2">Search's Withdrawal Amount</p>
-                <h3>{{ number_format($search_withdrawal_amount_total, 2) }}</h3>
+                <h3 style="color: #000;">{{ number_format($search_withdrawal_amount_total, 2) }}</h3>
             </div>
             <div class="today_customer">
                 <p class="mb-2">Search's New Customer</p>

@@ -158,7 +158,7 @@
 
             <!-- Button trigger modal -->
             @if ( $each_withdrawal->status == 'Completed' || $each_withdrawal->status == 'Rejected' )
-            <td id="update_modal_button_{{ $each_withdrawal->id }}" onclick="update_open_modal('{{ $each_withdrawal->id }}')"
+            <td id="cr_modal_button_{{ $each_withdrawal->id }}" onclick="cr_open_modal('{{ $each_withdrawal->id }}')"
             class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
             View
             </td>
@@ -170,7 +170,67 @@
             @endif
             
 
-            <!-- Modal -->
+            <!-- Completed and Rejecteed Modal -->
+            <div class="modal fade" id="cr_exampleModalCenter_{{ $each_withdrawal->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Deposits</h5>
+                    <button type="button" class="close" data-dismiss="modal" id="cr_top_close_modal_{{ $each_withdrawal->id }}" 
+                    onclick="cr_top_close_modal('{{ $each_withdrawal->id }}')" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body table_deposit_view">
+                            <ul>
+                                <li> Username: <span> {{ $each_withdrawal->customer_name }} </span></li>
+                                <li> Code: <span> {{ $each_withdrawal->code }} </span></li>
+                                <li> Request Amount: <span> {{ number_format($each_withdrawal->amount, 2) }} </span></li>
+                                <li> Remarks: <span> {{ $each_withdrawal->remark }} </span></li>
+                                <li> Created At: <span> {{ $each_withdrawal->system_user_data->created_at }} </span></li>
+                                <li> Created By: <span> {{ $each_withdrawal->system_user_data->username }} </span></li>
+
+                                    @if ($each_withdrawal->complete_date == NULL || $each_withdrawal->complete_date == "0000-00-00 00:00:00")
+                                <li> Completed At: <span> - </span></li>
+                                    @else
+                                <li> Completed At: <span> {{ $each_withdrawal->complete_date }} </span></li>
+                                    @endif
+                                
+                                    @if ($each_withdrawal->reject_date == NULL || $each_withdrawal->reject_date == "0000-00-00 00:00:00")
+                                <li> Rejected At: <span> - </span></li>
+                                    @else
+                                <li> Rejected At: <span> {{ $each_withdrawal->reject_date }} </span></li>
+                                    @endif
+
+                                <li> Status: <span> {{ $each_withdrawal->status }} </span></li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm border" id="cr_close_modal_{{ $each_withdrawal->id }}" 
+                            onclick="cr_close_modal('{{ $each_withdrawal->id }}')" data-dismiss="modal">Back</button>
+                            <!-- <button type="submit" class="btn btn-sm btn-primary">Update</button> -->
+                        </div>
+                    </form>
+                    <script>
+                        function cr_open_modal(deposit_id){
+                            $(`#cr_exampleModalCenter_${deposit_id}`).modal('show');
+                        }
+
+                        function cr_close_modal(deposit_id){
+                            $(`#cr_exampleModalCenter_${deposit_id}`).modal('hide');
+                        }
+
+                        function cr_top_close_modal(deposit_id){
+                            $(`#cr_exampleModalCenter_${deposit_id}`).modal('hide');
+                        }
+                    </script>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Pending Modal -->
             <div class="modal fade" id="update_exampleModalCenter_{{ $each_withdrawal->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
