@@ -15,7 +15,10 @@ class Subscriptions extends Model
         'package',
         'start_at',
         'end_at',
-        'status'
+        'status',
+        'reward_wallet_1',
+        'reward_wallet_2',
+        'reward_wallet_3',
     ];
 
     public function customer_data ()  {

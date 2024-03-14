@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Deposit;
+use App\Models\DepositNoti;
 use App\Models\Package;
 use App\Models\Subscriptions as ModelsSubscriptions;
+use App\Models\Withdrawal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Subscriptions extends Controller
 {
@@ -48,24 +52,151 @@ class Subscriptions extends Controller
 
         $package = Package::find($request->package);
 
-        // $today = date('Y-m-d');
-        // $end_date = null;
-
-        // for($i =1; $i <= $package->days; $i++){
-        //     $end_date = date('Y M,d', strtotime("+$i days"));
-        // }
         $date = Carbon::now();
         $end_date = $date->addDay($package->days);
 
-        ModelsSubscriptions::create([
-            'customer' => $request->userid,
-            'code' => $reference_number,
-            'amount' => $request->amount,
-            'package' => $package->id,
-            'start_at' => date('Y-m-d H:i:s'),
-            'end_at' => $end_date,
-            'status' => 'Active'
-        ]);
+        if ($request->wallet == "wallet_1") {
+            $md = Deposit::where("customer_id", $request->userid)->first();
+            $old_amount = $md->wallet;
+            $new_amount = $request->amount;
+            $minus_amount = $old_amount - $new_amount;
+
+            Deposit::where("customer_id", $request->userid)->update([
+                'amount' => $minus_amount,
+                'wallet' => $minus_amount,
+            ]);
+
+            $md = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->first();
+            $old_amount = $md->wallet1;
+            $new_amount = $request->amount;
+            $minus_amount = $old_amount - $new_amount;
+
+            $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
+                'amount' => $minus_amount,
+                'wallet1' => $minus_amount,
+            ]);
+
+            $ms = ModelsSubscriptions::create([
+                'customer' => $request->userid,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'package' => $package->id,
+                'start_at' => date('Y-m-d H:i:s'),
+                'end_at' => $end_date,
+                'status' => 'Active',
+            ]);
+            $ms->reward_wallet_1 = $package->reward_percent;
+            $ms->save();
+
+            Withdrawal::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $package->name,
+                'system_user' => Auth::id(),
+                'status' => 'Completed',
+                'complete_date' => date('Y-m-d H:i:s'),
+                'reject_date' => null,
+                'completed_rejected_user' => Auth::id(),
+            ]);
+        }
+
+        if ($request->wallet == "wallet_2") {
+            $md = Deposit::where("customer_id", $request->userid)->first();
+            $old_amount = $md->wallet2;
+            $new_amount = $request->amount;
+            $minus_amount = $old_amount - $new_amount;
+
+            Deposit::where("customer_id", $request->userid)->update([
+                'amount' => $minus_amount,
+                'wallet2' => $minus_amount,
+            ]);
+
+            $md = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->first();
+            $old_amount = $md->wallet2;
+            $new_amount = $request->amount;
+            $minus_amount = $old_amount - $new_amount;
+
+            $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
+                'amount' => $minus_amount,
+                'wallet2' => $minus_amount,
+            ]);
+            
+            ModelsSubscriptions::create([
+                'customer' => $request->userid,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'package' => $package->id,
+                'start_at' => date('Y-m-d H:i:s'),
+                'end_at' => $end_date,
+                'status' => 'Active'
+            ]);
+            $ms->reward_wallet_2 = $package->reward_percent;
+            $ms->save();
+
+            Withdrawal::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $package->name,
+                'system_user' => Auth::id(),
+                'status' => 'Completed',
+                'complete_date' => date('Y-m-d H:i:s'),
+                'reject_date' => null,
+                'completed_rejected_user' => Auth::id(),
+            ]);
+        }
+
+        if ($request->wallet == "wallet_3") {
+            $md = Deposit::where("customer_id", $request->userid)->first();
+            $old_amount = $md->wallet3;
+            $new_amount = $request->amount;
+            $minus_amount = $old_amount - $new_amount;
+
+            Deposit::where("customer_id", $request->userid)->update([
+                'amount' => $minus_amount,
+                'wallet3' => $minus_amount,
+            ]);
+
+            $md = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->first();
+            $old_amount = $md->wallet3;
+            $new_amount = $request->amount;
+            $minus_amount = $old_amount - $new_amount;
+
+            $all_deposit = DepositNoti::where("customer_id", $request->userid)->where('wallet', '=', $request->wallet)->update([
+                'amount' => $minus_amount,
+                'wallet3' => $minus_amount,
+            ]);
+
+            ModelsSubscriptions::create([
+                'reward_wallet_3' => $package->reward_percent,
+                'customer' => $request->userid,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'package' => $package->id,
+                'start_at' => date('Y-m-d H:i:s'),
+                'end_at' => $end_date,
+                'status' => 'Active'
+            ]);
+            $ms->reward_wallet_3 = $package->reward_percent;
+            $ms->save();
+
+            Withdrawal::create([
+                'customer_id' => $request->userid,
+                'customer_name' => $request->username,
+                'code' => $reference_number,
+                'amount' => $request->amount,
+                'remark' => $package->name,
+                'system_user' => Auth::id(),
+                'status' => 'Completed',
+                'complete_date' => date('Y-m-d H:i:s'),
+                'reject_date' => null,
+                'completed_rejected_user' => Auth::id(),
+            ]);
+        }
+       
 
         return redirect()->route('admin.customer')->with('success', 'Package Bought Successfully');
     }

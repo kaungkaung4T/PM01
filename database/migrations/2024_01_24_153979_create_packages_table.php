@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('amount', $total = 10, $places = 2);
             $table->decimal('rate', $total = 10, $places = 2);
-            $table->decimal('reward_wallet_1', $total = 10, $places = 2);
-            $table->decimal('reward_wallet_2', $total = 10, $places = 2);
+            $table->decimal('reward_percent', $total = 10, $places = 2)->nullable();
+            $table->decimal('reward_amount', $total = 10, $places = 2)->nullable();
             $table->integer('days');
             $table->timestamps();
         });

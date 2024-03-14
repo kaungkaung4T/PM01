@@ -12,8 +12,8 @@ class Package extends Model
         'name',
         'amount',
         'rate',
-        'reward_wallet_1',
-        'reward_wallet_2',
-        'days'
+        'reward_percent',
+        'reward_amount',
+        'days',
     ];
 }

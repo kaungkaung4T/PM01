@@ -117,19 +117,19 @@
                     <li> Rate: <span> {{ $each_subscriptions->package_data->rate }} ~ {{ $each_subscriptions->package_data->rate }} </span></li>
                     
                         @if ($each_subscriptions->reward_wallet_1)
-                    <li> Rewarded Wallet 1: <span class="text-danger"> {{ $each_subscriptions->reward_wallet_1 }} </span></li>
+                    <li> Rewarded Wallet 1: <span class="text-danger"> {{ number_format($each_subscriptions->reward_wallet_1) }}% </span></li>
                         @else
                     <li> Rewarded Wallet 1: <span class="text-danger"> 0.00 </span></li>
                         @endif
 
-                        @if ($each_subscriptions->reward_wallet_1)
-                    <li> Rewarded Wallet 2: <span class="text-primary"> {{ $each_subscriptions->reward_wallet_2 }} </span></li>
+                        @if ($each_subscriptions->reward_wallet_2)
+                    <li> Rewarded Wallet 2: <span class="text-primary"> {{ number_format($each_subscriptions->reward_wallet_2) }}% </span></li>
                         @else
                     <li> Rewarded Wallet 2: <span class="text-primary"> 0.00 </span></li>
                         @endif
 
-                        @if ($each_subscriptions->reward_wallet_1)
-                    <li> Rewarded Wallet 3: <span class="text-primary"> {{ $each_subscriptions->reward_wallet_3 }} </span></li>
+                        @if ($each_subscriptions->reward_wallet_3)
+                    <li> Rewarded Wallet 3: <span class="text-primary"> {{ number_format($each_subscriptions->reward_wallet_3) }}% </span></li>
                         @else
                     <li> Rewarded Wallet 3: <span class="text-primary"> 0.00 </span></li>
                         @endif
