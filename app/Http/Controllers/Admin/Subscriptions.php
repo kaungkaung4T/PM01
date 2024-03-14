@@ -11,6 +11,7 @@ use App\Models\Withdrawal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class Subscriptions extends Controller
 {
@@ -61,6 +62,10 @@ class Subscriptions extends Controller
             $new_amount = $request->amount;
             $minus_amount = $old_amount - $new_amount;
 
+            if ($new_amount > $old_amount) {
+                return Redirect::back()->withErrors(['msg' => 'Not enough deposit amounts!']);
+            }
+
             Deposit::where("customer_id", $request->userid)->update([
                 'amount' => $minus_amount,
                 'wallet' => $minus_amount,
@@ -108,6 +113,10 @@ class Subscriptions extends Controller
             $new_amount = $request->amount;
             $minus_amount = $old_amount - $new_amount;
 
+            if ($new_amount > $old_amount) {
+                return Redirect::back()->withErrors(['msg' => 'Not enough deposit amounts!']);
+            }
+
             Deposit::where("customer_id", $request->userid)->update([
                 'amount' => $minus_amount,
                 'wallet2' => $minus_amount,
@@ -154,6 +163,10 @@ class Subscriptions extends Controller
             $old_amount = $md->wallet3;
             $new_amount = $request->amount;
             $minus_amount = $old_amount - $new_amount;
+
+            if ($new_amount > $old_amount) {
+                return Redirect::back()->withErrors(['msg' => 'Not enough deposit amounts!']);
+            }
 
             Deposit::where("customer_id", $request->userid)->update([
                 'amount' => $minus_amount,
