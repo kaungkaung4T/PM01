@@ -89,9 +89,8 @@ class Subscriptions extends Controller
                 'start_at' => date('Y-m-d H:i:s'),
                 'end_at' => $end_date,
                 'status' => 'Active',
+                'reward_wallet_1' => $package->reward_percent
             ]);
-            $ms->reward_wallet_1 = $package->reward_percent;
-            $ms->save();
 
             Withdrawal::create([
                 'customer_id' => $request->userid,
@@ -139,10 +138,9 @@ class Subscriptions extends Controller
                 'package' => $package->id,
                 'start_at' => date('Y-m-d H:i:s'),
                 'end_at' => $end_date,
-                'status' => 'Active'
+                'status' => 'Active',
+                'reward_wallet_2' => $package->reward_percent
             ]);
-            $ms->reward_wallet_2 = $package->reward_percent;
-            $ms->save();
 
             Withdrawal::create([
                 'customer_id' => $request->userid,
@@ -191,10 +189,9 @@ class Subscriptions extends Controller
                 'package' => $package->id,
                 'start_at' => date('Y-m-d H:i:s'),
                 'end_at' => $end_date,
-                'status' => 'Active'
+                'status' => 'Active',
+                'reward_wallet_3' => $package->reward_percent
             ]);
-            $ms->reward_wallet_3 = $package->reward_percent;
-            $ms->save();
 
             Withdrawal::create([
                 'customer_id' => $request->userid,
