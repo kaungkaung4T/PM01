@@ -113,8 +113,7 @@ class Kernel extends ConsoleKernel
             foreach ($all_sub as $each_sub) {
                 if ($each_sub->status == "Active") {
                     
-                    // $today = Carbon::now();
-                    $today = "2024-04-14 20:18:59";
+                    $today = Carbon::now();
                     
                     if ($today === $each_sub->end_at) {
                         $each_sub->status = "Inactive";
