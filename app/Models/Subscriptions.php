@@ -19,6 +19,7 @@ class Subscriptions extends Model
         'reward_wallet_1',
         'reward_wallet_2',
         'reward_wallet_3',
+        'wallet',
     ];
 
     public function customer_data ()  {

@@ -56,6 +56,26 @@ class Subscriptions extends Controller
         $date = Carbon::now();
         $end_date = $date->addDay($package->days);
 
+        if (ModelsSubscriptions::where("customer", $request->userid)->where('wallet', '=', $request->wallet)->exists()) {
+            $ms = ModelsSubscriptions::where("customer", $request->userid)->where('wallet', '=', $request->wallet)->first();
+
+            if ($request->wallet == "wallet_1") {
+                if ($ms->reward_wallet_1) {
+                    return Redirect::back()->withErrors(['msg' => "Package was already Bought with wallet 1!"]);
+                }
+            }
+            if ($request->wallet == "wallet_2") {
+                if ($ms->reward_wallet_2) {
+                    return Redirect::back()->withErrors(['msg' => "Package was already Bought with wallet 2!"]);
+                }
+            }
+            if ($request->wallet == "wallet_3") {
+                if ($ms->reward_wallet_3) {
+                    return Redirect::back()->withErrors(['msg' => "Package was already Bought with wallet 3!"]);
+                }
+            }
+        }
+
         if ($request->wallet == "wallet_1") {
             $md = Deposit::where("customer_id", $request->userid)->first();
             $old_amount = $md->wallet;
@@ -89,7 +109,8 @@ class Subscriptions extends Controller
                 'start_at' => date('Y-m-d H:i:s'),
                 'end_at' => $end_date,
                 'status' => 'Active',
-                'reward_wallet_1' => $package->reward_percent
+                'reward_wallet_1' => $package->reward_percent,
+                'wallet' => $request->wallet
             ]);
 
             Withdrawal::create([
@@ -139,7 +160,8 @@ class Subscriptions extends Controller
                 'start_at' => date('Y-m-d H:i:s'),
                 'end_at' => $end_date,
                 'status' => 'Active',
-                'reward_wallet_2' => $package->reward_percent
+                'reward_wallet_2' => $package->reward_percent,
+                'wallet' => $request->wallet
             ]);
 
             Withdrawal::create([
@@ -190,7 +212,8 @@ class Subscriptions extends Controller
                 'start_at' => date('Y-m-d H:i:s'),
                 'end_at' => $end_date,
                 'status' => 'Active',
-                'reward_wallet_3' => $package->reward_percent
+                'reward_wallet_3' => $package->reward_percent,
+                'wallet' => $request->wallet
             ]);
 
             Withdrawal::create([
