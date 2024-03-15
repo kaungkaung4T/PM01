@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\Customer;
 use App\Models\Deposit;
 use App\Models\DepositNoti;
 use App\Models\Subscriptions;
@@ -26,12 +27,18 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        
         $schedule->call(function () {
+
+            // $all_cus = Customer::all();
+            // foreach ($all_cus as $each_cus) {
+            //     $all_sub = Subscriptions::where("customer", $all_cus->id);
+            // }
+
             $all_sub = Subscriptions::all();
             foreach ($all_sub as $each_sub) {
                 if ($each_sub->status == "Active") {
                     
-                    if ($each_sub->package_data->name == "Plan A") {
                         if ($each_sub->reward_wallet_1) {
                             $md = Deposit::where("customer_id", $each_sub->customer)->first();
                             $old_amount = $md->wallet;
@@ -97,8 +104,7 @@ class Kernel extends ConsoleKernel
                                 'wallet3' => $plus_amount,
                             ]);
                         }
-
-                    }
+                    
                 }
             }
             

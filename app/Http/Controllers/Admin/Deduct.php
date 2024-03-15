@@ -80,16 +80,17 @@ class Deduct extends Controller
 
         $reference_number = $this->generate_reference_number();
 
-        $all_deposit = Deposit::find($customer->deposit_amount);
-        $old_amount = $all_deposit->wallet;
-        $new_amount = $request->amount;
-
-        if ($new_amount > $old_amount) {
-            return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
-        }
-        $minus = $old_amount - $new_amount;
-
         if ($request->wallet == "wallet_1") {
+            $all_deposit = Deposit::where("id", $customer->deposit_amount)->first();
+            $old_amount = $all_deposit->wallet;
+            $new_amount = $request->amount;
+
+            if ($new_amount > $old_amount) {
+                return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
+            }
+
+            $minus = $old_amount - $new_amount;
+
             $all_deposit ->update([
                 'amount' => $minus,
                 'wallet' => $minus
@@ -115,6 +116,16 @@ class Deduct extends Controller
             ]);
         }
         if ($request->wallet == "wallet_2") {
+            $all_deposit = Deposit::where("id", $customer->deposit_amount)->first();
+            $old_amount = $all_deposit->wallet2;
+            $new_amount = $request->amount;
+
+            if ($new_amount > $old_amount) {
+                return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
+            }
+            
+            $minus = $old_amount - $new_amount;
+
             $all_deposit ->update([
                 'amount' => $minus,
                 'wallet2' => $minus
@@ -140,6 +151,16 @@ class Deduct extends Controller
             ]);
         }
         if ($request->wallet == "wallet_3") {
+            $all_deposit = Deposit::where("id", $customer->deposit_amount)->first();
+            $old_amount = $all_deposit->wallet3;
+            $new_amount = $request->amount;
+
+            if ($new_amount > $old_amount) {
+                return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
+            }
+            
+            $minus = $old_amount - $new_amount;
+
             $all_deposit ->update([
                 'amount' => $minus,
                 'wallet3' => $minus
