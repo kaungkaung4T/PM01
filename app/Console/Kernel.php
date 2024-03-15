@@ -106,7 +106,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-        })->dailyAt('22:43')->timezone('Asia/Rangoon');
+        })->dailyAt('23:57')->timezone('Asia/Rangoon');
 
         $schedule->call(function () {
             $all_sub = Subscriptions::all();
