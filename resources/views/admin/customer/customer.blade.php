@@ -53,7 +53,7 @@
                     <span class="mr-1"> * </span><label>Phone:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="phone" type="text" class="form-control" required>
+                    <input name="phone" type="number" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -61,7 +61,7 @@
                     <span class="mr-1"> * </span><label>NRIC:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="nric" type="text" class="form-control" required>
+                    <input name="nric" type="number" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -69,7 +69,7 @@
                     <span class="mr-1"> * </span><label>Name:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="name" type="text" class="form-control" required>
+                    <input name="name" type="text" pattern="^[a-zA-Z]+$" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -95,7 +95,7 @@
                     <span class="mr-1"> * </span><label>Bank Number:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="bank_number" type="text" class="form-control" required>
+                    <input name="bank_number" type="number" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -619,7 +619,7 @@
                                 <span class="mr-1"> * </span><label>Phone:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="phone" type="text" class="form-control" value="{{ $each_customer->phone }}" required>
+                                <input name="phone" type="number" class="form-control" value="{{ $each_customer->phone }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -627,7 +627,7 @@
                                 <span class="mr-1"> * </span><label>NRIC:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="nric" type="text" class="form-control" value="{{ $each_customer->nric }}" required>
+                                <input name="nric" type="number" class="form-control" value="{{ $each_customer->nric }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -662,7 +662,7 @@
                                 <span class="mr-1"> * </span><label>Bank Number:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="bank_number" type="text" class="form-control" value="{{ $each_customer->bank_number }}" required>
+                                <input name="bank_number" type="number" class="form-control" value="{{ $each_customer->bank_number }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
