@@ -107,6 +107,7 @@ class Kernel extends ConsoleKernel
                 }
             }
         })->dailyAt('23:50')->timezone('Asia/Rangoon');
+        // dailyAt('00:05')->timezone('Asia/Rangoon'); For adding at today morning 12:05 AM
 
         $schedule->call(function () {
             $all_sub = Subscriptions::all();
