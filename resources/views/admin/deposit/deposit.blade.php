@@ -58,7 +58,7 @@
                 </th>
                 
                 <th scope="col" class="text-start text-dark">
-                    <label class="stop_propagation">Deposit Amount USD</label>
+                    <label class="stop_propagation">Deposit Amount</label>
                     <div class="float-right">
                         <a class="stop_propagation">
                             <i class="bi bi-search search_button3 stop_propagation search_icon"></i>

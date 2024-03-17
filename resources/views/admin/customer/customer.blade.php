@@ -53,7 +53,7 @@
                     <span class="mr-1"> * </span><label>Phone:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="phone" type="number" class="form-control" required>
+                    <input name="phone" type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -61,7 +61,7 @@
                     <span class="mr-1"> * </span><label>NRIC:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="nric" type="number" class="form-control" required>
+                    <input name="nric" type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -69,8 +69,18 @@
                     <span class="mr-1"> * </span><label>Name:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="name" type="text" pattern="^[a-zA-Z]+$" class="form-control" required>
+                    <input name="name" type="text" id="create_name" class="form-control" required>
                     </div>
+                    <script>
+                        $("#create_name").keypress(function(event) {
+                            var character = String.fromCharCode(event.keyCode);
+                            return isValid(character);
+                        });
+
+                        function isValid(str) {
+                            return !/[1234567890]/g.test(str);
+                        }
+                    </script>
                 </div>
                 <div class="mb-3 row modal_form_group">
                     <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
@@ -95,7 +105,7 @@
                     <span class="mr-1"> * </span><label>Bank Number:</label>
                     </div>
                     <div class="col-sm-9">
-                    <input name="bank_number" type="number" class="form-control" required>
+                    <input name="bank_number" type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" required>
                     </div>
                 </div>
                 <div class="mb-3 row modal_form_group">
@@ -619,7 +629,7 @@
                                 <span class="mr-1"> * </span><label>Phone:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="phone" type="number" class="form-control" value="{{ $each_customer->phone }}" required>
+                                <input name="phone" type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" value="{{ $each_customer->phone }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -627,7 +637,7 @@
                                 <span class="mr-1"> * </span><label>NRIC:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="nric" type="number" class="form-control" value="{{ $each_customer->nric }}" required>
+                                <input name="nric" type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" value="{{ $each_customer->nric }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">
@@ -635,8 +645,18 @@
                                 <span class="mr-1"> * </span><label>Name:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="name" type="text" class="form-control" value="{{ $each_customer->name }}" required>
+                                <input name="name" type="text" id="update_name" class="form-control" value="{{ $each_customer->name }}" required>
                                 </div>
+                                <script>
+                                    $("#update_name").keypress(function(event) {
+                                        var character = String.fromCharCode(event.keyCode);
+                                        return isValid(character);
+                                    });
+
+                                    function isValid(str) {
+                                        return !/[1234567890]/g.test(str);
+                                    }
+                                </script>
                             </div>
                             <div class="mb-3 row modal_form_group">
                                 <div class="col-sm-4 col-form-label mr-3 modal_form_group_word">
@@ -662,7 +682,7 @@
                                 <span class="mr-1"> * </span><label>Bank Number:</label>
                                 </div>
                                 <div class="col-sm-9">
-                                <input name="bank_number" type="number" class="form-control" value="{{ $each_customer->bank_number }}" required>
+                                <input name="bank_number" type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" value="{{ $each_customer->bank_number }}" required>
                                 </div>
                             </div>
                             <div class="mb-3 row modal_form_group">

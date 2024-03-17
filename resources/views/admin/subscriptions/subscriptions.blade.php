@@ -114,7 +114,7 @@
                 <ul style="list-style: none;margin-left: -30px;">
                     <li> Name: <span> {{ $each_subscriptions->package_data->name }} </span></li>
                     <li> Amount: <span class="text-primary"> {{ number_format($each_subscriptions->package_data->amount, 2) }} </span></li>
-                    <li> Rate: <span> {{ $each_subscriptions->package_data->rate }} ~ {{ $each_subscriptions->package_data->rate }} </span></li>
+                    <!-- <li> Rate: <span> {{ $each_subscriptions->package_data->rate }} ~ {{ $each_subscriptions->package_data->rate }} </span></li> -->
                     
                         @if ($each_subscriptions->reward_wallet_1)
                     <li> Rewarded Wallet 1: <span class="text-danger"> {{ number_format($each_subscriptions->reward_wallet_1) }}% </span></li>
