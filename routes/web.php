@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\Subscriptions;
 use App\Http\Controllers\Admin\SystemUser;
 use App\Http\Controllers\Admin\Withdrawal;
 use App\Http\Controllers\Auth\AuthManager;
+use App\Http\Controllers\CustomerAuth\CustomerAuthManager;
+use App\Http\Controllers\FrontEnd\Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +24,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
-});
+// Route::get('/', function () {
+//     return redirect()->route('admin.dashboard');
+// });
+
+
+Route::get('/customer_login', [CustomerAuthManager::class, 'customer_login'])->name('customer_login');
+Route::post('/customer_login/post_customer_login', [CustomerAuthManager::class, 'post_customer_login'])->name('post_customer_login');
+Route::post('/customer_logout', [CustomerAuthManager::class, 'customer_logout'])->name('customer_logout');
+
+
+// Route::group(['middleware' => ['web','auth:customer'], 'prefix' => 'customer_login'], function () {
+//     Route::get('/', [Index::class, 'index'])->name('index');
+// });
+Route::get('/', [Index::class, 'index'])->middleware('auth:customer')->name('index');
+
+
+// ADMIN
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login/post_login', [AuthManager::class, 'post_login'])->name('post_login');

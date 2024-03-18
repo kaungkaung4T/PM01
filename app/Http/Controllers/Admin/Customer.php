@@ -9,6 +9,7 @@ use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class Customer extends Controller
@@ -31,7 +32,7 @@ class Customer extends Controller
                 $all_customer = ModelsCustomer::create([
                     'system_user' => Auth::id(),
                     'username' => $request->username,
-                    'password' => $request->password,
+                    'password' => Hash::make($request->password),
                     'phone' => $request->phone,
                     'nric' => $request->nric,
                     'name' => $request->name,
@@ -46,7 +47,7 @@ class Customer extends Controller
                 $all_customer = ModelsCustomer::create([
                     'system_user' => Auth::id(),
                     'username' => $request->username,
-                    'password' => $request->password,
+                    'password' => Hash::make($request->password),
                     'phone' => $request->phone,
                     'nric' => $request->nric,
                     'name' => $request->name,
@@ -76,7 +77,7 @@ class Customer extends Controller
             $all_customer = $customer->update([
                 'system_user' => Auth::id(),
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'phone' => $request->phone,
                 'nric' => $request->nric,
                 'name' => $request->name,
@@ -92,7 +93,7 @@ class Customer extends Controller
             $all_customer = $customer->update([
                 'system_user' => Auth::id(),
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'phone' => $request->phone,
                 'nric' => $request->nric,
                 'name' => $request->name,
@@ -108,7 +109,7 @@ class Customer extends Controller
             $all_customer = $customer->update([
                 'system_user' => Auth::id(),
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'phone' => $request->phone,
                 'nric' => $request->nric,
                 'name' => $request->name,
@@ -124,7 +125,7 @@ class Customer extends Controller
             $all_customer = $customer->update([
                 'system_user' => Auth::id(),
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'phone' => $request->phone,
                 'nric' => $request->nric,
                 'name' => $request->name,
@@ -140,7 +141,7 @@ class Customer extends Controller
             $all_customer = $customer->update([
                 'system_user' => Auth::id(),
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'phone' => $request->phone,
                 'nric' => $request->nric,
                 'name' => $request->name,

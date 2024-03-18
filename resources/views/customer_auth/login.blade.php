@@ -5,11 +5,11 @@
 <div class="card p-4" style="width: 300px;margin: auto;margin-top: 100px;">
 
     <div class="card-header">
-        <h5>Admin Login</h4>
+        <h5>Customer Login</h4>
     </div>
 
     <div class="card-body">
-        <form action="{{ route('post_login') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('post_customer_login') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
@@ -22,6 +22,7 @@
 
             <button class="btn btn-sm btn-primary" type="submit">Login</button> 
             <span style="color:#495057;font-size: 0.8rem;">Plase ask admin to create an account!</span>
+            <p class="mt-2" style="color:#495057;font-size: 0.8rem;">Forgot password? <span class="text-primary" style="cursor: pointer;">Click here!</span></p> 
         </form>
     </div>
 
