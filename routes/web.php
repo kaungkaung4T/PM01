@@ -37,7 +37,9 @@ Route::post('/customer_logout', [CustomerAuthManager::class, 'customer_logout'])
 // Route::group(['middleware' => ['web','auth:customer'], 'prefix' => 'customer_login'], function () {
 //     Route::get('/', [Index::class, 'index'])->name('index');
 // });
-Route::get('/', [Index::class, 'index'])->middleware('auth:customer')->name('index');
+
+// Route::get('/', [Index::class, 'index'])->middleware('auth:customer')->name('index');
+Route::get('/', [Index::class, 'index'])->name('index');
 
 
 // ADMIN

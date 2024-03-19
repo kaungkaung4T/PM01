@@ -7,3 +7,67 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+body {
+  background-color:#F5F5DC;
+  
+}
+
+.header-main {
+  background:#F0EAD6;
+  padding-left: 70px !important;
+  padding-right: 70px !important;
+}
+
+.header-main .navbar-brand {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.header-main ul li {
+  margin-right: 30px;
+  font-weight: 600;
+}
+
+.index-body {
+  margin: auto;width: 80%;margin-top: 100px;
+  max-width: 1800px;
+}
+
+.package-main {
+  display: flex;
+}
+
+.package-main .card {
+  width: 370px;
+}
+
+.package-main .card-title {
+  color: #343a40;
+}
+
+.package-main ul {
+  list-style: none;
+  margin-left: -30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.package-main ul li {
+  color: #343a40;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.package-main ul li span {
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.package-main ul li label {
+  margin-right: 75px;
+}
+
+
+
