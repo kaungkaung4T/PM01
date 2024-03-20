@@ -46,15 +46,23 @@
                 <div class="modal-content">
                 <div class="modal-header">
                     <div class="subscribe-top-group">
+                            @if ($customer)
                         <h5 class="modal-title" id="exampleModalLongTitle">Wallet Amount ({{ $customer->username }})</h5>
+                            @else
+                        <h5 class="modal-title" id="exampleModalLongTitle">Wallet Amount</h5>
+                            @endif
                         <div class="subscribe-top-group-amount"> 
                             <i class="logo bi bi-cash"></i>
 
+                            @if ($customer)
                                 @if ($customer->deposit_amount)
                             <p>{{ number_format($customer->deposit_data->wallet + $customer->deposit_data->wallet2 + $customer->deposit_data->wallet3, 2) }}</p>
                                 @else
                             <p>{{ number_format(0, 2) }}</p>
                                 @endif
+                            @else
+                                <p>{{ number_format(0, 2) }}</p>
+                            @endif
 
                                 <div class="logo2-hover">
                                     <i class="logo2 bi bi-info-circle text-primary"></i>
