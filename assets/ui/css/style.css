@@ -35,39 +35,62 @@ body {
 }
 
 .package-main {
+  font-size: 1rem;
+}
+
+.subscribe-chose-feature {
   display: flex;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
-.package-main .card {
-  width: 370px;
+.subscribe-chose-feature-each {
+  background-color: #fd7e14;
+  padding: 10px 20px 0 20px;
+  border-radius: 5%;
+  margin-right: 20px;
+  width: 110px;
+  cursor: pointer;
 }
 
-.package-main .card-title {
-  color: #343a40;
+.subscribe-chose-feature-each .logo {
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.package-main ul {
-  list-style: none;
-  margin-left: -30px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+.subscribe-chose-feature-each p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.8rem;
 }
 
-.package-main ul li {
-  color: #343a40;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+.info-amount {
+  visibility: hidden;
+  width: 120px;
+  background-color: #212529;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  margin-left: 5px;
 }
 
-.package-main ul li span {
-  font-weight: 600;
-  color: #6c757d;
-}
+.subscribe-top-group {}
+.subscribe-top-group .subscribe-top-group-amount { display: flex; }
+.subscribe-top-group .subscribe-top-group-amount .logo { font-size: 1.3rem;margin-right: 8px;margin-top: -2px; }
+.subscribe-top-group .subscribe-top-group-amount .logo2 { font-size: 1.1rem;margin-left: 8px;margin-top: -1px;cursor: pointer; }
+.subscribe-top-group .subscribe-top-group-amount .logo2-hover:hover .info-amount { visibility: visible; }
 
-.package-main ul li label {
-  margin-right: 75px;
-}
+.withdrawal-subscribe { margin-top: 30px;padding: 20px; }
+.withdrawal-subscribe h5 { font-weight: 600; }
 
-
-
+.subscribe_package_modal_form { margin-top: 20px; }
+.subscribe_package_modal_form label { font-weight: 600; }
+.subscribe_package_modal_form select { border-color:#ced4da;color:#343a40; }
+.subscribe_package_modal_form input { border-color:#ced4da; }
+.subscribe_package_modal_form .form-text { color:#000; }
