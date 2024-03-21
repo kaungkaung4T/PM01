@@ -10,7 +10,11 @@ use App\Http\Controllers\Admin\SystemUser;
 use App\Http\Controllers\Admin\Withdrawal;
 use App\Http\Controllers\Auth\AuthManager;
 use App\Http\Controllers\CustomerAuth\CustomerAuthManager;
+use App\Http\Controllers\FrontEnd\Bank;
+use App\Http\Controllers\FrontEnd\History;
 use App\Http\Controllers\FrontEnd\Index;
+use App\Http\Controllers\FrontEnd\Info;
+use App\Http\Controllers\FrontEnd\Package;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,11 +28,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect()->route('admin.dashboard');
-// });
-
-
+// --------------- Customer Group ---------------
+// Customer
 Route::get('/customer_login', [CustomerAuthManager::class, 'customer_login'])->name('customer_login');
 Route::post('/customer_login/post_customer_login', [CustomerAuthManager::class, 'post_customer_login'])->name('post_customer_login');
 Route::post('/customer_logout', [CustomerAuthManager::class, 'customer_logout'])->name('customer_logout');
@@ -38,8 +39,23 @@ Route::post('/customer_logout', [CustomerAuthManager::class, 'customer_logout'])
 //     Route::get('/', [Index::class, 'index'])->name('index');
 // });
 
+// Home
 // Route::get('/', [Index::class, 'index'])->middleware('auth:customer')->name('index');
 Route::get('/', [Index::class, 'index'])->name('index');
+
+// Package
+Route::get('/package', [Package::class, 'package'])->name('package');
+
+// History
+Route::get('/history', [History::class, 'history'])->middleware('auth:customer')->name('history');
+
+// Info
+Route::get('/info', [Info::class, 'info'])->middleware('auth:customer')->name('info');
+
+// Info
+Route::get('/bank', [Bank::class, 'bank'])->middleware('auth:customer')->name('bank');
+
+
 
 
 // ADMIN

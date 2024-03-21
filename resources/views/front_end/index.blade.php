@@ -106,6 +106,10 @@
 
                             <div class="modal-body subscribe_package_modal_form">
                                 <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Package</label>
+                                    <input name="package_name" type="text" class="form-control" value="{{ $each_package->name }} ({{ number_format($each_package->amount, 2) }}MMK)" readonly required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Select Wallet</label>
                                     <select name="wallet" class="form-select" required>
                                         <option disabled selected value> Select Wallet </option>
@@ -127,7 +131,7 @@
                                         <option  value="cb_bank"> CB Bank </option>
                                         <option  value="agd_bank"> AGD Bank </option>
                                     </select>
-                                    <div class="form-text">Add new Bank? <a href="" class="text-primary">New</a></div>
+                                    <div class="form-text">Add new Bank? <a href="{{ route('bank') }}" class="text-primary">New</a></div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Amount</label>
@@ -170,7 +174,7 @@
                                         <option  value="cb_bank"> CB Bank </option>
                                         <option  value="agd_bank"> AGD Bank </option>
                                     </select>
-                                    <div class="form-text">Add new Bank? <a href="" class="text-primary">New</a></div>
+                                    <div class="form-text">Add new Bank? <a href="{{ route('bank') }}" class="text-primary">New</a></div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Amount</label>
@@ -213,7 +217,7 @@
                                         <option  value="cb_bank"> CB Bank </option>
                                         <option  value="agd_bank"> AGD Bank </option>
                                     </select>
-                                    <div class="form-text">Add new Bank? <a href="" class="text-primary">New</a></div>
+                                    <div class="form-text">Add new Bank? <a href="{{ route('bank') }}" class="text-primary">New</a></div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Amount</label>
