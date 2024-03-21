@@ -88,11 +88,18 @@ body {
 .subscribe-top-group .subscribe-top-group-amount .logo2 { font-size: 1.1rem;margin-left: 8px;margin-top: -1px;cursor: pointer; }
 .subscribe-top-group .subscribe-top-group-amount .logo2-hover:hover .info-amount { visibility: visible; }
 
-.withdrawal-subscribe { margin-top: 30px;padding: 20px; }
-.withdrawal-subscribe h5 { font-weight: 600; }
+.package-modal-page { margin-top: 30px;padding: 20px; }
+.package-modal-page h5 { font-weight: 600; }
+
+.deposit-modal-page { margin-top: 30px;padding: 20px;display: none; }
+.deposit-modal-page h5 { font-weight: 600; }
+
+.withdrawal-modal-page { margin-top: 30px;padding: 20px;display: none; }
+.withdrawal-modal-page h5 { font-weight: 600; }
 
 .subscribe_package_modal_form { margin-top: 20px; }
 .subscribe_package_modal_form label { font-weight: 600; }
 .subscribe_package_modal_form select { border-color:#ced4da;color:#343a40; }
 .subscribe_package_modal_form input { border-color:#ced4da; }
 .subscribe_package_modal_form .form-text { color:#000; }
+.subscribe_package_modal_form .form-text a { text-decoration: none; }

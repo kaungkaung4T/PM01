@@ -77,29 +77,34 @@
                 </div>
 
                         <div class="subscribe-chose-feature">
-                            <div class="subscribe-chose-feature-each">
+                            <div class="subscribe-chose-feature-each" id="package-feature_{{ $each_package->id }}"
+                            onclick="package_page('{{ $each_package->id }}')">
                                 <div class="logo"><i class="bi bi-stack"></i></div>
                                 <p class="">Package</p>
                             </div>
 
-                            <div class="subscribe-chose-feature-each">
+                            <div class="subscribe-chose-feature-each" id="deposit-feature_{{ $each_package->id }}"
+                            onclick="deposit_page('{{ $each_package->id }}')">
                                 <div class="logo"><i class="bi bi-download"></i></div>
                                 <p class="">Deposit</p>
                             </div>
 
-                            <div class="subscribe-chose-feature-each">
+                            <div class="subscribe-chose-feature-each" id="withdrawal-feature_{{ $each_package->id }}"
+                            onclick="withdrawal_page('{{ $each_package->id }}')">
                                 <div class="logo"><i class="bi bi-upload"></i></div>
                                 <p class="">Withdrawal</p>
                             </div>
                         </div>
 
-                        <div class="withdrawal-subscribe">
+
+                        <!-- Package page -->
+                        <div class="package-modal-page" id="package-modal-page-{{ $each_package->id }}">
                             <form action="" method="GET" enctype="multipart/form-data">
                                 @csrf
 
-                                <h5>Withdrawal</h5>
+                                <h5>Package</h5>
 
-                            <div class="modal-body subscribe_package_modal_form ">
+                            <div class="modal-body subscribe_package_modal_form">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Select Wallet</label>
                                     <select name="wallet" class="form-select" required>
@@ -110,7 +115,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Select Wallet</label>
+                                    <label class="form-label">Select Bank</label>
                                     <select name="bank_type" class="form-select" required>
                                         <option disabled selected value> Select Bank </option>
                                         <option  value="kpay">KPAY</option>
@@ -122,6 +127,7 @@
                                         <option  value="cb_bank"> CB Bank </option>
                                         <option  value="agd_bank"> AGD Bank </option>
                                     </select>
+                                    <div class="form-text">Add new Bank? <a href="" class="text-primary">New</a></div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Amount</label>
@@ -131,9 +137,128 @@
                                 
                                 <button type="submit" class="btn btn-primary mt-5 w-100">Submit</button>
                             </div>
-                                
                             </form>
                         </div>
+
+                        <!-- deposit page -->
+                        <div class="deposit-modal-page" id="deposit-modal-page-{{ $each_package->id }}">
+                            <form action="" method="GET" enctype="multipart/form-data">
+                                @csrf
+
+                                <h5>Deposit</h5>
+
+                            <div class="modal-body subscribe_package_modal_form">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Select Wallet</label>
+                                    <select name="wallet" class="form-select" required>
+                                        <option disabled selected value> Select Wallet </option>
+                                        <option  value="wallet_1"> Wallet 1 </option>
+                                        <option  value="wallet_2"> Wallet 2 </option>
+                                        <option  value="wallet_3"> Wallet 3 </option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Select Bank</label>
+                                    <select name="bank_type" class="form-select" required>
+                                        <option disabled selected value> Select Bank </option>
+                                        <option  value="kpay">KPAY</option>
+                                        <option  value="wave_pay"> WavePay </option>
+                                        <option  value="kbz_bank"> KBZ Bank </option>
+                                        <option  value="uab_bank"> UAB Bank </option>
+                                        <option  value="yoma_bank"> YOMA Bank </option>
+                                        <option  value="aya_bank"> AYA Bank </option>
+                                        <option  value="cb_bank"> CB Bank </option>
+                                        <option  value="agd_bank"> AGD Bank </option>
+                                    </select>
+                                    <div class="form-text">Add new Bank? <a href="" class="text-primary">New</a></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Amount</label>
+                                    <input type="number" name="amount" class="form-control" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                                    <div class="form-text">Available: -- MMK</div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary mt-5 w-100">Submit</button>
+                            </div>
+                            </form>
+                        </div>
+
+                        <!-- Withdrawal page -->
+                        <div class="withdrawal-modal-page" id="withdrawal-modal-page-{{ $each_package->id }}">
+                            <form action="" method="GET" enctype="multipart/form-data">
+                                @csrf
+
+                                <h5>Withdrawal</h5>
+
+                            <div class="modal-body subscribe_package_modal_form">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Select Wallet</label>
+                                    <select name="wallet" class="form-select" required>
+                                        <option disabled selected value> Select Wallet </option>
+                                        <option  value="wallet_1"> Wallet 1 </option>
+                                        <option  value="wallet_2"> Wallet 2 </option>
+                                        <option  value="wallet_3"> Wallet 3 </option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Select Bank</label>
+                                    <select name="bank_type" class="form-select" required>
+                                        <option disabled selected value> Select Bank </option>
+                                        <option  value="kpay">KPAY</option>
+                                        <option  value="wave_pay"> WavePay </option>
+                                        <option  value="kbz_bank"> KBZ Bank </option>
+                                        <option  value="uab_bank"> UAB Bank </option>
+                                        <option  value="yoma_bank"> YOMA Bank </option>
+                                        <option  value="aya_bank"> AYA Bank </option>
+                                        <option  value="cb_bank"> CB Bank </option>
+                                        <option  value="agd_bank"> AGD Bank </option>
+                                    </select>
+                                    <div class="form-text">Add new Bank? <a href="" class="text-primary">New</a></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Amount</label>
+                                    <input type="number" name="amount" class="form-control" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                                    <div class="form-text">Available: -- MMK</div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary mt-5 w-100">Submit</button>
+                            </div>
+                            </form>
+                        </div>
+
+                        <script>
+                            function withdrawal_page (feature_id) {
+                                let package_modal_page = document.querySelector(`#package-modal-page-${ feature_id }`);
+                                let deposit_modal_page = document.querySelector(`#deposit-modal-page-${ feature_id }`);
+                                let withdrawal_modal_page = document.querySelector(`#withdrawal-modal-page-${ feature_id }`);
+
+                                package_modal_page.style.display = "none";
+                                deposit_modal_page.style.display = "none";
+                                withdrawal_modal_page.style.display = "block";
+                            }
+
+                            function deposit_page (feature_id) {
+                                let package_modal_page = document.querySelector(`#package-modal-page-${ feature_id }`);
+                                let deposit_modal_page = document.querySelector(`#deposit-modal-page-${ feature_id }`);
+                                let withdrawal_modal_page = document.querySelector(`#withdrawal-modal-page-${ feature_id }`);
+
+                                package_modal_page.style.display = "none";
+                                deposit_modal_page.style.display = "block";
+                                withdrawal_modal_page.style.display = "none";
+                            }
+
+                            function package_page (feature_id) {
+                                let package_modal_page = document.querySelector(`#package-modal-page-${ feature_id }`);
+                                let deposit_modal_page = document.querySelector(`#deposit-modal-page-${ feature_id }`);
+                                let withdrawal_modal_page = document.querySelector(`#withdrawal-modal-page-${ feature_id }`);
+
+                                package_modal_page.style.display = "block";
+                                deposit_modal_page.style.display = "none";
+                                withdrawal_modal_page.style.display = "none";
+                            }
+                        </script>
+
+
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sm border" id="subscribe_close_modal_{{ $each_package->id }}" 
