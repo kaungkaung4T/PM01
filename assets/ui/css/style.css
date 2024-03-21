@@ -46,10 +46,12 @@ body {
 
 .subscribe-chose-feature-each {
   background-color: #fd7e14;
-  padding: 10px 20px 0 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 5%;
   margin-right: 20px;
-  width: 110px;
+  width: 20%;
   cursor: pointer;
 }
 
