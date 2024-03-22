@@ -105,8 +105,8 @@
             <p>Bank</p>
         </div>
 
+        <form action="" method="POST" enctype="multipart/form-data">
         <div class="all-bank-group-add">
-
             <input type="checkbox" name="agd_bank" value="AGD Bank" id="agd_bank" style="display: none;" />
             <label class="each-bank" id="bank1">
                 <img src="{{asset('assets/ui/img/agd-bank.png')}}" alt="">
@@ -377,23 +377,21 @@
         </div>
 
         <div class="bank-footer">
-            <form action="">
                 <div class="mb-3" style="width: 210px;">
                     <label class="form-label">Account Name</label>
-                    <input type="text" name="account_name" class="form-control">
+                    <input type="text" name="account_name" class="form-control" required>
                 </div>
                 <div class="mb-3 " style="width: 210px;">
                     <label class="form-label">Account Number</label>
-                    <input type="number" name="account_number" class="form-control" placeholder="xxxx xxxx xxxx xxxx" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                    <input type="number" name="account_number" class="form-control" placeholder="xxxx xxxx xxxx xxxx" onkeydown="javascript: return event.keyCode == 69 ? false : true" required>
                 </div>
 
                 <div class="bank-footer-add">
-                    <button type="submit" class="btn btn-warning">Add Bank Account</button>
+                    <button type="submit" class="btn btn-warning" id="add_submit">Add Bank Account</button>
                     <a href="{{ route('bank') }}" class="btn text-white border">Cancel</a>
                 </div>
-
-            </form>
         </div>
+        </form>
 
     </div>
 </body>
