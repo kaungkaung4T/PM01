@@ -52,8 +52,9 @@ Route::get('/history', [History::class, 'history'])->middleware('auth:customer')
 // Info
 Route::get('/info', [Info::class, 'info'])->middleware('auth:customer')->name('info');
 
-// Info
+// Bank
 Route::get('/bank', [Bank::class, 'bank'])->middleware('auth:customer')->name('bank');
+Route::get('/bank_add', [Bank::class, 'bank_add'])->middleware('auth:customer')->name('bank_add');
 
 
 

@@ -136,10 +136,10 @@
                     <span>111111111</span>
                 </div>
             </div>
-            <div class="add-bank">
+            <a href="{{ route('bank_add') }}" class="add-bank">
                 <p>+</p>
                 <p>Add Bank Account</p>
-            </div>
+            </a>
 
         </div>
 

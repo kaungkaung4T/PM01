@@ -20,4 +20,16 @@ class Bank extends Controller
 
         return view('front_end.bank', $context);
     }
+
+    public function bank_add (Request $request) {
+
+        $customer_id = Auth::guard('customer')->id();
+        $customer = Customer::find($customer_id);
+
+        $context = [
+            'customer' => $customer
+        ];
+
+        return view('front_end.bank_add', $context);
+    }
 }

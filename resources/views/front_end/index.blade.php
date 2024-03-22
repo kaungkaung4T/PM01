@@ -16,7 +16,7 @@
 
             @foreach ($packages as $each_package)
 
-                <div class="col-lg-4 slideInUp" data-wow-delay="0.6s" style="width: 390px;">
+                <div class="col-lg-4 slideInUp" data-wow-delay="0.6s" style="width: 390px;margin-bottom: 20px;">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
                             <h4 class="text-primary mb-1">{{ $each_package->name }}</h4>
