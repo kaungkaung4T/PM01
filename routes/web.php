@@ -55,6 +55,7 @@ Route::get('/info', [Info::class, 'info'])->middleware('auth:customer')->name('i
 // Bank
 Route::get('/bank', [Bank::class, 'bank'])->middleware('auth:customer')->name('bank');
 Route::get('/bank_add', [Bank::class, 'bank_add'])->middleware('auth:customer')->name('bank_add');
+Route::post('/bank_add/bank_add_post', [Bank::class, 'bank_add_post'])->middleware('auth:customer')->name('bank_add_post');
 
 
 

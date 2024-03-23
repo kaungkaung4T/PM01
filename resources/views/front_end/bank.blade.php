@@ -103,39 +103,38 @@
 
         <div class="all-bank-group">
 
+            @foreach ($banks as $each_bank)
             <div class="each-bank">
+                @if ($each_bank->bank_name === "AGD Bank")
+                <img src="{{asset('assets/ui/img/agd-bank.png')}}" alt="">
+                @elseif ($each_bank->bank_name === "AYA Bank")
                 <img src="{{asset('assets/ui/img/aya-bank.png')}}" alt="">
+                @elseif ($each_bank->bank_name === "CB Bank")
+                <img src="{{asset('assets/ui/img/cb-bank.png')}}" alt="">
+                @elseif ($each_bank->bank_name === "KBZ Bank")
+                <img src="{{asset('assets/ui/img/kbz-bank.png')}}" alt="">
+                @elseif ($each_bank->bank_name === "KBZ Pay")
+                <img src="{{asset('assets/ui/img/kbz-pay.png')}}" alt="">
+                @elseif ($each_bank->bank_name === "OK Pay")
+                <img src="{{asset('assets/ui/img/ok-pay.jpg')}}" alt="">
+                @elseif ($each_bank->bank_name === "Wave Pay")
+                <img src="{{asset('assets/ui/img/wave-pay.png')}}" alt="">
+                @elseif ($each_bank->bank_name === "Yoma Bank")
+                <img src="{{asset('assets/ui/img/yoma-bank.png')}}" alt="">
+
+                @endif
                 <div class="each-bank-text">
-                    <p>wiejfowefj</p>
-                    <span>111111111</span>
+                    <p>{{ $each_bank->account_name }}</p>
+                        @if ($each_bank->account_number)
+                    <span>{{ $each_bank->account_number }}</span>
+                        @else
+                    <span>{{ $each_bank->phone_number }}</span>
+                        @endif
                 </div>
             </div>
-            <div class="each-bank">
-                <img src="{{asset('assets/ui/img/aya-bank.png')}}" alt="">
-                <div class="each-bank-text">
-                    <p>wiejfowefj</p>
-                    <span>111111111</span>
-                </div>
-            </div>
-            <div class="each-bank">
-                <img src="{{asset('assets/ui/img/aya-bank.png')}}" alt="">
-                <div class="each-bank-text">
-                    <p>wiejfowefj</p>
-                    <span>111111111</span>
-                </div>
-            </div><div class="each-bank">
-                <img src="{{asset('assets/ui/img/aya-bank.png')}}" alt="">
-                <div class="each-bank-text">
-                    <p>wiejfowefj</p>
-                    <span>111111111</span>
-                </div>
-            </div><div class="each-bank">
-                <img src="{{asset('assets/ui/img/aya-bank.png')}}" alt="">
-                <div class="each-bank-text">
-                    <p>wiejfowefj</p>
-                    <span>111111111</span>
-                </div>
-            </div>
+            @endforeach
+            
+            
             <a href="{{ route('bank_add') }}" class="add-bank">
                 <p>+</p>
                 <p>Add Bank Account</p>

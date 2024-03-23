@@ -105,42 +105,63 @@
             <p>Bank</p>
         </div>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('bank_add_post') }}" method="POST" enctype="multipart/form-data">
+            @csrf
         <div class="all-bank-group-add">
-            <input type="checkbox" name="agd_bank" value="AGD Bank" id="agd_bank" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="AGD Bank" id="agd_bank" style="display: none;" />
             <label class="each-bank" id="bank1">
                 <img src="{{asset('assets/ui/img/agd-bank.png')}}" alt="">
             </label>
-            <input type="checkbox" name="aya_bank" value="AYA Bank" id="aya_bank" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="AYA Bank" id="aya_bank" style="display: none;" />
             <label class="each-bank" id="bank2">
                 <img src="{{asset('assets/ui/img/aya-bank.png')}}" alt="">
             </label>
-            <input type="checkbox" name="cb_bank" value="CB Bank" id="cb_bank" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="CB Bank" id="cb_bank" style="display: none;" />
             <label class="each-bank" id="bank3">
                 <img src="{{asset('assets/ui/img/cb-bank.png')}}" alt="">
             </label>
-            <input type="checkbox" name="kbz_bank" value="KBZ Bank" id="kbz_bank" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="KBZ Bank" id="kbz_bank" style="display: none;" />
             <label class="each-bank" id="bank4">
                 <img src="{{asset('assets/ui/img/kbz-bank.png')}}" alt="">
             </label>
-            <input type="checkbox" name="kbz_pay" value="KBZ Pay" id="kbz_pay" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="KBZ Pay" id="kbz_pay" style="display: none;" />
             <label class="each-bank" id="bank5">
                 <img src="{{asset('assets/ui/img/kbz-pay.png')}}" alt="">
             </label>
-            <input type="checkbox" name="ok_pay" value="OK Pay" id="ok_pay" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="OK Pay" id="ok_pay" style="display: none;" />
             <label class="each-bank" id="bank6">
                 <img src="{{asset('assets/ui/img/ok-pay.jpg')}}" alt="">
             </label>
-            <input type="checkbox" name="wave_pay" value="Wave Pay" id="wave_pay" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="Wave Pay" id="wave_pay" style="display: none;" />
             <label class="each-bank" id="bank7">
                 <img src="{{asset('assets/ui/img/wave-pay.png')}}" alt="">
             </label>
-            <input type="checkbox" name="yoma_bank" value="Yoma Bank" id="yoma_bank" style="display: none;" />
+            <input type="checkbox" name="bank_name" value="Yoma Bank" id="yoma_bank" style="display: none;" />
             <label class="each-bank" id="bank8" >
                 <img src="{{asset('assets/ui/img/yoma-bank.png')}}" alt="">
             </label>
+        </div>
 
-            <script>
+        <div class="bank-footer">
+                <div class="mb-3" style="width: 210px;">
+                    <label class="form-label">Account Name</label>
+                    <input type="text" name="account_name" class="form-control" required>
+                </div>
+                <div class="mb-3 " style="width: 210px;" id="bank-footer-accnumber">
+                    <label class="form-label">Account Number</label>
+                    <input id="bank-footer-accnumber-input" type="number" name="account_number" class="form-control" placeholder="xxxx xxxx xxxx xxxx" onkeydown="javascript: return event.keyCode == 69 ? false : true" required>
+                </div>
+                <div class="mb-3 bank-footer-phone" id="bank-footer-phone" style="width: 210px;">
+                    <label class="form-label">Phone Number</label>
+                    <input id="bank-footer-phone-input" type="number" name="phone_number" class="form-control" placeholder="09xxxxxxxxx" onkeydown="javascript: return event.keyCode == 69 ? false : true" disabled required>
+                </div>
+
+                <div class="bank-footer-add">
+                    <button type="submit" class="btn btn-warning" id="add_submit">Add Bank Account</button>
+                    <a href="{{ route('bank') }}" class="btn text-white border">Cancel</a>
+                </div>
+        </div>
+        <script>
                 let bank1 = document.querySelector("#bank1");
                 let agd_bank = document.querySelector("#agd_bank");
 
@@ -189,6 +210,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "block";
+                    bank_number_input.disabled = false;
+
+                    bank_phone.style.display = "none";
+                    bank_phone_input.disabled = true;
                 })
                 
                 bank2.addEventListener("click", function () {
@@ -215,6 +247,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "block";
+                    bank_number_input.disabled = false;
+
+                    bank_phone.style.display = "none";
+                    bank_phone_input.disabled = true;
                 })
 
                 bank3.addEventListener("click", function () {
@@ -241,6 +284,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "block";
+                    bank_number_input.disabled = false;
+
+                    bank_phone.style.display = "none";
+                    bank_phone_input.disabled = true;
                 })
 
                 bank4.addEventListener("click", function () {
@@ -267,6 +321,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "block";
+                    bank_number_input.disabled = false;
+
+                    bank_phone.style.display = "none";
+                    bank_phone_input.disabled = true;
                 })
 
                 bank5.addEventListener("click", function () {
@@ -293,6 +358,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "none";
+                    bank_number_input.disabled = true;
+
+                    bank_phone.style.display = "block";
+                    bank_phone_input.disabled = false;
                 })
 
                 bank6.addEventListener("click", function () {
@@ -319,6 +395,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "none";
+                    bank_number_input.disabled = true;
+
+                    bank_phone.style.display = "block";
+                    bank_phone_input.disabled = false;
                 })
 
                 bank7.addEventListener("click", function () {
@@ -345,6 +432,17 @@
 
                     bank8.style.border = "1px solid #000";
                     yoma_bank.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "none";
+                    bank_number_input.disabled = true;
+
+                    bank_phone.style.display = "block";
+                    bank_phone_input.disabled = false;
                 })
 
                 bank8.addEventListener("click", function () {
@@ -371,26 +469,19 @@
 
                     bank7.style.border = "1px solid #000";
                     wave_pay.checked = false;
+
+                    let bank_number = document.querySelector("#bank-footer-accnumber");
+                    let bank_number_input = document.querySelector("#bank-footer-accnumber-input");
+                    let bank_phone = document.querySelector("#bank-footer-phone");
+                    let bank_phone_input = document.querySelector("#bank-footer-phone-input");
+
+                    bank_number.style.display = "block";
+                    bank_number_input.disabled = false;
+
+                    bank_phone.style.display = "none";
+                    bank_phone_input.disabled = true;
                 })
             </script>
-
-        </div>
-
-        <div class="bank-footer">
-                <div class="mb-3" style="width: 210px;">
-                    <label class="form-label">Account Name</label>
-                    <input type="text" name="account_name" class="form-control" required>
-                </div>
-                <div class="mb-3 " style="width: 210px;">
-                    <label class="form-label">Account Number</label>
-                    <input type="number" name="account_number" class="form-control" placeholder="xxxx xxxx xxxx xxxx" onkeydown="javascript: return event.keyCode == 69 ? false : true" required>
-                </div>
-
-                <div class="bank-footer-add">
-                    <button type="submit" class="btn btn-warning" id="add_submit">Add Bank Account</button>
-                    <a href="{{ route('bank') }}" class="btn text-white border">Cancel</a>
-                </div>
-        </div>
         </form>
 
     </div>

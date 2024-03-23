@@ -53,7 +53,7 @@ body {
 
 .all-bank-group { display: flex;padding-left: 20px;padding-right: 20px;padding-top: 20px;padding-bottom: 5px;flex-wrap: wrap; }
 .all-bank-group .each-bank { width: 23.9%;margin-bottom: 13px; margin-right: 10px;padding-top: 16px;padding-left: 16px;padding-right: 16px;padding-bottom: 10px;height: 135px;border: 1px solid #000;background-color:#3b3b3b;border-radius: 7px; }
-.all-bank-group .each-bank img { width: 195px;height: 60px;object-fit: contain;display: block;margin-left: auto;margin-right: auto; }
+.all-bank-group .each-bank img { width: 235px;height: 60px;object-fit: cover; }
 
 .all-bank-group .each-bank .each-bank-text { display: block;margin-top: 5px; }
 .all-bank-group .each-bank .each-bank-text p { text-align: start;color: #ffffff; }
@@ -64,7 +64,7 @@ body {
 .all-bank-group .add-bank p:nth-child(2) { text-align: center;margin-top: -14px;color:#ffffff; }
 
 .all-bank-group-add { display: flex;padding-left: 20px;padding-right: 20px;padding-top: 20px;padding-bottom: 5px;flex-wrap: wrap; }
-.all-bank-group-add .each-bank { width: 23.9%;margin-bottom: 13px; margin-right: 10px;padding-top: 16px;padding-left: 16px;padding-right: 16px;padding-bottom: 10px;height: 135px;border: 1px solid #000;background-color:#3b3b3b;border-radius: 7px; }
+.all-bank-group-add .each-bank { width: 23.9%;margin-bottom: 13px; margin-right: 10px;padding-top: 16px;padding-left: 16px;padding-right: 16px;padding-bottom: 10px;height: 135px;border: 1px solid #000;background-color:#3b3b3b;border-radius: 7px;cursor: pointer; }
 .all-bank-group-add .each-bank img { width: 235px;height: 95px;object-fit: contain;display: block;margin-left: auto;margin-right: auto; }
 
 .bank-footer { padding-left: 20px;padding-right: 20px;color:#ffffff; }
@@ -73,6 +73,7 @@ body {
 .bank-footer .bank-footer-add button { margin-right: 10px;border-radius: 15px; }
 .bank-footer .bank-footer-add a { border-radius: 15px; }
 
+.bank-footer-phone { display: none; }
 
 .index-body {
   margin: auto;width: 80%;margin-top: 100px;
