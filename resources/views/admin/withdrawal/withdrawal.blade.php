@@ -120,7 +120,7 @@
             <td class="text-start" style="color: #495057;">
                 <ul style="list-style: none;margin-left: -30px;">
                     <li>{{ $each_withdrawal->created_at }}</li>
-                    <li class="text-primary">{{ $each_withdrawal->system_user_data->username }}</li>
+                    <li class="text-primary">{{ $each_withdrawal->customer_name }}</li>
                 </ul>
             </td>
                 @if ($each_withdrawal->complete_date == NULL || $each_withdrawal->complete_date == "0000-00-00 00:00:00")
@@ -189,9 +189,14 @@
                                 <li> Code: <span> {{ $each_withdrawal->code }} </span></li>
                                 <li> Request Amount: <span> {{ number_format($each_withdrawal->amount, 2) }} </span></li>
                                 <li> Remarks: <span> {{ $each_withdrawal->remark }} </span></li>
-                                <li> Created At: <span> {{ $each_withdrawal->system_user_data->created_at }} </span></li>
-                                <li> Created By: <span> {{ $each_withdrawal->system_user_data->username }} </span></li>
-
+                                <li> Created At: <span> {{ $each_withdrawal->customer_name }} </span></li>
+                                <li> Created By:
+                                @if (!is_null($each_withdrawal->system_user_data))
+                                    <span>{{ $each_withdrawal->system_user_data->username }}</span>
+                                @else
+                                    <span></span>
+                                @endif
+                                </li>
                                     @if ($each_withdrawal->complete_date == NULL || $each_withdrawal->complete_date == "0000-00-00 00:00:00")
                                 <li> Completed At: <span> - </span></li>
                                     @else
@@ -249,9 +254,14 @@
                                 <li> Code: <span> {{ $each_withdrawal->code }} </span></li>
                                 <li> Request Amount: <span> {{ number_format($each_withdrawal->amount, 2) }} </span></li>
                                 <li> Remarks: <span> {{ $each_withdrawal->remark }} </span></li>
-                                <li> Created At: <span> {{ $each_withdrawal->system_user_data->created_at }} </span></li>
-                                <li> Created By: <span> {{ $each_withdrawal->system_user_data->username }} </span></li>
-
+                                <li> Created At: <span> {{ $each_withdrawal->customer_name }} </span></li>
+                                <li> Created By:
+                                @if (!is_null($each_withdrawal->system_user_data))
+                                    <span>{{ $each_withdrawal->system_user_data->username }}</span>
+                                @else
+                                    <span></span>
+                                @endif
+                                </li>
                                     @if ($each_withdrawal->complete_date == NULL || $each_withdrawal->complete_date == "0000-00-00 00:00:00")
                                 <li> Completed At: <span> - </span></li>
                                     @else

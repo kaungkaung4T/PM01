@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\FrontEnd\Financial;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Deposit;
-use App\Models\DepositNoti;
-use App\Models\Withdrawal;
+use App\Models\Withdrawal as ModelsWithdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class Deduct extends Controller
+class Withdrawal extends Controller
 {
     /**
      * Generate an unique reference number.
@@ -33,12 +32,13 @@ class Deduct extends Controller
      * Check reference number is duplicate or not.
      */
     public function barcodeNumberExists($number) {
-        return Withdrawal::where("code", "=", $number)->exists();
+        return ModelsWithdrawal::where("code", "=", $number)->exists();
     }
 
-    public function deduct (Request $request, $id) {
+    public function customer_withdrawal (Request $request) {
 
-        $customer = Customer::find($id);
+        $customer_id = Auth::guard('customer')->id();
+        $customer = Customer::find($customer_id);
 
         if (is_null($customer->deposit_data)) {
             return Redirect::back()->withErrors(['msg' => 'Please create your deposit first before deduct!']);
@@ -88,33 +88,18 @@ class Deduct extends Controller
             if ($new_amount > $old_amount) {
                 return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
             }
-
-            $minus = $old_amount - $new_amount;
-
-            $all_deposit ->update([
-                'amount' => $minus,
-                'wallet' => $minus
-            ]);
-
-            // Deposit Noti
-            DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
-                'amount' => $minus,
-                'wallet1' => $minus
-            ]);
-
-            $all_withdrawal = Withdrawal::create([
-                'customer_id' => $request->userid,
-                'customer_name' => $request->username,
+            
+            $all_withdrawal = ModelsWithdrawal::create([
+                'customer_id' => $customer_id,
+                'customer_name' => $customer->username,
                 'code' => $reference_number,
                 'amount' => $request->amount,
-                'remark' => $request->remark,
+                'remark' => $request->wallet,
                 'wallet' => $request->wallet,
                 'wallet1' => $request->amount,
-                'system_user' => Auth::id(),
-                'status' => 'Completed',
-                'complete_date' => date('Y-m-d H:i:s'),
+                'status' => 'Pending',
+                'complete_date' => null,
                 'reject_date' => null,
-                'completed_rejected_user' => Auth::id(),
             ]);
         }
         if ($request->wallet == "wallet_2") {
@@ -125,33 +110,18 @@ class Deduct extends Controller
             if ($new_amount > $old_amount) {
                 return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
             }
-            
-            $minus = $old_amount - $new_amount;
 
-            $all_deposit ->update([
-                'amount' => $minus,
-                'wallet2' => $minus
-            ]);
-
-            // Deposit Noti
-            DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
-                'amount' => $minus,
-                'wallet2' => $minus
-            ]);
-
-            $all_withdrawal = Withdrawal::create([
-                'customer_id' => $request->userid,
-                'customer_name' => $request->username,
+            $all_withdrawal = ModelsWithdrawal::create([
+                'customer_id' => $customer_id,
+                'customer_name' => $customer->username,
                 'code' => $reference_number,
                 'amount' => $request->amount,
-                'remark' => $request->remark,
+                'remark' => $request->wallet,
                 'wallet' => $request->wallet,
                 'wallet2' => $request->amount,
-                'system_user' => Auth::id(),
-                'status' => 'Completed',
-                'complete_date' => date('Y-m-d H:i:s'),
+                'status' => 'Pending',
+                'complete_date' => null,
                 'reject_date' => null,
-                'completed_rejected_user' => Auth::id(),
             ]);
         }
         if ($request->wallet == "wallet_3") {
@@ -162,39 +132,20 @@ class Deduct extends Controller
             if ($new_amount > $old_amount) {
                 return Redirect::back()->withErrors(['msg' => 'Deduct amounts can not be greateer than existing amount!']);
             }
-            
-            $minus = $old_amount - $new_amount;
 
-            $all_deposit ->update([
-                'amount' => $minus,
-                'wallet3' => $minus
-            ]);
-
-            // Deposit Noti
-            DepositNoti::where("customer_id", $customer->deposit_amount)->where('wallet', '=', $request->wallet)->update([
-                'amount' => $minus,
-                'wallet3' => $minus
-            ]);
-
-            $all_withdrawal = Withdrawal::create([
-                'customer_id' => $request->userid,
-                'customer_name' => $request->username,
+            $all_withdrawal = ModelsWithdrawal::create([
+                'customer_id' => $customer_id,
+                'customer_name' => $customer->username,
                 'code' => $reference_number,
                 'amount' => $request->amount,
-                'remark' => $request->remark,
+                'remark' => $request->wallet,
                 'wallet' => $request->wallet,
                 'wallet3' => $request->amount,
-                'system_user' => Auth::id(),
-                'status' => 'Completed',
-                'complete_date' => date('Y-m-d H:i:s'),
+                'status' => 'Pending',
+                'complete_date' => null,
                 'reject_date' => null,
-                'completed_rejected_user' => Auth::id(),
             ]);
         }
-
-        $context = [
-            "all_deposit" => $all_deposit
-        ];
-        return redirect()->route('admin.customer')->with('success', 'Deduct Created Successfully');
+        return redirect()->back()->with('message', 'Withdrawal amount successfully placed and pending!');
     }
 }

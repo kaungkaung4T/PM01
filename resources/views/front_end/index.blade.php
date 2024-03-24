@@ -122,14 +122,23 @@
                                     <label class="form-label">Select Bank</label>
                                     <select name="bank_type" class="form-select" required>
                                         <option disabled selected value> Select Bank </option>
-                                        <option  value="kpay">KPAY</option>
-                                        <option  value="wave_pay"> WavePay </option>
+
+                                            @if(Auth::guard('customer')->check())
+                                        @foreach ($customer_banks as $each_customer_bank)
+                                    <option  value="{{ $each_customer_bank->bank_name }}">{{ $each_customer_bank->bank_name }}</option>
+                                        @endforeach
+                                            @else
+                                        <option  value="kpay">KBZ Pay</option>
+                                        <option  value="wave_pay"> Wave Pay </option>
+                                        <option  value="ok_pay"> OK Pay </option>
                                         <option  value="kbz_bank"> KBZ Bank </option>
                                         <option  value="uab_bank"> UAB Bank </option>
-                                        <option  value="yoma_bank"> YOMA Bank </option>
+                                        <option  value="yoma_bank"> Yoma Bank </option>
                                         <option  value="aya_bank"> AYA Bank </option>
                                         <option  value="cb_bank"> CB Bank </option>
                                         <option  value="agd_bank"> AGD Bank </option>
+                                            @endif
+
                                     </select>
                                     <div class="form-text">Add new Bank? <a href="{{ route('bank') }}" class="text-primary">New</a></div>
                                 </div>
@@ -189,7 +198,7 @@
 
                         <!-- Withdrawal page -->
                         <div class="withdrawal-modal-page" id="withdrawal-modal-page-{{ $each_package->id }}">
-                            <form action="" method="GET" enctype="multipart/form-data">
+                            <form action="{{ route('customer_withdrawal') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <h5>Withdrawal</h5>

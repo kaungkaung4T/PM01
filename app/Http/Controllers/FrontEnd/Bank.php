@@ -40,6 +40,10 @@ class Bank extends Controller
 
     public function bank_add_post (Request $request) {
 
+        if(!$request->filled('bank_name')) {
+            return Redirect::back()->withErrors(['msg' => 'Please select a Bank first that you want to add!']);
+        }
+
         $customer_id = Auth::guard('customer')->id();
         $customer = Customer::find($customer_id);
 

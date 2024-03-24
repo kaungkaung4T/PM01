@@ -17,11 +17,20 @@ return new class extends Migration
             $table->string('customer_name');
             $table->string('code');
             $table->decimal('amount', $total = 10, $places = 2);
-            $table->string('remark');
+            $table->string('remark')->nullable();
+
+            $table->string('wallet')->nullable();
+            $table->decimal('wallet1', $total = 10, $places = 2)->nullable();
+            $table->decimal('wallet2', $total = 10, $places = 2)->nullable();
+            $table->decimal('wallet3', $total = 10, $places = 2)->nullable();
 
             // One to One on System User Model (default -->>User Model<<--)
             $table->bigInteger('system_user')->unsigned()->nullable();
             $table->foreign('system_user')->nullable()->constrained()->references('id')->on('users')->onDelete('cascade')->nullable();
+
+            // One to One on System User Model (default -->>User Model<<--)
+            $table->bigInteger('completed_rejected_user')->unsigned()->nullable();
+            $table->foreign('completed_rejected_user')->nullable()->constrained()->references('id')->on('users')->onDelete('cascade')->nullable();
             
             $table->timestamp('complete_date')->nullable();
             $table->timestamp('reject_date')->nullable();

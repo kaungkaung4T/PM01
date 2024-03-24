@@ -101,6 +101,12 @@
             <h4><a href="{{ route('bank') }}"><i class="bi bi-arrow-left"></i> Add Back Account</h4></a>
         </div>
 
+        @if($errors->any())
+            <div class="alert alert-danger" role="alert" style="margin-left: 25px;width: 500px;margin-top: 30px;margin-bottom: 30px;">
+                <b class="" role="alert">{{ $errors->first() }}</b>
+            </div>
+        @endif
+
         <div class="bank-add-info">
             <p>Bank</p>
         </div>

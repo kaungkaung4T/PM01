@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Withdrawal;
 use App\Http\Controllers\Auth\AuthManager;
 use App\Http\Controllers\CustomerAuth\CustomerAuthManager;
 use App\Http\Controllers\FrontEnd\Bank;
+use App\Http\Controllers\FrontEnd\Financial\Withdrawal as FinancialWithdrawal;
 use App\Http\Controllers\FrontEnd\History;
 use App\Http\Controllers\FrontEnd\Index;
 use App\Http\Controllers\FrontEnd\Info;
@@ -57,6 +58,8 @@ Route::get('/bank', [Bank::class, 'bank'])->middleware('auth:customer')->name('b
 Route::get('/bank_add', [Bank::class, 'bank_add'])->middleware('auth:customer')->name('bank_add');
 Route::post('/bank_add/bank_add_post', [Bank::class, 'bank_add_post'])->middleware('auth:customer')->name('bank_add_post');
 
+// Finalcial
+Route::post('/finalcial/customer_withdrawal', [FinancialWithdrawal::class, 'customer_withdrawal'])->middleware('auth:customer')->name('customer_withdrawal');
 
 
 

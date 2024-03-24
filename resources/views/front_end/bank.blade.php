@@ -118,7 +118,7 @@
                 @elseif ($each_bank->bank_name === "OK Pay")
                 <img src="{{asset('assets/ui/img/ok-pay.jpg')}}" alt="">
                 @elseif ($each_bank->bank_name === "Wave Pay")
-                <img src="{{asset('assets/ui/img/wave-pay.png')}}" alt="">
+                <img src="{{asset('assets/ui/img/wave-pay.png')}}" style="object-fit: cover;" alt="">
                 @elseif ($each_bank->bank_name === "Yoma Bank")
                 <img src="{{asset('assets/ui/img/yoma-bank.png')}}" alt="">
 
@@ -143,7 +143,7 @@
         </div>
 
         <div class="bank-footer">
-            <p> Finishing adding your bank? <a href="">Deposit now!</a></p>
+            <p> Finishing adding your bank? <a href="{{ route('package') }}">Deposit now!</a></p>
         </div>
 
     </div>
