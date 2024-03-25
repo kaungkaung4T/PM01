@@ -146,6 +146,6 @@ class Withdrawal extends Controller
                 'reject_date' => null,
             ]);
         }
-        return redirect()->back()->with('message', 'Withdrawal amount successfully placed and pending!');
+        return redirect()->back()->with('message', 'Withdrawal amount successfully placed with pending!');
     }
 }

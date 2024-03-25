@@ -44,6 +44,213 @@ class Deposit extends Controller
         return view('admin.deposit.deposit', $context);
     }
 
+    public function update_deposit (Request $request, $id) {
+
+        $deposit = DepositResult::find($id);
+
+        if (isset($request->completed)) {
+            if (ModelsDeposit::where("customer_id", $deposit->customer_id)->exists()) {
+                if ($deposit->wallet == "wallet_1") {
+                    $md = ModelsDeposit::where("customer_id", $deposit->customer_id)->first();
+                    $old_amount = $md->wallet;
+                    $new_amount = $deposit->wallet1;
+                    $plus_amount = $old_amount + $new_amount;
+    
+                    ModelsDeposit::where("customer_id", $deposit->customer_id)->update([
+                        'customer_id' => $deposit->customer_id,
+                        'customer_name' => $deposit->customer_name,
+                        // 'code' => $reference_number,
+                        'amount' => $plus_amount,
+                        'remark' => $deposit->remark,
+                        'wallet' => $plus_amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }if ($deposit->wallet == "wallet_2") {
+                    $md = ModelsDeposit::where("customer_id", $deposit->customer_id)->first();
+                    $old_amount = $md->wallet2;
+                    $new_amount = $deposit->wallet2;
+                    $plus_amount = $old_amount + $new_amount;
+    
+                    ModelsDeposit::where("customer_id", $deposit->customer_id)->update([
+                        'customer_id' => $deposit->customer_id,
+                        'customer_name' => $deposit->customer_name,
+                        // 'code' => $reference_number,
+                        'amount' => $plus_amount,
+                        'remark' => $deposit->remark,
+                        'wallet2' => $plus_amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }if ($deposit->wallet == "wallet_3") {
+                    $md = ModelsDeposit::where("customer_id", $deposit->customer_id)->first();
+                    $old_amount = $md->wallet3;
+                    $new_amount = $deposit->wallet3;
+                    $plus_amount = $old_amount + $new_amount;
+    
+                    ModelsDeposit::where("customer_id", $deposit->customer_id)->update([
+                        'customer_id' => $deposit->customer_id,
+                        'customer_name' => $deposit->customer_name,
+                        // 'code' => $reference_number,
+                        'amount' => $plus_amount,
+                        'remark' => $deposit->remark,
+                        'wallet3' => $plus_amount,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }
+            }
+            else {
+                if ($deposit->wallet == "wallet_1") {
+                    $all_deposit = ModelsDeposit::create([
+                        'customer_id' => $deposit->customer_id,
+                        'customer_name' => $deposit->customer_name,
+                        // 'code' => $reference_number,
+                        'amount' => $deposit->amount,
+                        'remark' => $deposit->remark,
+                        'wallet' => $deposit->wallet1,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }else if ($deposit->wallet == "wallet_2") {
+                    $all_deposit = ModelsDeposit::create([
+                        'customer_id' => $deposit->customer_id,
+                        'customer_name' => $deposit->customer_name,
+                        // 'code' => $reference_number,
+                        'amount' => $deposit->amount,
+                        'remark' => $deposit->remark,
+                        'wallet2' => $deposit->wallet2,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }else if ($deposit->wallet == "wallet_3") {
+                    $all_deposit = ModelsDeposit::create([
+                        'customer_id' => $deposit->customer_id,
+                        'customer_name' => $deposit->customer_name,
+                        // 'code' => $reference_number,
+                        'amount' => $deposit->amount,
+                        'remark' => $deposit->remark,
+                        'wallet3' => $deposit->wallet3,
+                        'system_user' => Auth::id(),
+                        'status' => 'Completed'
+                    ]);
+                }
+    
+                $customer = Customer::find($deposit->customer_id);
+                $customer->update([
+                    'deposit_amount' => $all_deposit->id
+                ]);
+            }
+    
+    
+                // Deposit Noti For Display in Deposit Page
+                if (DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->exists()) {
+                    if ($deposit->wallet == "wallet_1") {
+                        $md = DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->first();
+                        $old_amount = $md->wallet1;
+                        $new_amount = $deposit->wallet1;
+                        $plus_amount = $old_amount + $new_amount;
+    
+                        $all_deposit = DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->update([
+                            'customer_id' => $deposit->customer_id,
+                            'customer_name' => $deposit->customer_name,
+                            // 'code' => $reference_number,
+                            'amount' => $plus_amount,
+                            'remark' => $deposit->remark,
+                            'wallet' => $deposit->wallet,
+                            'wallet1' => $plus_amount,
+                            'system_user' => Auth::id(),
+                            'status' => 'Completed'
+                        ]);
+                    }if ($deposit->wallet == "wallet_2") {
+                        $md = DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->first();
+                        $old_amount = $md->wallet2;
+                        $new_amount = $deposit->wallet2;
+                        $plus_amount = $old_amount + $new_amount;
+    
+                        $all_deposit = DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->update([
+                            'customer_id' => $deposit->customer_id,
+                            'customer_name' => $deposit->customer_name,
+                            // 'code' => $reference_number,
+                            'amount' => $plus_amount,
+                            'remark' => $deposit->remark,
+                            'wallet' => $deposit->wallet,
+                            'wallet2' => $plus_amount,
+                            'system_user' => Auth::id(),
+                            'status' => 'Completed'
+                        ]);
+                    }if ($deposit->wallet == "wallet_3") {
+                        $md = DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->first();
+                        $old_amount = $md->wallet3;
+                        $new_amount = $deposit->wallet3;
+                        $plus_amount = $old_amount + $new_amount;
+    
+                        $all_deposit = DepositNoti::where("customer_id", $deposit->customer_id)->where('wallet', '=', $deposit->wallet)->update([
+                            'customer_id' => $deposit->customer_id,
+                            'customer_name' => $deposit->customer_name,
+                            // 'code' => $reference_number,
+                            'amount' => $plus_amount,
+                            'remark' => $deposit->remark,
+                            'wallet' => $deposit->wallet,
+                            'wallet3' => $plus_amount,
+                            'system_user' => Auth::id(),
+                            'status' => 'Completed'
+                        ]);
+                    }
+                }
+                else {
+                    if ($deposit->wallet == "wallet_1") {
+                        $all_deposit = DepositNoti::create([
+                            'customer_id' => $deposit->customer_id,
+                            'customer_name' => $deposit->customer_name,
+                            // 'code' => $reference_number,
+                            'amount' => $deposit->amount,
+                            'remark' => $deposit->remark,
+                            'wallet' => $deposit->wallet,
+                            'wallet1' => $deposit->wallet1,
+                            'system_user' => Auth::id(),
+                            'status' => 'Completed'
+                        ]);
+                    }else if ($deposit->wallet == "wallet_2") {
+                        $all_deposit = DepositNoti::create([
+                            'customer_id' => $deposit->customer_id,
+                            'customer_name' => $deposit->customer_name,
+                            // 'code' => $reference_number,
+                            'amount' => $deposit->amount,
+                            'remark' => $deposit->remark,
+                            'wallet' => $deposit->wallet,
+                            'wallet2' => $deposit->wallet2,
+                            'system_user' => Auth::id(),
+                            'status' => 'Completed'
+                        ]);
+                    }else if ($deposit->wallet == "wallet_3") {
+                        $all_deposit = DepositNoti::create([
+                            'customer_id' => $deposit->customer_id,
+                            'customer_name' => $deposit->customer_name,
+                            // 'code' => $reference_number,
+                            'amount' => $deposit->amount,
+                            'remark' => $deposit->remark,
+                            'wallet' => $deposit->wallet,
+                            'wallet3' => $deposit->wallet3,
+                            'system_user' => Auth::id(),
+                            'status' => 'Completed'
+                        ]);
+                    }
+                }
+
+            $deposit->system_user = Auth::id();
+            $deposit->status = 'Completed';
+            $deposit->save();
+        }
+
+        if (isset($request->rejected)) {
+            $deposit->system_user = Auth::id();
+            $deposit->status = 'Rejected';
+            $deposit->save();
+        }
+        return redirect()->route('admin.deposit')->with('success', 'Deposit Updated Successfully');
+    }
+
     public function create_deposit (Request $request) {
 
         $reference_number = $this->generate_reference_number();

@@ -155,7 +155,7 @@
 
                         <!-- deposit page -->
                         <div class="deposit-modal-page" id="deposit-modal-page-{{ $each_package->id }}">
-                            <form action="" method="GET" enctype="multipart/form-data">
+                            <form action="{{ route('customer_deposit') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <h5>Deposit</h5>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Withdrawal;
 use App\Http\Controllers\Auth\AuthManager;
 use App\Http\Controllers\CustomerAuth\CustomerAuthManager;
 use App\Http\Controllers\FrontEnd\Bank;
+use App\Http\Controllers\FrontEnd\Financial\Deposit as FinancialDeposit;
 use App\Http\Controllers\FrontEnd\Financial\Withdrawal as FinancialWithdrawal;
 use App\Http\Controllers\FrontEnd\History;
 use App\Http\Controllers\FrontEnd\Index;
@@ -60,6 +61,7 @@ Route::post('/bank_add/bank_add_post', [Bank::class, 'bank_add_post'])->middlewa
 
 // Finalcial
 Route::post('/finalcial/customer_withdrawal', [FinancialWithdrawal::class, 'customer_withdrawal'])->middleware('auth:customer')->name('customer_withdrawal');
+Route::post('/finalcial/customer_deposit', [FinancialDeposit::class, 'customer_deposit'])->middleware('auth:customer')->name('customer_deposit');
 
 
 
@@ -95,6 +97,7 @@ Route::post('/customer/update_customer/{id}', [Customer::class, 'update_customer
 // Deposit
 Route::get('/deposit', [Deposit::class, 'deposit'])->middleware(['auth', 'verified'])->name('admin.deposit');
 Route::post('/deposit/create_deposit', [Deposit::class, 'create_deposit'])->middleware(['auth', 'verified'])->name('admin.create_deposit');
+Route::post('/deposit/update_deposit/{id}', [Deposit::class, 'update_deposit'])->middleware(['auth', 'verified'])->name('admin.update_deposit');
 
 // Deduct
 Route::post('/deduct/{id}', [Deduct::class, 'deduct'])->middleware(['auth', 'verified'])->name('admin.deduct');
