@@ -13,25 +13,57 @@ body {
   
 }
 
-.header-main-top {
+.header-main-top { z-index: 1000000;background-color: transparent; }
+.header-main { z-index: 1000000;/* background:#F0EAD6; */background-color: transparent;padding-left: 70px !important;padding-right: 70px !important; }
 
+.header-main .navbar-brand { font-weight: 600;font-size: 1.4rem; }
+.header-main a { color: #343a40; }
+.header-main a:hover { color: #0d6efd; }
+
+.header-main ul li { margin-right: 30px;font-weight: 600; }
+.header-main ul li a { color: #343a40; }
+.header-main ul li a:hover { color: #0d6efd; }
+
+
+.home-header-main-top { z-index: 1000000;background-color: transparent; }
+.home-header-main { z-index: 1000000;/* background:#F0EAD6; */background-color: transparent;padding-left: 70px !important;padding-right: 70px !important; }
+
+.home-header-main .navbar-brand { font-weight: 600;font-size: 1.4rem; }
+.home-header-main a { color: #ffffff; }
+.home-header-main a:hover { color: #0d6efd; }
+
+.home-header-main ul li { margin-right: 30px;font-weight: 600; }
+.home-header-main ul li a { color: #ffffff; }
+.home-header-main ul li a:hover { color: #0d6efd; }
+
+
+.web_image_cover {
+  margin-top: -150px;
+  margin-bottom: -150px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 10;
+  filter:brightness(30%);
+  pointer-events: none;
+
+  object-fit: cover;
+  height: 615px;
 }
 
-.header-main {
-  background:#F0EAD6;
-  padding-left: 70px !important;
-  padding-right: 70px !important;
+.web_image_cover::-webkit-media-controls {
+  display: none;
 }
 
-.header-main .navbar-brand {
-  font-weight: 600;
-  font-size: 1.4rem;
+.web_text_cover {
+  margin: auto;
+  width: 600px;
+  position: relative;
+  bottom: 230px;
 }
 
-.header-main ul li {
-  margin-right: 30px;
-  font-weight: 600;
-}
+.web_text_cover h1, .web_text_cover h5, .web_text_cover div { color: #fff;text-align: center; }
+.web_text_cover div a { color: #fff; }
 
 
 
@@ -75,8 +107,13 @@ body {
 
 .bank-footer-phone { display: none; }
 
+.package-body {
+  margin: auto;width: 80%;margin-top: 50px;
+  max-width: 1800px;
+}
+
 .index-body {
-  margin: auto;width: 80%;margin-top: 100px;
+  margin: auto;width: 80%;margin-top: 50px;
   max-width: 1800px;
 }
 
@@ -164,4 +201,563 @@ body {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* copy from admin for data table */
+/* Table search button */
+/* ref https://datatables.net/forums/discussion/70046/how-can-i-remove-all-sort-arrows-from-all-columns */
+
+table { font-size: 0.9rem; }
+table .table_top_right * { font-size: 0.8rem; }
+table .table_top_right i { font-size: 0.6rem; }
+table thead { font-weight:normal; }
+table thead th { font-weight:normal; }
+
+
+.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: inherit;
+}
+
+/* table.dataTable thead th {
+  border-bottom: none;
+} */
+
+
+table.dataTable>thead .sorting::before,
+table.dataTable>thead .sorting_asc::before,
+table.dataTable>thead .sorting_desc::before,
+table.dataTable>thead .sorting_asc_disabled::before,
+table.dataTable>thead .sorting_desc_disabled::before {
+
+    content: "" !important;
+}
+  
+ table.dataTable>thead .sorting::after,
+ table.dataTable>thead .sorting_asc::after,
+ table.dataTable>thead .sorting_desc::after,
+ table.dataTable>thead .sorting_asc_disabled::after,
+ table.dataTable>thead .sorting_desc_disabled::after {
+
+    content: "" !important;
+}
+  
+ table.dataTable>thead>tr>th:not(.sorting_disabled),
+ table.dataTable>thead>tr>td:not(.sorting_disabled) {
+
+}
+  
+ table.dataTable>thead>tr>th,
+ table.dataTable>thead>tr>td {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+
+table.dataTable>thead>tr>th:nth-child(1),
+table.dataTable>thead>tr>td:nth-child(1) {
+  min-width: 30px;
+} 
+table.dataTable>thead>tr>th:nth-child(2),
+table.dataTable>thead>tr>td:nth-child(2) {
+  min-width: 110px;
+} 
+table.dataTable>thead>tr>th:nth-child(3),
+table.dataTable>thead>tr>td:nth-child(3) {
+  max-width: 150px;
+}
+table.dataTable>thead>tr>th:nth-child(4),
+table.dataTable>thead>tr>td:nth-child(4) {
+  min-width: 80px;
+}
+table.dataTable>thead>tr>th:nth-child(7),
+table.dataTable>thead>tr>td:nth-child(7) {
+  min-width: 100px;
+} 
+table.dataTable>thead>tr>th:nth-child(8),
+table.dataTable>thead>tr>td:nth-child(8) {
+  min-width: 100px;
+}
+
+
+
+
+table.dataTable>tbody>tr>th {
+  min-width: 20px;
+}
+
+table.dataTable>tbody>tr>td:nth-child(2) {
+
+}
+table.dataTable>tbody>tr>td:nth-child(3) {
+  min-width: 80px;
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+}
+table.dataTable>tbody>tr>td:nth-child(4) {
+  min-width: 80px;
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+}
+table.dataTable>tbody>tr>td:nth-child(5) {
+  /* min-width: 90px; */
+  min-width: 100px;
+  white-space: wrap !important;
+  word-break: break-all !important;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+}
+table.dataTable>tbody>tr>td:nth-child(6) {
+  min-width: 100px;
+
+}
+table.dataTable>tbody>tr>td:nth-child(7) {
+    min-width: 40px;
+    white-space: wrap;
+}
+table.dataTable>tbody>tr>td:nth-child(8) {
+    min-width: 40px;
+    white-space: wrap;
+}
+table.dataTable>tbody>tr>td:nth-child(9) {
+  min-width: 90px;
+}
+
+
+.search_group1 { 
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 300px;
+  padding: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) 
+}
+.search_group2 { 
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 300px;
+  padding: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) 
+}
+.search_group3 { 
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 300px;
+  padding: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) 
+}
+
+.search_group1 .search_group_bottom { margin-top: 8px;margin-right: 5px; }
+.search_group2 .search_group_bottom { margin-top: 8px;margin-right: 5px; }
+.search_group3 .search_group_bottom { margin-top: 8px;margin-right: 5px; }
+
+
+.search_table1:focus { border-color:#0d6efd !important;}
+.search_table2:focus { border-color:#0d6efd !important;}
+.search_table3:focus { border-color:#0d6efd !important;}
+
+.table_top_right { margin-top: -0.5px;}
+.arrow_icon { font-size: 0.6rem;color:#adb5bd;cursor: pointer; }
+.search_icon { font-size: 0.6rem;color:#adb5bd;cursor: pointer; }
+
+
+/* Admin Setting */
+.setting_main { margin-bottom: 24px; }
+
+.setting_modal_form { margin: auto;width: 600px;margin-left: 130px; }
+.setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 97px; }
+.setting_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.setting_modal_form .modal_form_group label { color:#343a40; }
+.setting_modal_form .modal_form_group input { border-color:#ced4da; }
+.setting_modal_form .modal_form_group button { border-color:#ced4da; }
+.setting_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+
+.setting_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0; }
+.setting_modal_form .modal_form_group:nth-child(1) input { margin-left: -10px; }
+
+.setting_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: -17px; }
+.setting_modal_form .modal_form_group:nth-child(2) button { margin-left: 8px; }
+
+
+.setting_modal_form_password .modal_form_group { flex-wrap: nowrap !important; }
+.setting_modal_form_password .modal_form_group label { color:#343a40; }
+.setting_modal_form_password .modal_form_group input { border-color:#ced4da; }
+.setting_modal_form_password .modal_form_group .modal_form_group_word { display: flex; }
+
+.setting_modal_form_password .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0;width: 131px; }
+.setting_modal_form_password .modal_form_group:nth-child(1) input { margin-left: -35px; }
+
+
+/* customer_package_modal_form */
+.customer_package_modal_form { margin-left: 20px; }
+.customer_package_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.customer_package_modal_form .modal_form_group label { color:#343a40; }
+.customer_package_modal_form .modal_form_group input { border-color:#ced4da; }
+.customer_package_modal_form .modal_form_group textarea { border-color:#ced4da; }
+.customer_package_modal_form .modal_form_group select { border-color:#ced4da; }
+.customer_package_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+
+.customer_package_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 55px;width: 95px; }
+.customer_package_modal_form .modal_form_group:nth-child(1) input { margin-left: -27px; }
+
+.customer_package_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 79px;width: 68px; }
+.customer_package_modal_form .modal_form_group:nth-child(2) select { margin-left: -24px; }
+
+.customer_package_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: 64px;width: 83px; }
+.customer_package_modal_form .modal_form_group:nth-child(3) select { margin-left: -24px; }
+
+.customer_package_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 33px;width: 124px; }
+.customer_package_modal_form .modal_form_group:nth-child(4) input { margin-left: -33px; }
+
+/* customer_deduct_modal_form */
+.customer_deduct_modal_form { margin-left: 20px; }
+.customer_deduct_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.customer_deduct_modal_form .modal_form_group label { color:#343a40; }
+.customer_deduct_modal_form .modal_form_group input { border-color:#ced4da; }
+.customer_deduct_modal_form .modal_form_group textarea { border-color:#ced4da; }
+.customer_deduct_modal_form .modal_form_group select { border-color:#ced4da; }
+.customer_deduct_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+
+.customer_deduct_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 55px;width: 95px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(1) input { margin-left: -27px; }
+
+.customer_deduct_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 79px;width: 68px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(2) select { margin-left: -24px; }
+
+.customer_deduct_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: -16px;width: 180px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(3) input { margin-left: -41px; }
+
+.customer_deduct_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 69px;width: 70px; }
+.customer_deduct_modal_form .modal_form_group:nth-child(4) textarea { margin-left: -16px; }
+
+/* customer_deposit_modal_form */
+.customer_deposit_modal_form { margin-left: 20px; }
+.customer_deposit_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.customer_deposit_modal_form .modal_form_group label { color:#343a40; }
+.customer_deposit_modal_form .modal_form_group input { border-color:#ced4da; }
+.customer_deposit_modal_form .modal_form_group textarea { border-color:#ced4da; }
+.customer_deposit_modal_form .modal_form_group select { border-color:#ced4da; }
+.customer_deposit_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+
+.customer_deposit_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 55px;width: 95px; }
+.customer_deposit_modal_form .modal_form_group:nth-child(1) input { margin-left: -27px; }
+
+.customer_deposit_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: -18px;width: 180px; }
+.customer_deposit_modal_form .modal_form_group:nth-child(2) input { margin-left: -38px; }
+
+.customer_deposit_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: 70px;width: 70px; }
+.customer_deposit_modal_form .modal_form_group:nth-child(3) textarea { margin-left: -16px; }
+
+.customer_deposit_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 81px;width: 60px; }
+.customer_deposit_modal_form .modal_form_group:nth-child(4) select { margin-left: -17px; }
+
+/* Customer form group */
+.customer_modal_form_reset_password { position: absolute;bottom: 0;margin-bottom: 80px;margin-left: 65px; }
+.customer_modal_form_reset_password .modal_form_group label { margin-left: 4px;font-weight: 700; }
+.customer_modal_form_reset_password .modal_form_group input { margin-left: -8px;border-color:#ced4da; }
+.customer_modal_form_reset_password .modal_form_group span { margin-left: -17px;margin-top: -1px; }
+.customer_modal_form_reset_password .modal_form_group button { border-color:#ced4da !important; }
+
+.customer_modal_form { margin-left: 65px; }
+.customer_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.customer_modal_form .modal_form_group label { color:#343a40; }
+.customer_modal_form .modal_form_group option { color:#343a40;padding: 10px; }
+.customer_modal_form .modal_form_group input { border-color:#ced4da; }
+.customer_modal_form .modal_form_group textarea { border-color:#ced4da; }
+.customer_modal_form .modal_form_group select { border-color:#ced4da; }
+.customer_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+.customer_modal_form .modal_form_group .modal_form_group_word span { color: red; }
+.customer_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 10px;width: 95px; }
+.customer_modal_form .modal_form_group:nth-child(1) input { margin-left: -27px; }
+
+.customer_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: 13px;width: 90px; }
+.customer_modal_form .modal_form_group:nth-child(2) input { margin-left: -24px; }
+
+.customer_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: 34px;width: 70px; }
+.customer_modal_form .modal_form_group:nth-child(3) input { margin-left: -24px; }
+
+.customer_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 43px;width: 60px; }
+.customer_modal_form .modal_form_group:nth-child(4) input { margin-left: -23px; }
+
+.customer_modal_form .modal_form_group:nth-child(5) .modal_form_group_word { margin-left: 39px;width: 65px; }
+.customer_modal_form .modal_form_group:nth-child(5) input { margin-left: -24px; }
+
+.customer_modal_form .modal_form_group:nth-child(6) .modal_form_group_word { margin-left: 13px;width: 105px; }
+.customer_modal_form .modal_form_group:nth-child(6) select { margin-left: -38px; }
+
+.customer_modal_form .modal_form_group:nth-child(7) .modal_form_group_word { margin-left: -6px;width: 125px; }
+.customer_modal_form .modal_form_group:nth-child(7) input { margin-left: -38px; }
+
+.customer_modal_form .modal_form_group:nth-child(8) .modal_form_group_word { margin-left: 30px;width: 80px; }
+.customer_modal_form .modal_form_group:nth-child(8) textarea { margin-left: -28px; }
+
+.customer_modal_form .modal_form_group:nth-child(9) .modal_form_group_word { margin-left: 13px;width: 105px; }
+.customer_modal_form .modal_form_group:nth-child(9) input { margin-left: -20px; }
+
+.customer_modal_form .modal_form_group:nth-child(10) .modal_form_group_word { margin-left: 55px;width: 52px; }
+.customer_modal_form .modal_form_group:nth-child(10) input { margin-left: -23px; }
+
+.customer_modal_form .modal_form_group:nth-child(11) .modal_form_group_word { margin-left: 45px;width: 62px; }
+.customer_modal_form .modal_form_group:nth-child(11) input { margin-left: -23px; }
+
+/* Table Amount of Customer  */
+.main_amount_group { display: block; }
+.main_amount_group ul { display: contents;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
+.main_amount_group ul li:nth-child(2) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(3) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(4) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(5) span { color:#0dcaf0; }
+.main_amount_group ul li:nth-child(6) span { color:#dc3545; }
+
+/* Table Action of Customer */
+.main_action_group { display: block;width: 200px; }
+/* .main_action_group .top_action_group { border-bottom: 1px solid #e9ecef;margin-bottom: 20px; } */
+.main_action_group .top_action_group ul { display: inline-flex;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
+.main_action_group .top_action_group ul li a { margin-right: 3px;margin-bottom: 3px;border-color:#ced4da !important; }
+.main_action_group .top_action_group ul li .edit_action { margin-right: 3px;margin-bottom: 3px;border: 2.4px dotted #adb5bd !important; }
+
+.main_action_group .bottom_action_group ul { display: inline-flex;flex-wrap: wrap;list-style-type: none;margin-left: -30px; }
+.main_action_group .bottom_action_group ul a { margin-right: 3px;margin-bottom: 3px;border-color:#ced4da !important; }
+.main_action_group .bottom_action_group ul li .claim_action { margin-right: 3px;margin-bottom: 3px;border: 2.4px dotted #adb5bd !important; }
+
+
+/* Table Deposit View */
+.table_deposit_view ul { list-style-type: none; }
+.table_deposit_view ul li { color:#495057;font-weight: 700;margin-bottom: 3px; }
+.table_deposit_view ul li span { color:#495057;font-weight: 400; }
+
+
+/* System User form group */
+.system_modal_form { margin-left: 80px; }
+.system_modal_form .modal_form_group { flex-wrap: nowrap !important; }
+.system_modal_form .modal_form_group input { border-color:#ced4da; }
+.system_modal_form .modal_form_group select { border-color:#ced4da; }
+.system_modal_form .modal_form_group .modal_form_group_word { display: flex; }
+.system_modal_form .modal_form_group .modal_form_group_word span { color: red; }
+.system_modal_form .modal_form_group:nth-child(3) .modal_form_group_word { margin-left: 24px;width: 55px; }
+.system_modal_form .modal_form_group:nth-child(3) input { margin-left: -10px; }
+
+.system_modal_form .modal_form_group:nth-child(4) .modal_form_group_word { margin-left: 34px;width: 53px; }
+.system_modal_form .modal_form_group:nth-child(4) input { margin-left: -17px; }
+
+.system_modal_form .modal_form_group:nth-child(5) .modal_form_group_word { margin-left: 36px;width: 45px; }
+.system_modal_form .modal_form_group:nth-child(5) select { margin-left: -10px; }
+
+.system_modal_form .modal_form_group:nth-child(6) .modal_form_group_word { margin-left: 30px;width: 60px; }
+.system_modal_form .modal_form_group:nth-child(6) input { margin-left: -17px; }
+
+/* System index group */
+.system1 { margin-right: 120px; min-width: 130px; }
+.system1 h3 { font-weight: 400; color:#464646; }
+.system1 p { color:#b2b2b2; }
+
+.system2 { margin-right: 120px; min-width: 130px; }
+.system2 h3 { font-weight: 400; color:#464646; }
+.system2 p { color:#b2b2b2; }
+
+.system3 { margin-right: 120px; min-width: 130px; }
+.system3 h3 { font-weight: 400; color:#464646; }
+.system3 p { color:#b2b2b2; }
+
+.system4 { margin-right: 120px; min-width: 130px; }
+.system4 h3 { font-weight: 400; color:#464646; }
+.system4 p { color:#b2b2b2; }
+
+.system5 { margin-right: 120px; min-width: 130px; }
+.system5 h3 { font-weight: 400; color:#464646; }
+.system5 p { font-weight: 500; }
+
+/* Month index group */
+.month_deposit_amount { margin-right: 120px; min-width: 180px; }
+.month_deposit_amount h3 { font-weight: 600; }
+.month_deposit_amount p { font-weight: 500; }
+
+.month_deposit_count { margin-right: 120px; min-width: 180px; }
+.month_deposit_count h3 { font-weight: 400; color:#464646; }
+.month_deposit_count p { color:#b2b2b2; }
+
+.month_withdrawal_amount { margin-right: 120px; min-width: 180px; }
+.month_withdrawal_amount h3 { font-weight: 600; }
+.month_withdrawal_amount p { font-weight: 500; }
+
+.month_customer { margin-right: 120px; min-width: 180px; }
+.month_customer h3 { font-weight: 400; color:#464646; }
+.month_customer p { color:#b2b2b2; }
+
+/* Today index group */
+.today_deposit_amount { margin-right: 120px; min-width: 180px; }
+.today_deposit_amount h3 { font-weight: 600; }
+.today_deposit_amount p { font-weight: 500; }
+
+.today_deposit_count { margin-right: 120px; min-width: 180px; }
+.today_deposit_count h3 { font-weight: 400; color:#464646; }
+.today_deposit_count p { color:#b2b2b2; }
+
+.today_withdrawal_amount { margin-right: 120px; min-width: 180px; }
+.today_withdrawal_amount h3 { font-weight: 600; }
+.today_withdrawal_amount p { font-weight: 500; }
+
+.today_customer { margin-right: 120px; min-width: 180px; }
+.today_customer h3 { font-weight: 400; color:#464646; }
+.today_customer p { color:#b2b2b2; }
+
+
+@media (max-width: 1410px) {
+  .system1 { margin-right: 100px; min-width: 130px; }
+  .system2 { margin-right: 100px; min-width: 130px; }
+  .system3 { margin-right: 100px; min-width: 130px; }
+  .system4 { margin-right: 100px; min-width: 130px; }
+  .system5 { margin-right: 100px; min-width: 130px; }
+}
+
+@media (max-width: 1350px) {
+  .system1 { margin-right: 70px; min-width: 130px; }
+  .system2 { margin-right: 70px; min-width: 130px; }
+  .system3 { margin-right: 70px; min-width: 130px; }
+  .system4 { margin-right: 70px; min-width: 130px; }
+  .system5 { margin-right: 70px; min-width: 130px; }
+
+  .month_deposit_amount { margin-right: 80px; min-width: 180px; }
+  .month_deposit_count { margin-right: 80px; min-width: 180px; }
+  .month_withdrawal_amount { margin-right: 80px; min-width: 180px; }
+  .month_customer { margin-right: 80px; min-width: 180px; }
+  
+  .today_deposit_amount { margin-right: 80px; min-width: 180px; }
+  .today_deposit_count { margin-right: 80px; min-width: 180px; }
+  .today_withdrawal_amount { margin-right: 80px; min-width: 180px; }
+  .today_customer { margin-right: 80px; min-width: 180px; }
+}
+
+@media (max-width: 1250px) {
+  .system1 { margin-right: 20px; min-width: 130px; }
+  .system1 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system1 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system2 { margin-right: 20px; min-width: 130px; }
+  .system2 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system2 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system3 { margin-right: 20px; min-width: 130px; }
+  .system3 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system3 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system4 { margin-right: 20px; min-width: 130px; }
+  .system4 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system4 p { color:#b2b2b2; font-size: 0.8rem; }
+
+  .system5 { margin-right: 20px; min-width: 130px; }
+  .system5 h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .system5 p { font-weight: 500; font-size: 0.8rem; }
+
+
+  
+  .month_deposit_amount { margin-right: 30px; min-width: 180px; }
+  .month_deposit_amount h3 { font-weight: 600; font-size: 0.9rem; }
+  .month_deposit_amount p { font-weight: 500; font-size: 0.8rem; }
+
+  .month_deposit_count { margin-right: 30px; min-width: 180px; }
+  .month_deposit_count h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .month_deposit_count p { color:#b2b2b2; font-size: 0.8rem; }
+  
+  .month_withdrawal_amount { margin-right: 30px; min-width: 180px; }
+  .month_withdrawal_amount h3 { font-weight: 600; font-size: 0.9rem; }
+  .month_withdrawal_amount p { font-weight: 500; font-size: 0.8rem; }
+  
+  .month_customer { margin-right: 30px; min-width: 180px; }
+  .month_customer h3 { font-weight: 400; color:#464646; font-size: 0.9rem; }
+  .month_customer p { color:#b2b2b2; font-size: 0.8rem; }
+
+
+
+  .today_deposit_amount { margin-right: 30px; min-width: 180px; }
+  .today_deposit_amount h3 { font-weight: 600; font-size: 0.9rem;}
+  .today_deposit_amount p { font-weight: 500; font-size: 0.8rem;}
+
+  .today_deposit_count { margin-right: 30px; min-width: 180px; }
+  .today_deposit_count h3 { font-weight: 400; color:#464646; font-size: 0.9rem;}
+  .today_deposit_count p { color:#b2b2b2; font-size: 0.8rem;}
+
+  .today_withdrawal_amount { margin-right: 30px; min-width: 180px; }
+  .today_withdrawal_amount h3 { font-weight: 600; font-size: 0.9rem;}
+  .today_withdrawal_amount p { font-weight: 500;font-size: 0.8rem; }
+
+  .today_customer { margin-right: 30px; min-width: 180px; }
+  .today_customer h3 { font-weight: 400; color:#464646; font-size: 0.9rem;}
+  .today_customer p { color:#b2b2b2; font-size: 0.8rem;}
+}
+
+@media (max-width: 1080px) {
+  .today_body { display: contents; }
+  .month_body { display: contents; }
+  .system_body { display: contents; }
+  .today_main { margin-left: 70px; margin-bottom: 44px; }
+  .month_main { margin-left: 70px; margin-bottom: 44px; }
+  .system_main { margin-left: 70px; margin-bottom: 44px; }
+
+  .system1 { margin-bottom: 15px; }
+  .system2 { margin-bottom: 15px; }
+  .system3 { margin-bottom: 15px; }
+  .system4 { margin-bottom: 15px; }
+  .system5 { margin-bottom: 15px; }
+
+  .month_deposit_amount { margin-bottom: 15px; }
+  .month_deposit_count { margin-bottom: 15px; }
+  .month_withdrawal_amount { margin-bottom: 15px; }
+  .month_customer { margin-bottom: 15px; }
+
+  .today_deposit_amount { margin-bottom: 15px; }
+  .today_deposit_count { margin-bottom: 15px; }
+  .today_withdrawal_amount { margin-bottom: 15px; }
+  .today_customer { margin-bottom: 15px; }
+  
+  .fieldset-index-title {padding-left: 12px;}
+
+  .setting_modal_form { margin: 0;width: 600px;margin-left: 60px; }
+  .setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 97px; }
+  .setting_modal_form .modal_form_group { flex-wrap: wrap !important; }
+}
+
+@media (max-width: 991.98px) {
+  .navbar .navbar-content .calendar_main { margin-left: -30px; }
+}
+
+@media (max-width: 400px) {
+  .today_main { margin-left: 50px; }
+  .month_main { margin-left: 50px; }
+  .system_main { margin-left: 50px; }
+}
+
+@media (max-width: 330px) {
+  .today_main { margin-left: 30px; }
+  .month_main { margin-left: 30px; }
+  .system_main { margin-left: 30px; }
+}
+
+@media (max-width: 276px) {
+  .today_main { margin-left: 0; }
+  .month_main { margin-left: 0; }
+  .system_main { margin-left: 0; }
+  .search_result_main { margin-left: 0px;margin-bottom: 20px; }
+}
 

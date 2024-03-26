@@ -71,7 +71,7 @@
 	
 	
 	  <script src="{{asset('assets/ui/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-	  <script src="{{asset('assets/ui/bootstrap/js/jquery-3.7.1.min.js')}}"></script>
+	  <!-- <script src="{{asset('assets/ui/bootstrap/js/jquery-3.7.1.min.js')}}"></script> duplicate with data table -->
       <!-- JS script with public folder -->
       <script src="{{asset('ui/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 	  <script src="{{asset('ui/bootstrap/js/jquery-3.7.1.min.js')}}"></script>

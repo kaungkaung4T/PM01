@@ -1,7 +1,21 @@
 
-@extends('front_end.dashboard')
+@extends('front_end.home_dashboard')
 
 @section('content')
+
+
+<video class="web_image_cover" autoplay="autoplay" loop muted >
+  <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div class="web_text_cover">
+<h1>Let the Experts Trade for You.</h1>
+<h5>Your Investment is Managed by Experts</h5>
+    <div>
+        <a href="{{ route('package') }}" class="btn btn btn-primary index_home_button">Try Now</a>
+    </div>
+</div>
 
 
 <div class="index-body">
@@ -10,7 +24,7 @@
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 1150px;">
                 <h3 class="fw-bold text-primary text-uppercase">Stable Investment Plan</h1>
-                <h5 class="mb-0"> Stable Investment plans are structured financial strategies aimed at providing consistent and reliable returns over a specified period, minimizing risks and volatility. </h4>
+                <h5 class="mb-0" style="color: 343a40;"> Stable Investment plans are structured financial strategies aimed at providing consistent and reliable returns over a specified period, minimizing risks and volatility. </h4>
             </div>
             <div class="row g-0">
 

@@ -32,13 +32,13 @@
 
     <ul class="navbar-nav mr-5">        
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
+          <a class="nav-link" aria-current="page" href="{{ route('index') }}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('package') }}">Package</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('history') }}">History</a>
+            <a class="nav-link" href="{{ route('history_deposit') }}">History</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('info') }}">Info</a>

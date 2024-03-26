@@ -50,7 +50,8 @@ Route::get('/', [Index::class, 'index'])->name('index');
 Route::get('/package', [Package::class, 'package'])->name('package');
 
 // History
-Route::get('/history', [History::class, 'history'])->middleware('auth:customer')->name('history');
+Route::get('/history_deposit', [History::class, 'history_deposit'])->middleware('auth:customer')->name('history_deposit');
+Route::get('/history_withdrawal', [History::class, 'history_withdrawal'])->middleware('auth:customer')->name('history_withdrawal');
 
 // Info
 Route::get('/info', [Info::class, 'info'])->middleware('auth:customer')->name('info');
