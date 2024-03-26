@@ -99,7 +99,7 @@
 
                         <!-- Package page -->
                         <div class="package-modal-page" id="package-modal-page-{{ $each_package->id }}">
-                            <form action="" method="GET" enctype="multipart/form-data">
+                            <form action="{{ route('customer_package') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <h5>Package</h5>
@@ -107,7 +107,8 @@
                             <div class="modal-body subscribe_package_modal_form">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Package</label>
-                                    <input name="package_name" type="text" class="form-control" value="{{ $each_package->name }} ({{ number_format($each_package->amount, 2) }}MMK)" readonly required>
+                                    <input name="package_name" type="text" class="form-control" value="{{ $each_package->id }}" hidden readonly required>
+                                    <input name="package_info_no_need" type="text" class="form-control" value="{{ $each_package->name }} ({{ number_format($each_package->amount, 2) }}MMK)" readonly required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Select Wallet</label>

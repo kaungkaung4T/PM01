@@ -204,7 +204,6 @@ class Subscriptions extends Controller
             ]);
 
             ModelsSubscriptions::create([
-                'reward_wallet_3' => $package->reward_percent,
                 'customer' => $request->userid,
                 'code' => $reference_number,
                 'amount' => $request->amount,

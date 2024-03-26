@@ -129,7 +129,11 @@
             <td class="text-start" style="color: #495057;"> 
                 <ul style="list-style: none;margin-left: -30px;">
                     <li>{{ $each_withdrawal->complete_date }}</li>
+                        @if ($each_withdrawal->completed_rejected_user_user_data)
                     <li class="text-primary">{{ $each_withdrawal->completed_rejected_user_user_data->username }}</li>
+                        @else
+                    <li class="text-primary"></li>
+                        @endif
                 </ul>
             </td>
                 @endif
@@ -140,7 +144,11 @@
             <td class="text-start" style="color: #495057;">
                 <ul style="list-style: none;margin-left: -30px;">
                     <li>{{ $each_withdrawal->reject_date }}</li>
+                        @if ($each_withdrawal->completed_rejected_user_user_data)
                     <li class="text-primary">{{ $each_withdrawal->completed_rejected_user_user_data->username }}</li>
+                        @else
+                    <li class="text-primary">{{ $each_withdrawal->completed_rejected_user_user_data->username }}</li>
+                        @endif
                 </ul>
             </td>
                 @endif

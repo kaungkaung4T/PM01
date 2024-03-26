@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\AuthManager;
 use App\Http\Controllers\CustomerAuth\CustomerAuthManager;
 use App\Http\Controllers\FrontEnd\Bank;
 use App\Http\Controllers\FrontEnd\Financial\Deposit as FinancialDeposit;
+use App\Http\Controllers\FrontEnd\Financial\Package as FinancialPackage;
 use App\Http\Controllers\FrontEnd\Financial\Withdrawal as FinancialWithdrawal;
 use App\Http\Controllers\FrontEnd\History;
 use App\Http\Controllers\FrontEnd\Index;
@@ -62,7 +63,7 @@ Route::post('/bank_add/bank_add_post', [Bank::class, 'bank_add_post'])->middlewa
 // Finalcial
 Route::post('/finalcial/customer_withdrawal', [FinancialWithdrawal::class, 'customer_withdrawal'])->middleware('auth:customer')->name('customer_withdrawal');
 Route::post('/finalcial/customer_deposit', [FinancialDeposit::class, 'customer_deposit'])->middleware('auth:customer')->name('customer_deposit');
-
+Route::post('/finalcial/customer_package', [FinancialPackage::class, 'customer_package'])->middleware('auth:customer')->name('customer_package');
 
 
 // ADMIN
