@@ -16,7 +16,7 @@ class History extends Controller
         $customer_id = Auth::guard('customer')->id();
         $customer = Customer::find($customer_id);
 
-        $all_deposit = DepositResult::orderBy('id', 'DESC')->get();
+        $all_deposit = DepositResult::where('customer_id', $customer_id)->orderBy('id', 'DESC')->get();
 
         $context = [
             'customer' => $customer,
@@ -31,7 +31,7 @@ class History extends Controller
         $customer_id = Auth::guard('customer')->id();
         $customer = Customer::find($customer_id);
 
-        $all_withdrawal = Withdrawal::orderBy('id', 'DESC')->get();
+        $all_withdrawal = Withdrawal::where('customer_id', $customer_id)->orderBy('id', 'DESC')->get();
 
         $context = [
             'customer' => $customer,

@@ -121,6 +121,49 @@ body {
   font-size: 1rem;
 }
 
+.history-subscribe-chose-feature {
+  display: flex;
+  width: 500px;
+  margin-bottom: 40px;
+}
+
+.history-subscribe-chose-feature {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.history-subscribe-chose-feature-each {
+  background-color:transparent;
+  border: 1px solid #ced4da;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5%;
+  margin-right: 20px;
+  width: 20%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.history-subscribe-chose-feature-each:hover {
+  text-decoration: none;
+}
+
+.history-subscribe-chose-feature-each .logo {
+  font-size: 1.8rem;
+  color: #343a40;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.history-subscribe-chose-feature-each p {
+  text-align: center;
+  color: #343a40;
+  font-size: 0.8rem;
+}
+
 .subscribe-chose-feature {
   display: flex;
   margin-left: 10px;
@@ -187,6 +230,36 @@ body {
 .subscribe_package_modal_form .form-text { color:#000; }
 .subscribe_package_modal_form .form-text a { text-decoration: none; }
 
+@media (max-width: 600px) {
+  .history-subscribe-chose-feature {
+    display: flex;
+    width: auto;
+    margin-bottom: 40px;
+  }
+  .history-subscribe-chose-feature-each {
+    background-color:transparent;
+    border: 1px solid #ced4da;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5%;
+    margin-right: 20px;
+    width: 30%;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .history-subscribe-chose-feature-each p {
+    /* display: none; */
+  }
+  .history-subscribe-chose-feature-each .logo {
+    padding-bottom: 15px;
+    font-size: 1.8rem;
+    color: #343a40;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 490px) {
   .subscribe-chose-feature-each p {
     display: none;
@@ -198,6 +271,9 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
+  }
+  .history-subscribe-chose-feature-each p {
+    display: none;
   }
 }
 
@@ -223,11 +299,18 @@ body {
 /* Table search button */
 /* ref https://datatables.net/forums/discussion/70046/how-can-i-remove-all-sort-arrows-from-all-columns */
 
-table { font-size: 0.9rem; }
+.page-content {
+  margin: auto;
+  margin-left: 13%;
+  margin-right: 13%;
+  margin-top: 80px;
+}
+
+table { font-size: 0.84rem; }
 table .table_top_right * { font-size: 0.8rem; }
 table .table_top_right i { font-size: 0.6rem; }
 table thead { font-weight:normal; }
-table thead th { font-weight:normal; }
+table thead th { font-weight: 500; }
 
 
 .table > :not(:last-child) > :last-child > * {
@@ -279,15 +362,15 @@ table.dataTable>thead>tr>td:nth-child(2) {
 } 
 table.dataTable>thead>tr>th:nth-child(3),
 table.dataTable>thead>tr>td:nth-child(3) {
-  max-width: 150px;
+  min-width: 150px;
 }
 table.dataTable>thead>tr>th:nth-child(4),
 table.dataTable>thead>tr>td:nth-child(4) {
-  min-width: 80px;
+  min-width: 140px;
 }
 table.dataTable>thead>tr>th:nth-child(7),
 table.dataTable>thead>tr>td:nth-child(7) {
-  min-width: 100px;
+  min-width: 115px;
 } 
 table.dataTable>thead>tr>th:nth-child(8),
 table.dataTable>thead>tr>td:nth-child(8) {
@@ -382,31 +465,23 @@ table.dataTable>tbody>tr>td:nth-child(9) {
 .search_icon { font-size: 0.6rem;color:#adb5bd;cursor: pointer; }
 
 
-/* Admin Setting */
+/* Customer info */
+.fieldset-index-title  { padding-left: 72px; }
+.index-title { font-size: 1rem;font-weight: 500;color:#464646; }
 .setting_main { margin-bottom: 24px; }
 
-.setting_modal_form { margin: auto;width: 600px;margin-left: 130px; }
-.setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 97px; }
+.setting_modal_form { margin: auto;width: 600px;margin-left: 130px;margin-top: 40px; }
+.setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 157px; }
 .setting_modal_form .modal_form_group { flex-wrap: nowrap !important; }
 .setting_modal_form .modal_form_group label { color:#343a40; }
 .setting_modal_form .modal_form_group input { border-color:#ced4da; }
 .setting_modal_form .modal_form_group button { border-color:#ced4da; }
 .setting_modal_form .modal_form_group .modal_form_group_word { display: flex; }
 
-.setting_modal_form .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0; }
-.setting_modal_form .modal_form_group:nth-child(1) input { margin-left: -10px; }
-
-.setting_modal_form .modal_form_group:nth-child(2) .modal_form_group_word { margin-left: -17px; }
-.setting_modal_form .modal_form_group:nth-child(2) button { margin-left: 8px; }
-
-
-.setting_modal_form_password .modal_form_group { flex-wrap: nowrap !important; }
+/* .setting_modal_form_password .modal_form_group { flex-wrap: nowrap !important; } */
 .setting_modal_form_password .modal_form_group label { color:#343a40; }
 .setting_modal_form_password .modal_form_group input { border-color:#ced4da; }
 .setting_modal_form_password .modal_form_group .modal_form_group_word { display: flex; }
-
-.setting_modal_form_password .modal_form_group:nth-child(1) .modal_form_group_word { margin-left: 0;width: 131px; }
-.setting_modal_form_password .modal_form_group:nth-child(1) input { margin-left: -35px; }
 
 
 /* customer_package_modal_form */
@@ -731,15 +806,25 @@ table.dataTable>tbody>tr>td:nth-child(9) {
   .today_withdrawal_amount { margin-bottom: 15px; }
   .today_customer { margin-bottom: 15px; }
   
-  .fieldset-index-title {padding-left: 12px;}
+  .fieldset-index-title  { padding-left: 12px; }
 
   .setting_modal_form { margin: 0;width: 600px;margin-left: 60px; }
-  .setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 97px; }
+  .setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 157px; }
   .setting_modal_form .modal_form_group { flex-wrap: wrap !important; }
 }
 
 @media (max-width: 991.98px) {
   .navbar .navbar-content .calendar_main { margin-left: -30px; }
+}
+
+@media (max-width: 780px) {
+  .setting_modal_form { margin: auto;width: 600px;margin-left: -20px;margin-top: 40px; }
+  .setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 157px; }
+}
+
+@media (max-width: 575px) {
+  .setting_modal_form { margin: auto;width: 250px;margin-left: -20px;margin-top: 40px; }
+  .setting_modal_form .submit_change { border-color:#ced4da;float: right;margin-right: 0px; }
 }
 
 @media (max-width: 400px) {

@@ -77,7 +77,21 @@
 
     <div class="page-content">
 
-    <div class="mb-2">Deposits</div>
+
+    <div class="history-subscribe-chose-feature">
+        <a href="{{ route('history_deposit') }}" class="history-subscribe-chose-feature-each">
+            <div class="logo"><i class="bi bi-download"></i></div>
+            <p class="">Deposit</p>
+        </a>
+
+        <a href="{{ route('history_withdrawal') }}" class="history-subscribe-chose-feature-each">
+            <div class="logo"><i class="bi bi-upload"></i></div>
+            <p class="">Withdrawal</p>
+        </a>
+    </div>
+
+
+    <div class="mb-2">Deposits History</div>
   
 
         <div class="table-responsive">
@@ -203,109 +217,11 @@
             style="position: relative;bottom: 3px;font-size: 0.4rem;"></i>&nbsp; {{ $each_deposit->status }}</td>
             @endif
 
-            <!-- Button trigger modal -->
-            @if ( $each_deposit->status == 'Completed' || $each_deposit->status == 'Rejected' )
+
                 <td id="update_modal_button_{{ $each_deposit->id }}" onclick="update_open_modal('{{ $each_deposit->id }}')"
                 class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
                 View
                 </td>
-            @else
-                <td id="change_modal_button_{{ $each_deposit->id }}" onclick="change_open_modal('{{ $each_deposit->id }}')"
-                class="text-start" style="color: #495057;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
-                View
-                </td>
-            @endif
-
-            <!-- Pending Modal -->
-            <div class="modal fade" id="change_exampleModalCenter_{{ $each_deposit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Deposits</h5>
-                    <button type="button" class="close" data-dismiss="modal" id="change_top_close_modal_{{ $each_deposit->id }}" 
-                    onclick="change_top_close_modal('{{ $each_deposit->id }}')" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                    <form action="{{ route('admin.update_deposit', $each_deposit->id) }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-body table_deposit_view">
-                            <ul>
-                                <li> Username: <span> {{ $each_deposit->customer_name }} </span></li>
-                                <li> Code: <span> {{ $each_deposit->code }} </span></li>
-                                <li> Deposit Amount USD: <span> {{ $each_deposit->amount }} </span></li>
-                                <li> Created By: 
-                                @if (!is_null($each_deposit->system_user_data))
-                                    <span>{{ $each_deposit->system_user_data->username }}</span>
-                                @else
-                                    <span></span>
-                                @endif
-                                </li>
-                                <li> Updated At: <span> {{ $each_deposit->updated_at }} </span></li>
-                                <li> Created At: <span> {{ $each_deposit->created_at }} </span></li>
-                                <li> Status: <span> {{ $each_deposit->status }} </span></li>
-                                <li> Completed: 
-                                    <span class="ml-4">
-                                        
-                                        @if ($each_deposit->status == "Completed")
-                                    <input type="checkbox" id="com_check_{{ $each_deposit->id }}" name="completed" onchange="com(this, '{{ $each_deposit->id }}')" class="form-check-input" checked>
-                                        @else
-                                    <input type="checkbox" id="com_check_{{ $each_deposit->id }}" name="completed" onchange="com(this, '{{ $each_deposit->id }}')" class="form-check-input">
-                                        @endif
-          
-                                    </span>
-                                </li>
-                                <li> Rejected: 
-                                    <span class="ml-4">
-                                            @if ($each_deposit->status == "Rejected")
-                                        <input type="checkbox" id="rej_check_{{ $each_deposit->id }}" name="rejected" onchange="rej(this, '{{ $each_deposit->id }}')" class="form-check-input" checked>
-                                            @else
-                                        <input type="checkbox" id="rej_check_{{ $each_deposit->id }}" name="rejected" onchange="rej(this, '{{ $each_deposit->id }}')" class="form-check-input">
-                                            @endif
-                                    </span>
-                                </li>
-                                <script>
-                                    function com (event, id) {
-                                        if($(event).prop('checked')) {
-                                            $(`#rej_check_${id}`).prop('checked', false);
-                                            $(`#rej_check_${id}`).hide();
-                                        } else {
-                                            $(`#rej_check_${id}`).show();
-                                        }
-                                    }
-                                    function rej (event, id) {
-                                        if($(event).prop('checked')) {
-                                            $(`#com_check_${id}`).prop('checked', false);
-                                            $(`#com_check_${id}`).hide();
-                                        } else {
-                                            $(`#com_check_${id}`).show();
-                                        }
-                                    }
-                                </script>
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-sm border" id="change_close_modal_{{ $each_deposit->id }}" 
-                            onclick="change_close_modal('{{ $each_deposit->id }}')" data-dismiss="modal">Back</button>
-                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                        </div>
-                    </form>
-                    <script>
-                        function change_open_modal(deposit_id){
-                            $(`#change_exampleModalCenter_${deposit_id}`).modal('show');
-                        }
-
-                        function change_close_modal(deposit_id){
-                            $(`#change_exampleModalCenter_${deposit_id}`).modal('hide');
-                        }
-
-                        function change_top_close_modal(deposit_id){
-                            $(`#change_exampleModalCenter_${deposit_id}`).modal('hide');
-                        }
-                    </script>
-                </div>
-            </div>
-            </div>
             
             <!-- Completed or Rejected Modal -->
             <div class="modal fade" id="update_exampleModalCenter_{{ $each_deposit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

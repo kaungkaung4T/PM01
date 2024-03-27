@@ -55,6 +55,8 @@ Route::get('/history_withdrawal', [History::class, 'history_withdrawal'])->middl
 
 // Info
 Route::get('/info', [Info::class, 'info'])->middleware('auth:customer')->name('info');
+Route::post('/info/change_info', [Info::class, 'change_info'])->middleware('auth:customer')->name('change_info');
+Route::post('/info/change_password', [Info::class, 'change_password'])->middleware('auth:customer')->name('change_password');
 
 // Bank
 Route::get('/bank', [Bank::class, 'bank'])->middleware('auth:customer')->name('bank');

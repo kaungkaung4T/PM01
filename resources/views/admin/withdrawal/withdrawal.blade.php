@@ -199,10 +199,10 @@
                                 <li> Remarks: <span> {{ $each_withdrawal->remark }} </span></li>
                                 <li> Created At: <span> {{ $each_withdrawal->customer_name }} </span></li>
                                 <li> Created By:
-                                @if (!is_null($each_withdrawal->system_user_data))
-                                    <span>{{ $each_withdrawal->system_user_data->username }}</span>
+                                @if (!is_null($each_withdrawal->completed_rejected_user_user_data))
+                                    <span>{{ $each_withdrawal->completed_rejected_user_user_data->username }}</span>
                                 @else
-                                    <span></span>
+                                    <span> - </span>
                                 @endif
                                 </li>
                                     @if ($each_withdrawal->complete_date == NULL || $each_withdrawal->complete_date == "0000-00-00 00:00:00")
