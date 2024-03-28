@@ -4,16 +4,19 @@
 @section('content')
 
 
-<video class="web_image_cover" autoplay="autoplay" loop muted >
-  <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
-<div class="web_text_cover">
-<h1>Let the Experts Trade for You.</h1>
-<h5>Your Investment is Managed by Experts</h5>
-    <div>
-        <a href="{{ route('package') }}" class="btn btn btn-primary index_home_button">Try Now</a>
+    <video class="web_image_cover" autoplay="autoplay" loop muted >
+    <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+
+<div class="con">
+    <div class="web_text_cover">
+    <h1>Let the Experts Trade for You.</h1>
+    <h5>Your Investment is Managed by Experts</h5>
+        <div>
+            <a href="{{ route('package') }}" class="btn btn btn-primary index_home_button">Try Now</a>
+        </div>
     </div>
 </div>
 
