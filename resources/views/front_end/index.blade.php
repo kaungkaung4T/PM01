@@ -5,10 +5,36 @@
 
 
 
-    <video class="web_image_cover" autoplay="autoplay" loop muted >
-    <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>
+
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators ">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <video class="web_image_cover" autoplay="autoplay" loop muted >
+        <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="carousel-item">
+        <video class="web_image_cover" autoplay="autoplay" loop muted >
+        <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="carousel-item">
+        <video class="web_image_cover" autoplay="autoplay" loop muted >
+        <source src="assets/ui/img/PM_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="con">
     <div class="web_text_cover">
