@@ -13,7 +13,7 @@
       </ul>
 
 
-      <ul class="navbar-nav">        
+      <ul class="navbar-nav right-nav-top">        
         <li class="nav-item">
           <a class="nav-link text-primary active" aria-current="page" href="#">START TODAY</a>
         </li>
@@ -24,6 +24,16 @@
             <a class="nav-link text-primary" href="#">VIDEOS</a>
         </li>
       </ul>
+
+      <i class="bi bi-list"></i>
+      <div class="mobile-version-setting">
+        <ul>
+          <li>ee</li>
+          <li>ee</li>
+          <li>ee</li>
+          <li>ee</li>
+        </ul>
+      </div>
 </nav>
 
 
