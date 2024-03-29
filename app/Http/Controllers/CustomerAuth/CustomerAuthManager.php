@@ -17,7 +17,7 @@ class CustomerAuthManager extends Controller
 
         $credentials = Auth::guard('customer')->attempt($request->only('username', 'password'));
         if ($credentials) {
-            return redirect()->route('index')->with('success', 'Successfully Login');
+            return redirect()->intended('defaultpage');
         }
         
         return redirect()->route('customer_login')->with('fail', 'Login Failed');
