@@ -41,9 +41,9 @@
       <div class="modal fade" id="settingModalLabel" tabindex="-1" aria-labelledby="settingModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
           <div class="modal-content">
-            <div class="modal-header" style="border: none;">
+            <div class="modal-header">
               <a class="navbar-brand ml-5" href="{{ route('index') }}">PM01</a>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="mobile-version-setting-dialog">
@@ -59,6 +59,12 @@
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('info') }}">Info</a>
+                  </li>
+                  <li class="nav-item">
+                    <div class="googleNav" style="width: 130px;">
+                        <div class="goog-te-gadget" id="google_translate_element">
+                        </div>
+                    </div>
                   </li>
                   <div class="">
                           @if(Auth::guard('customer')->check())
@@ -95,6 +101,12 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('info') }}">Info</a>
         </li>
+        <li class="nav-item">
+          <div class="googleNav">
+              <div class="goog-te-gadget" id="google_translate_element">
+              </div>
+          </div>
+        </li>
       </ul>
 
 
@@ -111,7 +123,7 @@
 </nav>
 
 
-
+<script src="assets/ui/js/google_translate.js"></script>
 
 
 
