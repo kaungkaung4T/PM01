@@ -25,7 +25,7 @@
         </li>
       </ul>
 
-      <i class="bi bi-list"></i>
+      <!-- <i class="bi bi-list"></i>
       <div class="mobile-version-setting">
         <ul>
           <li>ee</li>
@@ -33,6 +33,48 @@
           <li>ee</li>
           <li>ee</li>
         </ul>
+      </div> -->
+
+      <i class="bi bi-list" data-bs-toggle="modal" data-bs-target="#settingModalLabel"></i>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="settingModalLabel" tabindex="-1" aria-labelledby="settingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+              <a class="navbar-brand ml-5" href="{{ route('index') }}">PM01</a>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mobile-version-setting-dialog">
+                <ul class="">        
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('index') }}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('package') }}">Package</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('history_deposit') }}">History</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('info') }}">Info</a>
+                  </li>
+                  <div class="">
+                          @if(Auth::guard('customer')->check())
+                              <form action="{{ route('customer_logout') }}" method="POST">
+                                      @csrf
+                                  <button type="submit" class="btn btn-primary text-white">Logout</button>
+                              </form>
+                          @else
+                              <a href="{{ route('customer_login') }}" type="submit" class="btn btn-sm btn-primary text-white">Login</a>
+                          @endif
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 </nav>
 
