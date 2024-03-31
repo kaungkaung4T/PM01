@@ -62,7 +62,7 @@
                   </li>
                   <li class="nav-item">
                     <div class="googleNav" style="width: 130px;">
-                        <div class="goog-te-gadget" id="google_translate_element">
+                        <div class="goog-te-gadget" id="google_translate_element2">
                         </div>
                     </div>
                   </li>
