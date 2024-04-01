@@ -53,6 +53,77 @@ body {
   display: none;
 }
 
+.what_app {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 110px;
+  margin-left: 20px;
+  padding-top: 11px;
+  padding-left: 18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #11c973;
+  z-index: 999999;
+  cursor: pointer;
+  animation: low_high 3s;
+  transition: transform 0.3s;
+  transition-delay: 0s;
+  transition-property: transform;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+
+}
+
+.what_app .bi {
+  margin: auto;
+  width: 50%;
+  font-size: 2rem;
+  transition: transform 0.3s;
+  color: #ffffff;
+}
+
+.tele_app {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 32px;
+  margin-left: 20px;
+  padding-top: 10px;
+  padding-left: 16px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+  z-index: 999999;
+  cursor: pointer;
+  animation: low_high 3s;
+  transition: transform 0.3s;
+  transition-delay: 0s;
+  transition-property: transform;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+
+}
+
+.tele_app .bi {
+  margin: auto;
+  width: 50%;
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+@keyframes low_high {
+
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
 .header-main-top { z-index: 20000;background-color: transparent; }
 .header-main-top ul { flex-direction: row;flex-wrap: nowrap; }
 .header-main-top ul li { margin-right: 5px; }

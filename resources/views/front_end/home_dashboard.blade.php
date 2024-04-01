@@ -56,6 +56,16 @@
 
 
   <body>
+  
+  <script src="//code.tidio.co/py9rbnad1skzrlfjzzuwyiasllzejezp.js" async></script>
+  
+    <a href="https://wa.me/message/VP6SZA5ZALXQH1" class="what_app">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <a href="https://t.me/CyroFxGlobal" class="tele_app">
+        <i class="bi bi-telegram"></i>
+    </a>
 
  <!-- preloader-start -->
     <div id="preloader">
