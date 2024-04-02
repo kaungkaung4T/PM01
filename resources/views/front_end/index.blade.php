@@ -47,6 +47,14 @@
 </div>
 
 
+<div class="con2">
+    <div class="web_text_cover">
+    <h5>Step into a world of financial possibilities and start earning profits on your investments today. Seize this opportunity to harness the power of indices and watch your investments flourish. Join us now to experience the rewards of smart, strategic trading.</h5>
+    </div>
+</div>
+
+
+
 <div class="index-body">
 
     <div class="package-main">

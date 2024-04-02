@@ -189,7 +189,7 @@ body {
   margin-top: -157px;
   margin-bottom: -157px;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 
 .carousel-inner {
@@ -231,6 +231,32 @@ body {
   align-items: center;
   text-align: center;
   min-height: 100vh;
+}
+
+.con2 {
+  margin-top: 157px;
+  width: 100%;
+  min-height: 10vh;
+  padding-top: 15px;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 2400px) {
+  .carousel {
+    margin-top: -157px;
+    margin-bottom: -157px;
+    width: 100%;
+    height: 96vh;
+  }
+  .con2 {
+    min-height: 0;
+    max-height: 10vh;
+    padding: 20px;
+  }
 }
 
 .web_text_cover {
@@ -288,7 +314,7 @@ body {
 }
 
 .index-body {
-  margin: auto;width: 80%;margin-top: 190px;
+  margin: auto;width: 80%;margin-top: 50px;
   max-width: 1800px;
 }
 

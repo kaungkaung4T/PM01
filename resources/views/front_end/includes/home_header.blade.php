@@ -124,6 +124,7 @@
 
 
 <script src="assets/ui/js/google_translate.js"></script>
+<script src="assets/ui/js/home_fix_header.js"></script>
 
 
 
